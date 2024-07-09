@@ -24,16 +24,12 @@ export const AuthButton = () => {
   }
 
   if (isAuth) {
-    return (
-      <Button onClick={handleLogout} aria-label={scopedT("logoutButtonAriaLabel")}>
-        {scopedT("logoutButtonLabel")}
-      </Button>
-    )
+    return <Button onClick={handleLogout}>{scopedT("logoutButtonLabel")}</Button>
   }
 
   return (
     <Link href="/auth-page" passHref>
-      <Button aria-label={scopedT("loginButtonAriaLabel")}>{scopedT("loginButtonLabel")}</Button>
+      <Button>{scopedT("loginButtonLabel")}</Button>
     </Link>
   )
 }
