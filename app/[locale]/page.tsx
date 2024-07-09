@@ -1,7 +1,7 @@
 import { LanguagePossibles } from "@/lib/app-types"
 import { getI18n } from "../../locales/server"
 
-export async function Page({ params: { locale } }: { params: { locale: LanguagePossibles } }) {
+export default async function Home({ params: { locale } }: { params: { locale: LanguagePossibles } }) {
   const t = await getI18n()
 
   return (
@@ -11,5 +11,3 @@ export async function Page({ params: { locale } }: { params: { locale: LanguageP
     </div>
   )
 }
-
-export default Page
