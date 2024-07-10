@@ -5,10 +5,11 @@ export type ImageType = {
   height: number
 }
 
+type navKeyPossible = "Home" | "Application" | "Settings"
+
 export type NavigationItem = {
-  label: Map<string, string>
+  i18nKey: navKeyPossible
   href: string
-  ariaLabel: Map<string, string>
   authRequired: boolean
 }
 
