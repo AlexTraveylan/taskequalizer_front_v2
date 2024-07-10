@@ -61,4 +61,9 @@ export default {
   "possible-task-form.description_field": "Description de la tâche",
   "possible-task-form.button_label": "Créer",
   "my-account.title": "Mon compte",
+  "taskequalizer.taskequalizer": "Égaliseur de tâches",
+  "taskequalizer.currentTask": "Tâche actuelle",
+  "taskequalizer.dailyChart": "Graphique journalier",
+  "taskequalizer.weeklyChart": "Graphique hebdomadaire",
+  "taskequalizer.ranking": "Classement",
 } as const

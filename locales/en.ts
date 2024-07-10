@@ -60,4 +60,9 @@ export default {
   "possible-task-form.description_field": "Description of the new task",
   "possible-task-form.button_label": "Create the task",
   "my-account.title": "My account",
+  "taskequalizer.taskequalizer": "Task Equalizer",
+  "taskequalizer.currentTask": "Current task",
+  "taskequalizer.dailyChart": "Daily chart",
+  "taskequalizer.weeklyChart": "Weekly chart",
+  "taskequalizer.ranking": "Ranking",
 } as const

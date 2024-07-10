@@ -61,4 +61,9 @@ export default {
   "possible-task-form.description_field": "Beschreibung der neuen Aufgabe",
   "possible-task-form.button_label": "Aufgabe erstellen",
   "my-account.title": "Mein Konto",
+  "taskequalizer.taskequalizer": "Aufgabenausgleicher",
+  "taskequalizer.currentTask": "Aktuelle Aufgabe",
+  "taskequalizer.dailyChart": "Tagesdiagramm",
+  "taskequalizer.weeklyChart": "Wochenübersicht",
+  "taskequalizer.ranking": "Rangliste",
 } as const
