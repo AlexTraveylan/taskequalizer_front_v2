@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { logoutUrl } from "@/lib/api-setting"
-import { navItems } from "@/lib/app-types"
+import { authNavItems, navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
@@ -29,7 +29,7 @@ export const AuthButton = () => {
   }
 
   return (
-    <Link href="/auth-page" passHref>
+    <Link href={authNavItems["login"].href} passHref>
       <Button variant={"default"}>{scopedT("loginButtonLabel")}</Button>
     </Link>
   )

@@ -2,14 +2,32 @@
 
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
+import { memberService } from "@/lib/services/member"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 import { AuthButton } from "../auth/auth-button"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "../ui/navigation-menu"
 
 export const Header = () => {
   const t = useScopedI18n("header")
-  const { isAuth } = useIsAuth()
+  const { isAuth, authState } = useIsAuth()
+  const router = useRouter()
+
+  async function getMemberId() {
+    const memberId = await memberService.whoIam()
+    if (memberId) {
+      authState(true)
+    } else {
+      authState(false)
+      router.push(navItems["Home"].href)
+    }
+  }
+
+  useEffect(() => {
+    getMemberId()
+  }, [])
 
   return (
     <header className="flex gap-2 justify-evenly py-2 bg-primary-foreground">

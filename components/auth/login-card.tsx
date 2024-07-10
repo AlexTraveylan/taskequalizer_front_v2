@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { loginUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
+import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { useRouter } from "next/navigation"
 
@@ -41,6 +42,7 @@ export function LoginForm() {
       console.log("User logged in")
       authState(true)
       router.push(navItems["Application"].href)
+      await taskService.cleanInvalidTasks()
     } else if (response.status === 400) {
       console.log("Invalid credentials")
     } else {

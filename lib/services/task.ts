@@ -101,17 +101,17 @@ class TaskService {
     return true
   }
 
-  async cleanInvalidTasks(): Promise<void> {
+  async cleanInvalidTasks(): Promise<boolean> {
     const response = await fetch(`${taskUrl}clean`, {
       method: "DELETE",
       credentials: "include",
     })
 
     if (!response.ok) {
-      console.error("Failed to clean invalid tasks")
+      return false
     }
 
-    console.log("Invalid tasks cleaned")
+    return true
   }
 }
 

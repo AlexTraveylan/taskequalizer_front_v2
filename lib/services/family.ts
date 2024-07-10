@@ -1,5 +1,5 @@
-import { familyMembersUrl, familyPossibleTasksUrl, familyUrl } from "@/lib/api-setting"
-import { Family, FamilyIn, familySchema } from "@/lib/schema/family"
+import { familyMembersUrl, familyPossibleTasksUrl, familyTasksUrl, familyUrl } from "@/lib/api-setting"
+import { DataTasksByMembers, dataTasksByMembersSchema, Family, FamilyIn, familySchema } from "@/lib/schema/family"
 import { Member, memberSchema } from "@/lib/schema/member"
 import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
 
@@ -18,7 +18,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.error("Failed to fetch family")
+      console.log("Failed to fetch family")
       return
     }
 
@@ -27,7 +27,7 @@ class FamilyService {
       const parsedData = familySchema.parse(data)
       return parsedData
     } catch (error) {
-      console.error("Failed to parse family")
+      console.log("Failed to parse family")
     }
   }
 
@@ -42,7 +42,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.error("Failed to fetch family members")
+      console.log("Failed to fetch family members")
       return
     }
 
@@ -51,7 +51,7 @@ class FamilyService {
       const parsedData = memberSchema.array().parse(data)
       return parsedData
     } catch (error) {
-      console.error("Failed to parse family members")
+      console.log("Failed to parse family members")
     }
   }
 
@@ -66,7 +66,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.error("Failed to fetch family possible tasks")
+      console.log("Failed to fetch family possible tasks")
       return
     }
 
@@ -75,7 +75,24 @@ class FamilyService {
       const parsedData = possibleTaskSchema.array().parse(data)
       return parsedData
     } catch (error) {
-      console.error("Failed to parse family possible tasks")
+      console.log("Failed to parse family possible tasks")
+    }
+  }
+
+  async getTasksByMembers(): Promise<DataTasksByMembers | undefined> {
+    const response = await fetch(familyTasksUrl, { method: "GET", credentials: "include" })
+
+    if (!response.ok) {
+      console.log("Failed to fetch tasks by members")
+      return
+    }
+
+    const data = await response.json()
+    try {
+      const parsedData = dataTasksByMembersSchema.parse(data)
+      return parsedData
+    } catch (error) {
+      console.log("Failed to parse tasks by members")
     }
   }
 
@@ -95,7 +112,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.error("Failed to update family")
+      console.log("Failed to update family")
       return false
     }
 
@@ -113,7 +130,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.error("Failed to delete family")
+      console.log("Failed to delete family")
       return false
     }
 
