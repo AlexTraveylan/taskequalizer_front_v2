@@ -1,5 +1,4 @@
-const url = "http://localhost:8000"
-// const url = "https://alextraveylan.pythonanywhere.com"
+const url = process.env.NODE_ENV === "production" ? "https://alextraveylan.pythonanywhere.com" : "http://localhost:8000"
 
 export const registerUrl = url + "/register_create"
 export const loginUrl = url + "/login"

@@ -16,7 +16,7 @@ type NavigationItem = {
 export const navItems: Record<navKeyPossible, NavigationItem> = {
   Home: { i18nKey: "Home", href: "/", authRequired: false },
   Application: { i18nKey: "Application", href: "/commun/taskequalizer", authRequired: true },
-  Settings: { i18nKey: "Settings", href: "/commun/settings", authRequired: true },
+  Settings: { i18nKey: "Settings", href: "/commun/settings/informations", authRequired: true },
 }
 
 type settingsKeyPossible = "Informations" | "possibleTasks" | "myAccount"
