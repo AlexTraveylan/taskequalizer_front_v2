@@ -60,4 +60,5 @@ export default {
   "possible-task-form.placeholder_name": "Cuisine",
   "possible-task-form.description_field": "Description de la tâche",
   "possible-task-form.button_label": "Créer",
+  "my-account.title": "Mon compte",
 } as const

@@ -34,7 +34,10 @@ export default function InformationsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <h1 className="text-3xl font-semibold">{query2.data.family_name}</h1>
+      <div className="flex gap-5 items-center">
+        <h1 className="text-3xl font-semibold">{query2.data.family_name}</h1>
+        <h2 className="text-sm text-muted-foreground">Edit and Delete comming soon ...</h2>
+      </div>
       <Table>
         <TableCaption>{t("caption")}</TableCaption>
         <TableHeader>
