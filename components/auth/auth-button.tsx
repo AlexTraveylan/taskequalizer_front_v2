@@ -29,7 +29,7 @@ export const AuthButton = () => {
 
   return (
     <Link href="/auth-page" passHref>
-      <Button>{scopedT("loginButtonLabel")}</Button>
+      <Button variant={"default"}>{scopedT("loginButtonLabel")}</Button>
     </Link>
   )
 }
