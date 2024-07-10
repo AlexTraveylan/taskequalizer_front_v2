@@ -25,7 +25,7 @@ export default async function RootLayout({
         <Provider locale={locale}>
           <Header />
         </Provider>
-        {children}
+        <div className="container mx-auto py-8">{children}</div>
       </body>
     </html>
   )

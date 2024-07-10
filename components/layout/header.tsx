@@ -1,17 +1,11 @@
 "use client"
 
-import { NavigationItem } from "@/lib/app-types"
+import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
 import { AuthButton } from "../auth/auth-button"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "../ui/navigation-menu"
-
-const nav: NavigationItem[] = [
-  { i18nKey: "Home", href: "/", authRequired: false },
-  { i18nKey: "Application", href: "/taskequalizer", authRequired: true },
-  { i18nKey: "Settings", href: "/settings", authRequired: true },
-]
 
 export const Header = () => {
   const t = useScopedI18n("header")
@@ -21,7 +15,7 @@ export const Header = () => {
     <header className="flex gap-2 justify-evenly py-2 bg-primary-foreground">
       <NavigationMenu>
         <NavigationMenuList>
-          {nav
+          {Object.values(navItems)
             .filter((item) => !item.authRequired || isAuth)
             .map((item, index) => {
               return (

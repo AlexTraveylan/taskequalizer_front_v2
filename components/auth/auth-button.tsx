@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { logoutUrl } from "@/lib/api-setting"
+import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
@@ -17,7 +18,7 @@ export const AuthButton = () => {
     if (response.ok) {
       console.log("logout success")
       authState(false)
-      router.push("/")
+      router.push(navItems["Home"].href)
     } else {
       console.log("logout failed")
     }

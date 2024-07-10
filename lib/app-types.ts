@@ -7,8 +7,22 @@ export type ImageType = {
 
 type navKeyPossible = "Home" | "Application" | "Settings"
 
-export type NavigationItem = {
+type NavigationItem = {
   i18nKey: navKeyPossible
+  href: string
+  authRequired: boolean
+}
+
+export const navItems: Record<navKeyPossible, NavigationItem> = {
+  Home: { i18nKey: "Home", href: "/", authRequired: false },
+  Application: { i18nKey: "Application", href: "/taskequalizer", authRequired: true },
+  Settings: { i18nKey: "Settings", href: "/settings", authRequired: true },
+}
+
+type authKeyPossible = "login" | "register-create" | "register-with-invitation"
+
+export type AuthNavigationItem = {
+  i18nKey: authKeyPossible
   href: string
   authRequired: boolean
 }
