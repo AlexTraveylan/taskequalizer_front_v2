@@ -66,4 +66,8 @@ export default {
   "taskequalizer.dailyChart": "Graphique journalier",
   "taskequalizer.weeklyChart": "Graphique hebdomadaire",
   "taskequalizer.ranking": "Classement",
+  "current-task-page.title_begin_task": "Commencer une tâche",
+  "current-task-page.search_label": "Rechercher une tâche ...",
+  "current-task.title": "Tâche en cours",
+  "current-task.finish-btn": "Déclarer la tâche terminée",
 } as const
