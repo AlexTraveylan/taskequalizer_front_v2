@@ -69,6 +69,7 @@ export default {
   "current-task-page.search_label": "Search for a task ...",
   "current-task.title": "Current task",
   "current-task.finish-btn": "Declare task finished",
+  "donut-chart.selector-label": "Select member",
   "daily-chart.nb-tasks.title": "Tasks distribution by number",
   "daily-chart.nb-tasks.description": "Today",
   "daily-chart.nb-tasks.totalLabel": "Tasks done",

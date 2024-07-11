@@ -70,6 +70,7 @@ export default {
   "current-task-page.search_label": "Suche nach einer Aufgabe ...",
   "current-task.title": "Aktuelle Aufgabe",
   "current-task.finish-btn": "Aufgabe als abgeschlossen melden",
+  "donut-chart.selector-label": "Mitglied auswählen",
   "daily-chart.nb-tasks.title": "Aufgabenverteilung nach Anzahl",
   "daily-chart.nb-tasks.description": "Heute",
   "daily-chart.nb-tasks.totalLabel": "Erledigte Aufgaben",
