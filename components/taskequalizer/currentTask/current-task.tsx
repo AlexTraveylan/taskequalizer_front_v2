@@ -13,7 +13,14 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
   const queryClient = useQueryClient()
   const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
   const scopedT = useScopedI18n("current-task")
-  const [second, setSecond] = useState<number>(0)
+  const currentPossibleTask = query.data?.find((possibleTask) => possibleTask.id === currentTask.related_possible_task)
+  const now = new Date()
+  const task_stated_at = new Date(currentTask.created_at)
+  const diff = now.getTime() - task_stated_at.getTime()
+  const [second, setSecond] = useState<number>(Math.floor(diff / 1000))
+  const minutes = Math.floor(second / 60)
+  const hours = Math.floor(minutes / 60)
+  const formatedTime = `${hours} h ${minutes % 60} min ${second % 60} s`
 
   const updateMutation = useMutation({
     mutationFn: taskService.updateTask,
@@ -28,20 +35,6 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
     }, 1000)
     return () => clearInterval(interval)
   }, [])
-
-  if (!query.data) {
-    return <></>
-  }
-
-  const currentPossibleTask = query.data.find((possibleTask) => possibleTask.id === currentTask.related_possible_task)
-
-  const now = new Date()
-  const task_stated_at = new Date(currentTask.created_at)
-  const diff = now.getTime() - task_stated_at.getTime()
-  setSecond(diff / 1000)
-  const minutes = Math.floor(second / 60)
-  const hours = Math.floor(minutes / 60)
-  const formatedTime = `${hours} h ${minutes % 60} min ${second % 60} s`
 
   return (
     <div className="flex flex-col gap-5">

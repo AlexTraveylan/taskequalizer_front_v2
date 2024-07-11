@@ -1,6 +1,7 @@
 const url = process.env.NODE_ENV === "production" ? "https://alextraveylan.pythonanywhere.com" : "http://localhost:8000"
 
 export const registerUrl = url + "/register_create"
+export const registerInvitationUrl = url + "/register_invite"
 export const loginUrl = url + "/login"
 export const logoutUrl = url + "/logout"
 

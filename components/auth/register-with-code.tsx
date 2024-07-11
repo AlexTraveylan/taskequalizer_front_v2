@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { registerUrl } from "@/lib/api-setting"
+import { registerInvitationUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { useScopedI18n } from "@/locales/client"
@@ -26,7 +26,7 @@ export function RegisterWithCodeForm() {
       return
     }
 
-    const response = await fetch(registerUrl, {
+    const response = await fetch(registerInvitationUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
