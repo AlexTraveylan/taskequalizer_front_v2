@@ -63,6 +63,7 @@ export default function InformationsPage() {
         </TableBody>
       </Table>
       <InviteCodeForm />
+      <h2 className="text-sm text-muted-foreground">Display here valid invitations list, soon ...</h2>
     </div>
   )
 }

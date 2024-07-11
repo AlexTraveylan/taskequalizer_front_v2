@@ -68,13 +68,25 @@ export default function DailyChartPage() {
 
   // Data for the multiple bar chart
 
-  const barData = query2.data.data.map(({ p_task_id, members }) => {
+  const barNbTasksData = query2.data.data.map(({ p_task_id, members }) => {
     const pTask = possibleTasksRecord[p_task_id]
     const data: Record<any, any> = {}
     data["pTask"] = pTask.possible_task_name
     members.forEach(({ member_name, tasks }) => {
       const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
       data[member_name] = todayTasks.length
+    })
+    return data
+  })
+
+  const barDurationTasksData = query2.data.data.map(({ p_task_id, members }) => {
+    const pTask = possibleTasksRecord[p_task_id]
+    const data: Record<any, any> = {}
+    data["pTask"] = pTask.possible_task_name
+    members.forEach(({ member_name, tasks }) => {
+      const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
+      const totalTimeTasks = todayTasks.reduce((acc, task) => acc + Math.floor(task.duration / 60), 0)
+      data[member_name] = totalTimeTasks
     })
     return data
   })
@@ -103,11 +115,19 @@ export default function DailyChartPage() {
       />
       <MultipleBarChart
         chartConfig={chartConfig}
-        chartData={barData}
+        chartData={barNbTasksData}
         dataKey="pTask"
         nameKey={membersList}
-        title="Tasks by members today"
-        description="Graphique en barre des tâches parmis les tâches possibles pour aujourd'hui"
+        title={t("bar-nb-tasks.title")}
+        description={t("bar-nb-tasks.description")}
+      />
+      <MultipleBarChart
+        chartConfig={chartConfig}
+        chartData={barDurationTasksData}
+        dataKey="pTask"
+        nameKey={membersList}
+        title={t("bar-duration-tasks.title")}
+        description={t("bar-duration-tasks.description")}
       />
     </div>
   )
