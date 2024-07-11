@@ -70,4 +70,10 @@ export default {
   "current-task-page.search_label": "Suche nach einer Aufgabe ...",
   "current-task.title": "Aktuelle Aufgabe",
   "current-task.finish-btn": "Aufgabe als abgeschlossen melden",
+  "daily-chart.nb-tasks.title": "Aufgabenverteilung nach Anzahl",
+  "daily-chart.nb-tasks.description": "Heute",
+  "daily-chart.nb-tasks.totalLabel": "Erledigte Aufgaben",
+  "daily-chart.duration-tasks.title": "Aufgabenverteilung nach Dauer",
+  "daily-chart.duration-tasks.description": "Heute",
+  "daily-chart.duration-tasks.totalLabel": "Gesamt (min)",
 } as const

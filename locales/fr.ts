@@ -70,4 +70,10 @@ export default {
   "current-task-page.search_label": "Rechercher une tâche ...",
   "current-task.title": "Tâche en cours",
   "current-task.finish-btn": "Déclarer la tâche terminée",
+  "daily-chart.nb-tasks.title": "Repartition des taches par nombre",
+  "daily-chart.nb-tasks.description": "Aujourd'hui",
+  "daily-chart.nb-tasks.totalLabel": "Taches effectués",
+  "daily-chart.duration-tasks.title": "Repartition des taches par durée",
+  "daily-chart.duration-tasks.description": "Aujourd'hui",
+  "daily-chart.duration-tasks.totalLabel": "Total (min)",
 } as const
