@@ -20,31 +20,49 @@ export default function DailyChartPage() {
     return <div>No data...</div>
   }
 
-  const chartData = data.data.map(({ member_name, tasks }, index) => {
+  const nbTasksData = data.data.map(({ member_name, tasks }, index) => {
+    const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
     return {
       member: member_name,
-      nbTasksDone: tasks.length,
+      nbTasksDone: todayTasks.length,
       fill: colors[index % colors.length],
     }
   })
 
-  const totalTasksDone = chartData.reduce((acc, { nbTasksDone }) => acc + nbTasksDone, 0)
+  const durationTasksData = data.data.map(({ member_name, tasks }, index) => {
+    const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
+    const totalTimeTasks = todayTasks.reduce((acc, task) => acc + task.duration, 0)
+    return {
+      member: member_name,
+      totalTimeTasks,
+      fill: colors[index % colors.length],
+    }
+  })
 
-  const title = "Repartition des taches par nombre"
-  const description = "Aujourd'hui"
-  const totalLabel = "Taches effectués"
+  const totalTasksDone = nbTasksData.reduce((acc, { nbTasksDone }) => acc + nbTasksDone, 0)
+  const totalDurationTasks = durationTasksData.reduce((acc, { totalTimeTasks }) => acc + totalTimeTasks, 0)
 
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <DonutChart
         chartConfig={chartConfig}
-        chartData={chartData}
+        chartData={nbTasksData}
         dataKey="nbTasksDone"
         nameKey="member"
-        title={title}
-        description={description}
+        title="Repartition des taches par nombre"
+        description="Aujourd'hui"
         total={totalTasksDone}
-        totalLabel={totalLabel}
+        totalLabel="Taches effectués"
+      />
+      <DonutChart
+        chartConfig={chartConfig}
+        chartData={durationTasksData}
+        dataKey="totalTimeTasks"
+        nameKey="member"
+        title="Repartition des taches par durée"
+        description="Aujourd'hui"
+        total={totalDurationTasks}
+        totalLabel="Total (s)"
       />
     </div>
   )
