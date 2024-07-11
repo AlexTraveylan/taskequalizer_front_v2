@@ -26,7 +26,7 @@ export function MultipleBarChart({ chartConfig, chartData, dataKey, nameKey, tit
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
-            <XAxis dataKey={dataKey} tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value.slice(0, 3)} />
+            <XAxis dataKey={dataKey} tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value.slice(0, 10)} />
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dashed" />} />
             {nameKey.map((nkey, index) => (
               <Bar key={nkey} dataKey={nkey} fill={colors[index]} radius={4} />

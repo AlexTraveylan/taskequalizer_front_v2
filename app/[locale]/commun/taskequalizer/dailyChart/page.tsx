@@ -3,29 +3,33 @@
 import { chartConfig, colors } from "@/components/taskequalizer/charts/colors"
 import { DonutChart } from "@/components/taskequalizer/charts/donus"
 import { MultipleBarChart } from "@/components/taskequalizer/charts/multipleBar"
+import { PossibleTask } from "@/lib/schema/possible-task"
 import { familyService } from "@/lib/services/family"
 import { useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
 
 export default function DailyChartPage() {
-  const { data, isLoading, isError } = useQuery({ queryKey: ["tasksByMembers"], queryFn: familyService.getTasksByMembers })
+  const query1 = useQuery({ queryKey: ["tasksByMembers"], queryFn: familyService.getTasksByMembers })
+  const query2 = useQuery({ queryKey: ["tasksDetails"], queryFn: familyService.getFamilyPossibleTaskDetails })
+  const query3 = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
+  const query4 = useQuery({ queryKey: ["members"], queryFn: familyService.getFamilyMembers })
   const t = useScopedI18n("daily-chart")
 
-  if (isLoading) {
+  if (query1.isLoading || query2.isLoading || query3.isLoading || query4.isLoading) {
     return <div>Loading...</div>
   }
 
-  if (isError) {
+  if (query1.isError || query2.isError || query3.isError || query4.isError) {
     return <div>Error...</div>
   }
 
-  if (!data?.data) {
+  if (!query1.data || !query2.data || !query3.data || !query4.data) {
     return <div>No data...</div>
   }
 
   // Data for the donut chart
 
-  const nbTasksData = data.data.map(({ member_name, tasks }, index) => {
+  const nbTasksData = query1.data.data.map(({ member_name, tasks }, index) => {
     const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
     return {
       member: member_name,
@@ -36,7 +40,7 @@ export default function DailyChartPage() {
 
   // Data for the multiple bar chart
 
-  const durationTasksData = data.data.map(({ member_name, tasks }, index) => {
+  const durationTasksData = query1.data.data.map(({ member_name, tasks }, index) => {
     const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
     const totalTimeTasks = todayTasks.reduce((acc, task) => acc + Math.floor(task.duration / 60), 0)
     return {
@@ -51,16 +55,29 @@ export default function DailyChartPage() {
   const totalTasksDone = nbTasksData.reduce((acc, { nbTasksDone }) => acc + nbTasksDone, 0)
   const totalDurationTasks = durationTasksData.reduce((acc, { totalTimeTasks }) => acc + totalTimeTasks, 0)
 
+  // Set possible tasks for multiple bar chart
+
+  const possibleTasksRecord: Record<string, PossibleTask> = query3.data.reduce((acc, possibleTask) => {
+    acc[possibleTask.id] = possibleTask
+    return acc
+  }, {} as Record<string, PossibleTask>)
+
+  // Prepare keys Charts with members name
+
+  const membersList: string[] = query4.data.map((member) => member.member_name)
+
   // Data for the multiple bar chart
 
-  const barData = [
-    { month: "January", desktop: 186, mobile: 80 },
-    { month: "February", desktop: 305, mobile: 200 },
-    { month: "March", desktop: 237, mobile: 120 },
-    { month: "April", desktop: 73, mobile: 190 },
-    { month: "May", desktop: 209, mobile: 130 },
-    { month: "June", desktop: 214, mobile: 140 },
-  ]
+  const barData = query2.data.data.map(({ p_task_id, members }) => {
+    const pTask = possibleTasksRecord[p_task_id]
+    const data: Record<any, any> = {}
+    data["pTask"] = pTask.possible_task_name
+    members.forEach(({ member_name, tasks }) => {
+      const todayTasks = tasks.filter((task) => new Date(task.created_at).getDay() === new Date().getDay())
+      data[member_name] = todayTasks.length
+    })
+    return data
+  })
 
   return (
     <div className="flex flex-col gap-5">
@@ -87,10 +104,10 @@ export default function DailyChartPage() {
       <MultipleBarChart
         chartConfig={chartConfig}
         chartData={barData}
-        dataKey="month"
-        nameKey={["desktop", "mobile"]}
-        title="Monthly Distribution"
-        description="This year"
+        dataKey="pTask"
+        nameKey={membersList}
+        title="Tasks by members today"
+        description="Graphique en barre des tâches parmis les tâches possibles pour aujourd'hui"
       />
     </div>
   )
