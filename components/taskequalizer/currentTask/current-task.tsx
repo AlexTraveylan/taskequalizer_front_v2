@@ -14,16 +14,16 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
   const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
   const scopedT = useScopedI18n("current-task")
 
-  if (!query.data) {
-    return <></>
-  }
-
   const updateMutation = useMutation({
     mutationFn: taskService.updateTask,
     onSuccess: () => {
       queryClient.resetQueries({ queryKey: ["currentTask"] })
     },
   })
+
+  if (!query.data) {
+    return <></>
+  }
 
   const currentPossibleTask = query.data.find((possibleTask) => possibleTask.id === currentTask.related_possible_task)
 
