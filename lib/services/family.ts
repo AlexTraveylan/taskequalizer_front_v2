@@ -1,5 +1,13 @@
-import { familyMembersUrl, familyPossibleTasksUrl, familyTasksUrl, familyUrl } from "@/lib/api-setting"
-import { DataTasksByMembers, dataTasksByMembersSchema, Family, FamilyIn, familySchema } from "@/lib/schema/family"
+import { familyMembersUrl, familyPossibleTaskDetailsUrl, familyPossibleTasksUrl, familyTasksUrl, familyUrl } from "@/lib/api-setting"
+import {
+  DataPossibleTasksDetails,
+  dataPossibleTasksDetailsSchema,
+  DataTasksByMembers,
+  dataTasksByMembersSchema,
+  Family,
+  FamilyIn,
+  familySchema,
+} from "@/lib/schema/family"
 import { Member, memberSchema } from "@/lib/schema/member"
 import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
 
@@ -93,6 +101,23 @@ class FamilyService {
       return parsedData
     } catch (error) {
       console.log("Failed to parse tasks by members")
+    }
+  }
+
+  async getFamilyPossibleTaskDetails(): Promise<DataPossibleTasksDetails | undefined> {
+    const response = await fetch(familyPossibleTaskDetailsUrl, { method: "GET", credentials: "include" })
+
+    if (!response.ok) {
+      console.log("Failed to fetch family possible task details")
+      return
+    }
+
+    const data = await response.json()
+    try {
+      const parsedData = dataPossibleTasksDetailsSchema.parse(data)
+      return parsedData
+    } catch (error) {
+      console.log("Failed to parse family possible task details")
     }
   }
 

@@ -22,3 +22,19 @@ export const dataTasksByMembersSchema = z.object({
 })
 
 export type DataTasksByMembers = z.infer<typeof dataTasksByMembersSchema>
+
+export const dataPossibleTasksDetailsSchema = z.object({
+  data: z.array(
+    z.object({
+      p_task_id: z.string(),
+      members: z.array(
+        z.object({
+          member_name: z.string(),
+          tasks: z.array(taskSchema),
+        })
+      ),
+    })
+  ),
+})
+
+export type DataPossibleTasksDetails = z.infer<typeof dataPossibleTasksDetailsSchema>
