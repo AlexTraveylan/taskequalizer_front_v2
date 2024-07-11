@@ -21,6 +21,13 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
     },
   })
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSecond((second) => second + 1)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
   if (!query.data) {
     return <></>
   }
@@ -35,13 +42,6 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
   const minutes = Math.floor(second / 60)
   const hours = Math.floor(minutes / 60)
   const formatedTime = `${hours} h ${minutes % 60} min ${second % 60} s`
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSecond((second) => second + 1)
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <div className="flex flex-col gap-5">
