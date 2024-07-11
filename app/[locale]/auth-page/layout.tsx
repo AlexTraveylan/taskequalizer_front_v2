@@ -17,7 +17,7 @@ export default async function LayoutAuthPage({ children }: { children: React.Rea
     <div className="flex flex-col gap-8">
       <div className="flex justify-center">
         <NavigationMenu>
-          <NavigationMenuList>
+          <NavigationMenuList className="flex flex-wrap">
             {Object.values(authNavItems).map((item, index) => {
               return (
                 <NavigationMenuItem key={`${index}${item.i18nKey}`}>

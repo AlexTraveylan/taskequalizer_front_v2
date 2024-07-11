@@ -34,7 +34,7 @@ export default function InformationsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <div className="flex gap-5 items-center">
+      <div className="flex flex-wrap gap-5 items-center">
         <h1 className="text-3xl font-semibold">{query2.data.family_name}</h1>
         <h2 className="text-sm text-muted-foreground">Edit and Delete comming soon ...</h2>
       </div>
@@ -43,7 +43,7 @@ export default function InformationsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>{t("memberName")}</TableHead>
-            <TableHead>{t("createdAt")}</TableHead>
+            <TableHead className="max-[450px]:hidden">{t("createdAt")}</TableHead>
             <TableHead>{t("nbTasks")}</TableHead>
             <TableHead>{t("totalTime")}</TableHead>
           </TableRow>
@@ -54,7 +54,7 @@ export default function InformationsPage() {
             return (
               <TableRow key={`${member_name}${index}`}>
                 <TableCell>{member_name}</TableCell>
-                <TableCell>{formatDateTime(membersMap[member_name].created_at, locale)}</TableCell>
+                <TableCell className="max-[450px]:hidden">{formatDateTime(membersMap[member_name].created_at, locale)}</TableCell>
                 <TableCell>{tasks.length}</TableCell>
                 <TableCell>{totalTimeTasks}</TableCell>
               </TableRow>

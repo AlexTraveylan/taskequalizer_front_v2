@@ -28,7 +28,7 @@ export const InviteCodeForm = () => {
   }
 
   return (
-    <Card>
+    <Card className="mx-auto max-w-sm">
       <CardHeader>
         <CardTitle>{scopedT("title")}</CardTitle>
         <CardDescription>{scopedT("description")}</CardDescription>

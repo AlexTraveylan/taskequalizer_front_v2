@@ -30,7 +30,7 @@ export const Header = () => {
   }, [])
 
   return (
-    <header className="flex gap-2 justify-evenly py-2 bg-primary-foreground">
+    <header className="flex flex-wrap gap-2 justify-evenly py-2 bg-primary-foreground">
       <NavigationMenu>
         <NavigationMenuList>
           {Object.values(navItems)
