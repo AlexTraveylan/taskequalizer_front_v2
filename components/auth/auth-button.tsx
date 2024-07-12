@@ -14,7 +14,7 @@ export const AuthButton = () => {
   const scopedT = useScopedI18n("auth-button")
 
   const handleLogout = async () => {
-    const response = await fetch(logoutUrl, { credentials: "include" })
+    const response = await fetch(logoutUrl)
     if (response.ok) {
       console.log("logout success")
       authState(false)
