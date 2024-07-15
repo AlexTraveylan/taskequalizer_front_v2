@@ -1,5 +1,6 @@
 import { possibleTaskUrl } from "@/lib/api-setting"
 import { PossibleTask, PossibleTaskIn, PossibleTaskInWithId, possibleTaskSchema } from "@/lib/schema/possible-task"
+import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class PossibleTaskService {
   /**
@@ -11,9 +12,9 @@ class PossibleTaskService {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
       },
       body: JSON.stringify(possibleTask),
-      credentials: "include",
     })
 
     if (!response.ok) {
@@ -40,9 +41,9 @@ class PossibleTaskService {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
       },
       body: JSON.stringify(possibleTask),
-      credentials: "include",
     })
 
     if (!response.ok) {
@@ -67,7 +68,10 @@ class PossibleTaskService {
   async deletePossibleTask(possible_task_id: string): Promise<boolean> {
     const response = await fetch(`${possibleTaskUrl}${possible_task_id}`, {
       method: "DELETE",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {

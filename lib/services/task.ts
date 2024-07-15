@@ -1,5 +1,6 @@
 import { taskUrl } from "@/lib/api-setting"
 import { Task, TaskIn, taskSchema } from "@/lib/schema/task"
+import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class TaskService {
   /**
@@ -10,9 +11,9 @@ class TaskService {
   async createTask(taskIn: TaskIn): Promise<Task | undefined> {
     const response = await fetch(taskUrl, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
       },
       body: JSON.stringify(taskIn),
     })
@@ -38,7 +39,10 @@ class TaskService {
   async getCurrentTask(): Promise<Task | undefined> {
     const response = await fetch(`${taskUrl}`, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -65,7 +69,10 @@ class TaskService {
   async updateTask(task_id: string): Promise<Task | undefined> {
     const response = await fetch(`${taskUrl}${task_id}`, {
       method: "PUT",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -90,7 +97,10 @@ class TaskService {
   async deleteTask(task_id: string): Promise<boolean> {
     const response = await fetch(`${taskUrl}${task_id}`, {
       method: "DELETE",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -104,7 +114,10 @@ class TaskService {
   async cleanInvalidTasks(): Promise<boolean> {
     const response = await fetch(`${taskUrl}clean`, {
       method: "DELETE",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {

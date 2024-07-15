@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { logoutUrl } from "@/lib/api-setting"
 import { authNavItems, navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { useScopedI18n } from "@/locales/client"
@@ -14,14 +13,9 @@ export const AuthButton = () => {
   const scopedT = useScopedI18n("auth-button")
 
   const handleLogout = async () => {
-    const response = await fetch(logoutUrl)
-    if (response.ok) {
-      console.log("logout success")
-      authState(false)
-      router.push(navItems["Home"].href)
-    } else {
-      console.log("logout failed")
-    }
+    localStorage.removeItem("auth_token")
+    authState(false)
+    router.push(navItems["Home"].href)
   }
 
   if (isAuth) {

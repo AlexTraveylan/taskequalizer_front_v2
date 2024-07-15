@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { loginUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
+import { authResponseSchema } from "@/lib/schema/auth"
 import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { useRouter } from "next/navigation"
@@ -35,18 +36,28 @@ export function LoginForm() {
         username: username,
         password: password,
       }),
-      credentials: "include",
     })
 
-    if (response.ok) {
-      console.log("User logged in")
+    if (!response.ok) {
+      console.log("Error: ", response.status)
+    }
+
+    const data = await response.json()
+
+    try {
+      const parsedData = authResponseSchema.parse(data)
+
+      if (!parsedData.auth_token) {
+        console.log(parsedData.message)
+        return
+      }
+
+      localStorage.setItem("auth_token", parsedData.auth_token)
       authState(true)
       router.push(navItems["Application"].href)
       await taskService.cleanInvalidTasks()
-    } else if (response.status === 400) {
-      console.log("Invalid credentials")
-    } else {
-      console.log("error")
+    } catch (error) {
+      console.log("Error parsing response")
     }
   }
 

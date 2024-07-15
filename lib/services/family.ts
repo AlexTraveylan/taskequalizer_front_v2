@@ -10,6 +10,7 @@ import {
 } from "@/lib/schema/family"
 import { Member, memberSchema } from "@/lib/schema/member"
 import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
+import { extractAuthTokenFromLocalStorage } from "./auth"
 
 /**
  * Represents a service for managing family-related operations.
@@ -22,7 +23,10 @@ class FamilyService {
   async getFamily(): Promise<Family | undefined> {
     const response = await fetch(familyUrl, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -46,7 +50,10 @@ class FamilyService {
   async getFamilyMembers(): Promise<Member[] | undefined> {
     const response = await fetch(familyMembersUrl, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -70,7 +77,10 @@ class FamilyService {
   async getFamilyPossibleTasks(): Promise<PossibleTask[] | undefined> {
     const response = await fetch(familyPossibleTasksUrl, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
@@ -88,7 +98,13 @@ class FamilyService {
   }
 
   async getTasksByMembers(): Promise<DataTasksByMembers | undefined> {
-    const response = await fetch(familyTasksUrl, { method: "GET", credentials: "include" })
+    const response = await fetch(familyTasksUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
+    })
 
     if (!response.ok) {
       console.log("Failed to fetch tasks by members")
@@ -105,7 +121,13 @@ class FamilyService {
   }
 
   async getFamilyPossibleTaskDetails(): Promise<DataPossibleTasksDetails | undefined> {
-    const response = await fetch(familyPossibleTaskDetailsUrl, { method: "GET", credentials: "include" })
+    const response = await fetch(familyPossibleTaskDetailsUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
+    })
 
     if (!response.ok) {
       console.log("Failed to fetch family possible task details")
@@ -132,6 +154,7 @@ class FamilyService {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
       },
       body: JSON.stringify(family),
     })
@@ -151,7 +174,10 @@ class FamilyService {
   async deleteFamily(): Promise<boolean> {
     const response = await fetch(familyUrl, {
       method: "DELETE",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {

@@ -1,5 +1,6 @@
 import { invitationUrl } from "@/lib/api-setting"
 import { Invitation, invitationSchema } from "@/lib/schema/invitation"
+import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class InvitationService {
   /**
@@ -9,7 +10,10 @@ class InvitationService {
   async createInvitation(): Promise<Invitation | undefined> {
     const response = await fetch(invitationUrl, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {

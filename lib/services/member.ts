@@ -1,6 +1,7 @@
 import { memberTaskUrl, memberUrl } from "@/lib/api-setting"
 import { Member, WhoIam, memberSchema, whoIamSchema } from "@/lib/schema/member"
 import { Task, taskSchema } from "@/lib/schema/task"
+import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class MemberService {
   /**
@@ -54,7 +55,10 @@ class MemberService {
   async whoIam(): Promise<WhoIam | undefined> {
     const response = await fetch(memberUrl, {
       method: "GET",
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     const data = await response.json()
@@ -76,9 +80,9 @@ class MemberService {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
       },
       body: JSON.stringify(member),
-      credentials: "include",
     })
 
     if (!response.ok) {

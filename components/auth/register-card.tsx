@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { registerUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
+import { authResponseSchema } from "@/lib/schema/auth"
 import { useScopedI18n } from "@/locales/client"
 import { useRouter } from "next/navigation"
 
@@ -36,17 +37,26 @@ export function RegisterForm() {
         family_name: familyName,
         password: password,
       }),
-      credentials: "include",
     })
 
-    if (response.ok) {
-      console.log("User registered")
+    if (!response.ok) {
+      console.log("Error: ", response.status)
+    }
+
+    const data = await response.json()
+
+    try {
+      const parsedData = authResponseSchema.parse(data)
+      if (!parsedData.auth_token) {
+        console.log(parsedData.message)
+        return
+      }
+
+      localStorage.setItem("auth_token", data.auth_token)
       authState(true)
       router.push(navItems["Application"].href)
-    } else if (response.status === 400) {
-      console.log("User already exists")
-    } else {
-      console.log("error")
+    } catch (error) {
+      console.log("Error parsing data")
     }
   }
 
