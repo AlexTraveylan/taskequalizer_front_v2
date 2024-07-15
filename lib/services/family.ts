@@ -23,6 +23,9 @@ class FamilyService {
     const response = await fetch(familyUrl, {
       method: "GET",
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
 
     if (!response.ok) {

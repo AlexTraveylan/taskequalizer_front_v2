@@ -53,6 +53,7 @@ class MemberService {
 
   async whoIam(): Promise<WhoIam | undefined> {
     const response = await fetch(memberUrl, {
+      method: "GET",
       credentials: "include",
     })
 
