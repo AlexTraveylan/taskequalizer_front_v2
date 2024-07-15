@@ -90,4 +90,7 @@ export default {
   "ranking.bar-nb-tasks.description": "Bar chart of tasks among possible tasks since the beginning",
   "ranking.bar-duration-tasks.title": "Details by possible task of the total time spent on tasks",
   "ranking.bar-duration-tasks.description": "Bar chart of tasks among possible tasks since the beginning (in minutes)",
+  "no-data.no-data-text": "No data",
+  "no-data.do-you-want-create-data": "Do you want create data ?",
+  "no-data.link-text": "Click here to create data",
 } as const

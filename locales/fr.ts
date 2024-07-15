@@ -91,4 +91,7 @@ export default {
   "ranking.bar-nb-tasks.description": "Graphique en barre des tâches parmis les tâches possibles pour Depuis le début",
   "ranking.bar-duration-tasks.title": "Détails par tâche possible de la durée totale des tâches effectuées",
   "ranking.bar-duration-tasks.description": "Graphique en barre des tâches parmis les tâches possibles pour Depuis le début (en minutes)",
+  "no-data.no-data-text": "Pas de données",
+  "no-data.do-you-want-create-data": "Voulez-vous créer des données ?",
+  "no-data.link-text": "Cliquer ici pour créer des données",
 } as const
