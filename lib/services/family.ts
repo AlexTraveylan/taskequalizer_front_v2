@@ -151,7 +151,6 @@ class FamilyService {
   async updateFamily(family: FamilyIn): Promise<boolean> {
     const response = await fetch(familyUrl, {
       method: "PUT",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         Authorization: extractAuthTokenFromLocalStorage(),
