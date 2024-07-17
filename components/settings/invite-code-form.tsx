@@ -7,6 +7,7 @@ import { useState } from "react"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import { Input } from "../ui/input"
+import { toast } from "sonner"
 
 export const InviteCodeForm = () => {
   const [code, setCode] = useState<string>("")
@@ -18,8 +19,9 @@ export const InviteCodeForm = () => {
     const response = await invitationService.createInvitation()
     if (response) {
       setCode(response.code)
+      toast.success(scopedT("success-message"))
     } else {
-      console.error("Failed to fetch invitation")
+      toast.error(scopedT("error-message"))
     }
   }
 

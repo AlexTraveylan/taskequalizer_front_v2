@@ -44,6 +44,8 @@ export default {
   "invite-code-form.description": "Generate an invitation code to invite a new member to join your family.",
   "invite-code-form.btn-label": "Generate the code",
   "invite-code-form.comming-soon": "Coming soon: Send the invitation code by email.",
+  "invite-code-form.error-message": "An error occurred",
+  "invite-code-form.success-message": "The invitation code was generated successfully",
   "row-p-task.dialog_edit": "Edit possible task",
   "row-p-task.dialog_description": "Make changes",
   "row-p-task.dialog_name_label": "Name",
