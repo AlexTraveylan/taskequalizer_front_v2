@@ -133,6 +133,6 @@ const FormMessageI18n = React.forwardRef<HTMLParagraphElement, React.HTMLAttribu
     )
   }
 )
-FormMessage.displayName = "FormMessageI18n"
+FormMessageI18n.displayName = "FormMessageI18n"
 
 export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, FormMessageI18n, useFormField }
