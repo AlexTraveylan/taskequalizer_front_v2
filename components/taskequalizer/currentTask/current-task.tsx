@@ -8,6 +8,7 @@ import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
+import { toast } from "sonner"
 
 export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
   const queryClient = useQueryClient()
@@ -26,6 +27,10 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
     mutationFn: taskService.updateTask,
     onSuccess: () => {
       queryClient.resetQueries({ queryKey: ["currentTask"] })
+      toast.info(scopedT("success-message"))
+    },
+    onError: () => {
+      toast.error(scopedT("error-message"))
     },
   })
 

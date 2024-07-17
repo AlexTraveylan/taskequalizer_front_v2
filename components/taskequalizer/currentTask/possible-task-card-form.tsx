@@ -4,15 +4,22 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PossibleTask } from "@/lib/schema/possible-task"
 import { taskService } from "@/lib/services/task"
+import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { toast } from "sonner"
 
 export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleTask }) => {
   const queryClient = useQueryClient()
+  const scopedT = useScopedI18n("possible-task-card-form")
 
   const mutation = useMutation({
     mutationFn: taskService.createTask,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["currentTask"] })
+      toast.info(scopedT("success-message"))
+    },
+    onError: () => {
+      toast.error(scopedT("error-message"))
     },
   })
 
