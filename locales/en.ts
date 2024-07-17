@@ -85,6 +85,8 @@ export default {
   "current-task.finish-btn": "Declare task finished",
   "current-task.error-message": "An error occurred",
   "current-task.success-message": "Task finished",
+  "no-possible-task.title": "No possible task",
+  "no-possible-task.go-create": "Configure possible tasks",
   "donut-chart.selector-label": "Select member",
   "daily-chart.nb-tasks.title": "Tasks distribution by number",
   "daily-chart.nb-tasks.description": "Today",

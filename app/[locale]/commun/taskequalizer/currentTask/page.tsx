@@ -1,6 +1,7 @@
 "use client"
 
 import { CurrentTaskForm } from "@/components/taskequalizer/currentTask/current-task"
+import NoPossibleTask from "@/components/taskequalizer/currentTask/no-possible-task"
 import { PossibleTaskCardForm } from "@/components/taskequalizer/currentTask/possible-task-card-form"
 import { Input } from "@/components/ui/input"
 import { familyService } from "@/lib/services/family"
@@ -21,11 +22,11 @@ export default function CurrentTaskPage() {
   }
 
   if (query3.data) {
-    return (
-      <>
-        <CurrentTaskForm currentTask={query3.data} />
-      </>
-    )
+    return <CurrentTaskForm currentTask={query3.data} />
+  }
+
+  if (query2.data.length === 0) {
+    return <NoPossibleTask />
   }
 
   return (
