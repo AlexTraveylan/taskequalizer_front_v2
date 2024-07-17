@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
+import { InputEye } from "../ui/input-password-eye"
 
 export function LoginForm() {
   const { authState } = useIsAuth()
@@ -89,7 +90,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("passwordField")}</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <InputEye {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
