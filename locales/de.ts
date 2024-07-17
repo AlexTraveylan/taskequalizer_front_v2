@@ -100,4 +100,12 @@ export default {
   "no-data.no-data-text": "Keine Daten",
   "no-data.do-you-want-create-data": "Möchten Sie Daten erstellen ?",
   "no-data.link-text": "Klicken Sie hier, um Daten zu erstellen",
+  "zod.registerSchema.username.min": "Der Benutzername muss mindestens 2 Zeichen enthalten",
+  "zod.registerSchema.username.max": "Der Benutzername darf höchstens 25 Zeichen enthalten",
+  "zod.registerSchema.family_name.min": "Der Familienname muss mindestens 2 Zeichen enthalten",
+  "zod.registerSchema.family_name.max": "Der Familienname darf höchstens 25 Zeichen enthalten",
+  "zod.registerSchema.password.min": "Das Passwort muss mindestens 8 Zeichen enthalten",
+  "zod.registerSchema.password.lowercase": "Das Passwort muss mindestens einen Kleinbuchstaben enthalten",
+  "zod.registerSchema.password.uppercase": "Das Passwort muss mindestens einen Großbuchstaben enthalten",
+  "zod.registerSchema.password.digit": "Das Passwort muss mindestens eine Ziffer enthalten",
 } as const
