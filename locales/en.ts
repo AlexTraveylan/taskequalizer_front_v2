@@ -65,6 +65,8 @@ export default {
   "possible-task-form.placeholder_name": "Kitchen",
   "possible-task-form.description_field": "Description of the new task",
   "possible-task-form.button_label": "Create the task",
+  "possible-task-form.error-message": "An error occurred",
+  "possible-task-form.success-message": "The possible task was created successfully",
   "my-account.title": "My account",
   "taskequalizer.taskequalizer": "Task Equalizer",
   "taskequalizer.currentTask": "Current task",

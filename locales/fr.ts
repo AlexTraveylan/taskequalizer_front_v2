@@ -66,6 +66,8 @@ export default {
   "possible-task-form.placeholder_name": "Cuisine",
   "possible-task-form.description_field": "Description de la tâche",
   "possible-task-form.button_label": "Créer",
+  "possible-task-form.error-message": "Une erreur s'est produite",
+  "possible-task-form.success-message": "La tâche possible a été créée avec succès",
   "my-account.title": "Mon compte",
   "taskequalizer.taskequalizer": "Égaliseur de tâches",
   "taskequalizer.currentTask": "Tâche actuelle",
