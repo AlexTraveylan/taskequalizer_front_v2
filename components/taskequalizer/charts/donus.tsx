@@ -9,6 +9,7 @@ import { useScopedI18n } from "@/locales/client"
 import { useMemo, useState } from "react"
 import { PieSectorDataItem } from "recharts/types/polar/Pie"
 import { chartColors } from "./colors"
+import { NoData } from "./no-data"
 
 type DonutChartProps = {
   chartConfig: ChartConfig
@@ -29,6 +30,12 @@ export const DonutChart = ({ chartConfig, chartData, dataKey, nameKey, title, de
   const names = chartData.map((item) => item[nameKey])
 
   const t = useScopedI18n("donut-chart")
+
+  const lenData = chartData.reduce((acc, item) => acc + item[dataKey], 0)
+
+  if (lenData === 0) {
+    return <NoData title={title} description={description} />
+  }
 
   return (
     <Card data-chart={id} className="flex flex-col">

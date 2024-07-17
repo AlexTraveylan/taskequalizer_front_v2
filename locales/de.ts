@@ -108,7 +108,6 @@ export default {
   "ranking.bar-duration-tasks.title": "Details nach möglicher Aufgabe der gesamten Zeit, die für Aufgaben aufgewendet wurde",
   "ranking.bar-duration-tasks.description": "Balkendiagramm der Aufgaben unter den möglichen Aufgaben seit dem Anfang (in Minuten)",
   "no-data.no-data-text": "Keine Daten",
-  "no-data.do-you-want-create-data": "Möchten Sie Daten erstellen ?",
   "no-data.link-text": "Klicken Sie hier, um Daten zu erstellen",
   "zod.registerSchema.username.min": "Der Benutzername muss mindestens 2 Zeichen enthalten",
   "zod.registerSchema.username.max": "Der Benutzername darf höchstens 25 Zeichen enthalten",

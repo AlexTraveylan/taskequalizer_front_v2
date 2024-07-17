@@ -107,7 +107,6 @@ export default {
   "ranking.bar-duration-tasks.title": "Details by possible task of the total time spent on tasks",
   "ranking.bar-duration-tasks.description": "Bar chart of tasks among possible tasks since the beginning (in minutes)",
   "no-data.no-data-text": "No data",
-  "no-data.do-you-want-create-data": "Do you want create data ?",
   "no-data.link-text": "Click here to create data",
   "zod.registerSchema.username.min": "The username must contain at least 2 characters",
   "zod.registerSchema.username.max": "The username must contain at most 25 characters",

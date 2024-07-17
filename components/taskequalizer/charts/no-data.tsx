@@ -21,11 +21,10 @@ export const NoData = ({ title, description }: NoDataProps) => {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col items-center justify-center">
-          <h2>{t("no-data-text")}</h2>
-          <div className="flex flex-col gap-3">
-            <h2>{t("do-you-want-create-data")}</h2>
-            <Link href={navItems["Application"].href}>{t("link-text")}</Link>
-          </div>
+          <h2 className="text-sm font-medium text-muted-foreground">{t("no-data-text")}</h2>
+          <Link className="text-sm font-medium transition-colors hover:text-primary" href={navItems["Application"].href}>
+            {t("link-text")}
+          </Link>
         </div>
       </CardContent>
     </Card>

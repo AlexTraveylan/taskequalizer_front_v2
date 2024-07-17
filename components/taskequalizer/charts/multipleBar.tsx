@@ -5,6 +5,7 @@ import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { colors } from "./colors"
+import { NoData } from "./no-data"
 
 type MultipleBarCharttProps = {
   chartConfig: ChartConfig
@@ -16,6 +17,19 @@ type MultipleBarCharttProps = {
 }
 
 export function MultipleBarChart({ chartConfig, chartData, dataKey, nameKey, title, description }: MultipleBarCharttProps) {
+  console.log("chartData", chartData, nameKey)
+
+  const lenData = chartData.reduce((acc, item) => {
+    for (const key of nameKey) {
+      acc += item[key]
+    }
+    return acc
+  }, 0)
+
+  if (lenData === 0) {
+    return <NoData title={title} description={description} />
+  }
+
   return (
     <Card>
       <CardHeader>
