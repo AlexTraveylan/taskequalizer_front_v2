@@ -108,4 +108,12 @@ export default {
   "zod.registerSchema.password.lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
   "zod.registerSchema.password.uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
   "zod.registerSchema.password.digit": "Le mot de passe doit contenir au moins un chiffre",
+  "zod.registerInviteSchema.username.min": "Le nom d'utilisateur doit contenir au moins 2 caractères",
+  "zod.registerInviteSchema.username.max": "Le nom d'utilisateur doit contenir au maximum 25 caractères",
+  "zod.registerInviteSchema.password.min": "Le mot de passe doit contenir au moins 8 caractères",
+  "zod.registerInviteSchema.password.lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
+  "zod.registerInviteSchema.password.uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+  "zod.registerInviteSchema.password.digit": "Le mot de passe doit contenir au moins un chiffre",
+  "zod.registerInviteSchema.invitation_code":
+    "Le code d'invitation doit contenir exactement 8 caractères parmis des lettres majuscules et les chiffres",
 } as const

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessageI18n } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { registerInvitationUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
@@ -79,7 +79,7 @@ export function RegisterWithCodeForm() {
                   <FormControl>
                     <Input placeholder="John Doe" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessageI18n />
                 </FormItem>
               )}
             />
@@ -92,7 +92,7 @@ export function RegisterWithCodeForm() {
                   <FormControl>
                     <Input placeholder="A1B2C3D4" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessageI18n />
                 </FormItem>
               )}
             />
@@ -105,7 +105,7 @@ export function RegisterWithCodeForm() {
                   <FormControl>
                     <InputEye {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessageI18n />
                 </FormItem>
               )}
             />

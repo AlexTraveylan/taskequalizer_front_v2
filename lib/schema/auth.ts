@@ -25,12 +25,12 @@ export const registerCreateSchema = z.object({
 })
 
 export const registerInviteSchema = z.object({
-  username: z.string().min(2).max(25),
+  username: z.string().min(2, { message: "registerInviteSchema.username.min" }).max(25, { message: "registerInviteSchema.username.max" }),
   password: z
     .string()
-    .min(8, { message: "Password must be at least 8 characters long" })
-    .refine((value) => /[a-z]/.test(value), { message: "Password must contain at least one lowercase letter" })
-    .refine((value) => /[A-Z]/.test(value), { message: "Password must contain at least one uppercase letter" })
-    .refine((value) => /\d/.test(value), { message: "Password must contain at least one digit" }),
-  invitation_code: z.string().regex(/^[A-Z0-9]{8}$/),
+    .min(8, { message: "registerInviteSchema.password.min" })
+    .refine((value) => /[a-z]/.test(value), { message: "registerInviteSchema.password.lowercase" })
+    .refine((value) => /[A-Z]/.test(value), { message: "registerInviteSchema.password.uppercase" })
+    .refine((value) => /\d/.test(value), { message: "registerInviteSchema.password.digit" }),
+  invitation_code: z.string().regex(/^[A-Z0-9]{8}$/, { message: "registerInviteSchema.invitation_code" }),
 })

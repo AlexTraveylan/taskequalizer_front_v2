@@ -108,4 +108,11 @@ export default {
   "zod.registerSchema.password.lowercase": "Das Passwort muss mindestens einen Kleinbuchstaben enthalten",
   "zod.registerSchema.password.uppercase": "Das Passwort muss mindestens einen Großbuchstaben enthalten",
   "zod.registerSchema.password.digit": "Das Passwort muss mindestens eine Ziffer enthalten",
+  "zod.registerInviteSchema.username.min": "Der Benutzername muss mindestens 2 Zeichen enthalten",
+  "zod.registerInviteSchema.username.max": "Der Benutzername darf höchstens 25 Zeichen enthalten",
+  "zod.registerInviteSchema.password.min": "Das Passwort muss mindestens 8 Zeichen enthalten",
+  "zod.registerInviteSchema.password.lowercase": "Das Passwort muss mindestens einen Kleinbuchstaben enthalten",
+  "zod.registerInviteSchema.password.uppercase": "Das Passwort muss mindestens einen Großbuchstaben enthalten",
+  "zod.registerInviteSchema.password.digit": "Das Passwort muss mindestens eine Ziffer enthalten",
+  "zod.registerInviteSchema.invitation_code": "Der Einladungscode muss 8 Zeichen enthalten, nur Großbuchstaben und Ziffern",
 } as const
