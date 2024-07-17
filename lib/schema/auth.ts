@@ -7,6 +7,11 @@ export const authResponseSchema = z.object({
 
 export type AuthResponse = z.infer<typeof authResponseSchema>
 
+export const loginSchema = z.object({
+  username: z.string(),
+  password: z.string(),
+})
+
 export const registerCreateSchema = z.object({
   family_name: z.string().min(2).max(25),
   username: z.string().min(2).max(25),
