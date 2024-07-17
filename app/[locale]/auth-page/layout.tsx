@@ -8,6 +8,7 @@ import {
 import { authNavItems } from "@/lib/app-types"
 import { getCurrentLocale, getScopedI18n } from "@/locales/server"
 import Link from "next/link"
+import { Toaster } from "sonner"
 import { Provider } from "../provider"
 
 export default async function LayoutAuthPage({ children }: { children: React.ReactNode }) {
@@ -30,7 +31,10 @@ export default async function LayoutAuthPage({ children }: { children: React.Rea
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <Provider locale={locale}>{children}</Provider>
+      <Provider locale={locale}>
+        <Toaster richColors position="top-left" />
+        {children}
+      </Provider>
     </div>
   )
 }
