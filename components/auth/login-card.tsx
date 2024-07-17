@@ -27,13 +27,13 @@ export function LoginForm() {
     },
   })
 
-  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
+  const onSubmit = async (formData: z.infer<typeof loginSchema>) => {
     const response = await fetch(loginUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     })
 
     if (!response.ok) {
