@@ -39,7 +39,7 @@ export default {
   "informations.memberName": "Member name",
   "informations.createdAt": "Registered at",
   "informations.nbTasks": "Number of tasks performed",
-  "informations.totalTime": "Total time spent on tasks",
+  "informations.totalTime": "Total time spent on tasks (min)",
   "invite-code-form.title": "Invite a new member",
   "invite-code-form.description": "Generate an invitation code to invite a new member to join your family.",
   "invite-code-form.btn-label": "Generate the code",

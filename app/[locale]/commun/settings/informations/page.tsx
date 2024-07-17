@@ -56,7 +56,7 @@ export default function InformationsPage() {
                 <TableCell>{member_name}</TableCell>
                 <TableCell className="max-[450px]:hidden">{formatDateTime(membersMap[member_name].created_at, locale)}</TableCell>
                 <TableCell>{tasks.length}</TableCell>
-                <TableCell>{totalTimeTasks}</TableCell>
+                <TableCell>{Math.floor(totalTimeTasks / 60)}</TableCell>
               </TableRow>
             )
           })}
