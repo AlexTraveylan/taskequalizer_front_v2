@@ -2,7 +2,7 @@ import { z } from "zod"
 
 export const memberSchema = z.object({
   id: z.string(),
-  member_name: z.string(),
+  member_name: z.string().min(2).max(25),
   created_at: z.string(),
   updated_at: z.string(),
   family_id: z.string(),

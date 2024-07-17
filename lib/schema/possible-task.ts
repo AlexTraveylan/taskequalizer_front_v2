@@ -2,7 +2,7 @@ import { z } from "zod"
 
 export const possibleTaskSchema = z.object({
   id: z.string(),
-  possible_task_name: z.string(),
+  possible_task_name: z.string().min(2).max(13),
   description: z.string(),
   created_at: z.string(),
   updated_at: z.string(),

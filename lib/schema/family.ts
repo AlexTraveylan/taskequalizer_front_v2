@@ -3,7 +3,7 @@ import { taskSchema } from "./task"
 
 export const familySchema = z.object({
   id: z.string(),
-  family_name: z.string(),
+  family_name: z.string().min(2).max(25),
   created_at: z.string(),
   updated_at: z.string(),
 })
