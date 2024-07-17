@@ -22,36 +22,43 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessageI18n } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { TableCell, TableRow } from "@/components/ui/table"
-import { PossibleTask } from "@/lib/schema/possible-task"
+import { PossibleTask, possibleTaskInSchema } from "@/lib/schema/possible-task"
 import { possibleTaskService } from "@/lib/services/possible-task"
 import { useScopedI18n } from "@/locales/client"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { SquareArrowOutUpRight, Trash } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { z } from "zod"
 
 export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
   const queryClient = useQueryClient()
   const scopedT = useScopedI18n("row-p-task")
 
-  const handleSubmitUpdate = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const possible_task_name = formData.get("possible_task_name") as string
-    const description = formData.get("description") as string
+  const form = useForm<z.infer<typeof possibleTaskInSchema>>({
+    resolver: zodResolver(possibleTaskInSchema),
+    defaultValues: {
+      possible_task_name: p_task.possible_task_name,
+      description: p_task.description,
+    },
+  })
 
-    if (!possible_task_name || !description) {
-      return
-    }
-
-    updateMutation.mutate({ id: p_task.id, possible_task_name, description })
+  const onUpdate = async (formData: z.infer<typeof possibleTaskInSchema>) => {
+    updateMutation.mutate({ id: p_task.id, ...formData })
   }
 
   const deleteMutation = useMutation({
     mutationFn: possibleTaskService.deletePossibleTask,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["possibleTasks"] })
+      toast.warning(scopedT("delete.success-message"))
+    },
+    onError: () => {
+      toast.error(scopedT("delete.error-message"))
     },
   })
 
@@ -59,6 +66,10 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
     mutationFn: possibleTaskService.updatePossibleTask,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["possibleTasks"] })
+      toast.success(scopedT("update.success-message"))
+    },
+    onError: () => {
+      toast.error(scopedT("update.error-message"))
     },
   })
 
@@ -72,37 +83,47 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
             <SquareArrowOutUpRight className="cursor-pointer" />
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
-            <form onSubmit={handleSubmitUpdate}>
-              <DialogHeader>
-                <DialogTitle>{scopedT("dialog_edit")}</DialogTitle>
-                <DialogDescription>{scopedT("dialog_description")}</DialogDescription>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="possible_task_name" className="text-right">
-                    {scopedT("dialog_name_label")}
-                  </Label>
-                  <Input
-                    key="possible_task_name"
-                    id="possible_task_name"
-                    defaultValue={p_task.possible_task_name}
-                    className="col-span-3"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onUpdate)}>
+                <DialogHeader>
+                  <DialogTitle>{scopedT("dialog_edit")}</DialogTitle>
+                  <DialogDescription>{scopedT("dialog_description")}</DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <FormField
+                    control={form.control}
                     name="possible_task_name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{scopedT("dialog_name_label")}</FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessageI18n />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{scopedT("dialog_description_label")}</FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessageI18n />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="description" className="text-right">
-                    {scopedT("dialog_description_label")}
-                  </Label>
-                  <Input key="p_task_description" id="description" defaultValue={p_task.description} className="col-span-3" name="description" />
-                </div>
-              </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="submit">{scopedT("dialog_button_label")}</Button>
-                </DialogClose>
-              </DialogFooter>
-            </form>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button type="submit">{scopedT("dialog_button_label")}</Button>
+                  </DialogClose>
+                </DialogFooter>
+              </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </TableCell>

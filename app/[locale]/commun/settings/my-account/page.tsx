@@ -23,7 +23,7 @@ export default function MyAccountPage() {
     return <div>No data...</div>
   }
 
-  const myProfile = query2.data.find((member) => member.member_name === query3.data?.name)
+  const myProfile = query2.data.find((member) => member.id === query3.data?.member_id)
 
   if (!myProfile) {
     return <div>No data...</div>
