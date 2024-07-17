@@ -116,4 +116,7 @@ export default {
   "zod.registerInviteSchema.password.digit": "Le mot de passe doit contenir au moins un chiffre",
   "zod.registerInviteSchema.invitation_code":
     "Le code d'invitation doit contenir exactement 8 caractères parmis des lettres majuscules et les chiffres",
+  "zod.possibleTaskInSchema.possible_task_name.min": "Le nom de la tâche possible doit contenir au moins 2 caractères",
+  "zod.possibleTaskInSchema.possible_task_name.max": "Le nom de la tâche possible doit contenir au maximum 13 caractères",
+  "zod.possibleTaskInSchema.description.max": "La description de la tâche possible doit contenir au maximum 1000 caractères",
 } as const

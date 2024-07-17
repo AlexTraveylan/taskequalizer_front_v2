@@ -114,4 +114,7 @@ export default {
   "zod.registerInviteSchema.password.uppercase": "Password must contain at least one uppercase letter",
   "zod.registerInviteSchema.password.digit": "Password must contain at least one digit",
   "zod.registerInviteSchema.invitation_code": "The invitation code must contain 8 characters, uppercase letters and digits only",
+  "zod.possibleTaskInSchema.possible_task_name.min": "The possible task name must contain at least 2 characters",
+  "zod.possibleTaskInSchema.possible_task_name.max": "The possible task name must contain at most 13 characters",
+  "zod.possibleTaskInSchema.description.max": "The description must contain at most 1000 characters",
 } as const

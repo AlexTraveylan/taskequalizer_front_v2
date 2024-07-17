@@ -115,4 +115,7 @@ export default {
   "zod.registerInviteSchema.password.uppercase": "Das Passwort muss mindestens einen Großbuchstaben enthalten",
   "zod.registerInviteSchema.password.digit": "Das Passwort muss mindestens eine Ziffer enthalten",
   "zod.registerInviteSchema.invitation_code": "Der Einladungscode muss 8 Zeichen enthalten, nur Großbuchstaben und Ziffern",
+  "zod.possibleTaskInSchema.possible_task_name.min": "Der Name der möglichen Aufgabe muss mindestens 2 Zeichen enthalten",
+  "zod.possibleTaskInSchema.possible_task_name.max": "Der Name der möglichen Aufgabe darf höchstens 25 Zeichen enthalten",
+  "zod.possibleTaskInSchema.description.max": "Die Beschreibung der möglichen Aufgabe darf höchstens 1000 Zeichen enthalten",
 } as const

@@ -132,6 +132,9 @@ type zodError =
   | "registerInviteSchema.password.uppercase"
   | "registerInviteSchema.password.digit"
   | "registerInviteSchema.invitation_code"
+  | "possibleTaskInSchema.possible_task_name.min"
+  | "possibleTaskInSchema.possible_task_name.max"
+  | "possibleTaskInSchema.description.max"
 
 const FormMessageI18n = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ className, children, ...props }, ref) => {
