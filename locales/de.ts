@@ -26,6 +26,8 @@ export default {
   "register-invitation.invitationCodeField": "Einladungscode",
   "register-invitation.passwordField": "Ihr Passwort, um zurückzukommen",
   "register-invitation.buttonLabel": "Beitreten",
+  "register-invitation.error-message": "Registrierung mit Einladungscode fehlgeschlagen",
+  "register-invitation.success-message": "Registrierung mit Einladungscode erfolgreich",
   "auth-page.login": "Einloggen",
   "auth-page.register-create": "Registrieren und einen neuen Familienraum erstellen",
   "auth-page.register-with-invitation": "Registrieren, indem Sie einer Familie beitreten",

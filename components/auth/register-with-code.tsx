@@ -39,7 +39,7 @@ export function RegisterWithCodeForm() {
     })
 
     if (!response.ok) {
-      toast.error("Error: " + response.status)
+      toast.error(scopedT("error-message"))
       return
     }
 
@@ -48,16 +48,16 @@ export function RegisterWithCodeForm() {
     try {
       const parsedData = authResponseSchema.parse(responseData)
       if (!parsedData.auth_token) {
-        toast.error(parsedData.message)
+        toast.error(scopedT("error-message"))
         return
       }
 
       localStorage.setItem("auth_token", parsedData.auth_token)
       authState(true)
-      toast.success("Registration successful")
+      toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
     } catch (error) {
-      toast.error("Error parsing response")
+      toast.error(scopedT("error-message"))
     }
   }
 

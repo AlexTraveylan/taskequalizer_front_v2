@@ -26,6 +26,8 @@ export default {
   "register-invitation.invitationCodeField": "Code d'invitation",
   "register-invitation.passwordField": "Votre mot de passe pour revenir",
   "register-invitation.buttonLabel": "Rejoindre",
+  "register-invitation.error-message": "Echec de l'inscription avec un code d'invitation",
+  "register-invitation.success-message": "Inscription avec un code d'invitation réussie",
   "auth-page.login": "Se connecter avec un compte existant",
   "auth-page.register-create": "S'enregistrer et créer un nouvel espace famille",
   "auth-page.register-with-invitation": "S'enregistrer en rejoignant une famille",
