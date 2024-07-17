@@ -18,6 +18,8 @@ export default {
   "register-card.familyNameField": "Name of the new family space to create",
   "register-card.passwordField": "Your password to come back",
   "register-card.buttonLabel": "Register",
+  "register-card.error-message": "Registration failed",
+  "register-card.success-message": "Registration of your household was successful",
   "register-invitation.title": "Join a family with an invitation code",
   "register-invitation.description": "You received an invitation code to join a family? Enter it here.",
   "register-invitation.usernameField": "Your username",

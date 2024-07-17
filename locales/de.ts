@@ -18,6 +18,8 @@ export default {
   "register-card.familyNameField": "Name des neuen Familienraums, der erstellt werden soll",
   "register-card.passwordField": "Ihr Passwort, um zurückzukommen",
   "register-card.buttonLabel": "Registrieren",
+  "register-card.error-message": "Registrierung fehlgeschlagen",
+  "register-card.success-message": "Die Registrierung Ihres Haushalts war erfolgreich",
   "register-invitation.title": "Treten Sie einer Familie mit einem Einladungscode bei",
   "register-invitation.description": "Sie haben einen Einladungscode erhalten, um einer Familie beizutreten? Geben Sie ihn hier ein.",
   "register-invitation.usernameField": "Ihr Benutzer",
