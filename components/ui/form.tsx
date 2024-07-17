@@ -116,10 +116,20 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<
 )
 FormMessage.displayName = "FormMessage"
 
+type zodError =
+  | "registerSchema.username.min"
+  | "registerSchema.username.max"
+  | "registerSchema.family_name.min"
+  | "registerSchema.family_name.max"
+  | "registerSchema.password.min"
+  | "registerSchema.password.lowercase"
+  | "registerSchema.password.uppercase"
+  | "registerSchema.password.digit"
+
 const FormMessageI18n = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ className, children, ...props }, ref) => {
     const { error, formMessageId } = useFormField()
-    const body = error ? String(error?.message) : ""
+    const body = error ? (String(error?.message) as zodError) : undefined
     const t = useScopedI18n("zod")
 
     if (!body) {
