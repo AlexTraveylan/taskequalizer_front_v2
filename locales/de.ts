@@ -10,6 +10,8 @@ export default {
   "login-card.usernameField": "Benutzername",
   "login-card.passwordField": "Passwort",
   "login-card.buttonLabel": "Einloggen",
+  "login-card.error-message": "Anmeldung fehlgeschlagen",
+  "login-card.success-message": "Anmeldung erfolgreich",
   "register-card.title": "Registrieren",
   "register-card.description": "Ist es Ihr erster Besuch? Sie erstellen einen neuen Familienraum? Hier registrieren.",
   "register-card.usernameField": "Ihr Benutzername",

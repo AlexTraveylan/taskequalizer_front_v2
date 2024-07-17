@@ -10,6 +10,8 @@ export default {
   "login-card.usernameField": "Nom d'utilisateur",
   "login-card.passwordField": "Mot de passe",
   "login-card.buttonLabel": "Connexion",
+  "login-card.error-message": "Echec de la connexion",
+  "login-card.success-message": "Connexion réussie",
   "register-card.title": "S'inscrire",
   "register-card.description": "C'est votre première visite ? Vous créez un nouvel espace famille ? Inscrivez-vous ici.",
   "register-card.usernameField": "Votre nom d'utilisateur",

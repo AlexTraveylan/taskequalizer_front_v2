@@ -37,7 +37,7 @@ export function LoginForm() {
     })
 
     if (!response.ok) {
-      toast.error("Error: " + response.status)
+      toast.error(scopedT("error-message"))
       return
     }
 
@@ -46,17 +46,17 @@ export function LoginForm() {
       const parsedData = authResponseSchema.parse(responseData)
 
       if (!parsedData.auth_token) {
-        toast.error(parsedData.message)
+        toast.error(scopedT("error-message"))
         return
       }
 
       localStorage.setItem("auth_token", parsedData.auth_token)
       authState(true)
-      toast.success("Login successful")
+      toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
       await taskService.cleanInvalidTasks()
     } catch (error) {
-      toast.error("Error parsing response")
+      toast.error(scopedT("error-message"))
     }
   }
 
