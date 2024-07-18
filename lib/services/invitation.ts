@@ -77,7 +77,7 @@ class InvitationService {
     }
   }
 
-  async cleanInvitations(): Promise<MessageResponse | undefined> {
+  async cleanInvalidInvitations(): Promise<MessageResponse | undefined> {
     const response = await fetch(cleanInvitationUrl, {
       method: "DELETE",
       headers: {

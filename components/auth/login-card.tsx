@@ -7,6 +7,7 @@ import { loginUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { authResponseSchema, loginSchema } from "@/lib/schema/auth"
+import { invitationService } from "@/lib/services/invitation"
 import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -69,6 +70,7 @@ export function LoginForm() {
       toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
       await taskService.cleanInvalidTasks()
+      await invitationService.cleanInvalidInvitations()
     } catch (error) {
       toast.error(scopedT("error-message"))
     }
