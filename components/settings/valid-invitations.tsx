@@ -47,16 +47,20 @@ export const ValidInvitations = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(({ id, code, is_used, expired_at }, index) => (
-          <TableRow key={`${id}${index}`}>
-            <TableCell>{code}</TableCell>
-            <TableCell>{<Badge variant={is_used ? "success" : "destructive"}>{is_used ? scopedT("used") : scopedT("not-used")}</Badge>}</TableCell>
-            <TableCell className="max-[450px]:hidden">{formatDateTime(expired_at, locale)}</TableCell>
-            <TableCell>
-              <Trash className="cursor-pointer text-destructive" onClick={() => deleteMutation.mutate(id)} />
-            </TableCell>
-          </TableRow>
-        ))}
+        {data
+          .sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
+          .map(({ id, code, is_used, expired_at }, index) => (
+            <TableRow key={`${id}${index}`}>
+              <TableCell>{code}</TableCell>
+              <TableCell>
+                {<Badge variant={is_used ? "success" : "destructive"}>{is_used ? scopedT("used") : scopedT("not-used")}</Badge>}
+              </TableCell>
+              <TableCell className="max-[450px]:hidden">{formatDateTime(expired_at, locale)}</TableCell>
+              <TableCell>
+                <Trash className="cursor-pointer text-destructive" onClick={() => deleteMutation.mutate(id)} />
+              </TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   )

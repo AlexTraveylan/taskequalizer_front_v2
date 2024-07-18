@@ -2,28 +2,32 @@
 
 import { invitationService } from "@/lib/services/invitation"
 import { useScopedI18n } from "@/locales/client"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { Copy } from "lucide-react"
 import { useState } from "react"
+import { toast } from "sonner"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import { Input } from "../ui/input"
-import { toast } from "sonner"
 
 export const InviteCodeForm = () => {
   const [code, setCode] = useState<string>("")
   const scopedT = useScopedI18n("invite-code-form")
+  const queryClient = useQueryClient()
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-
-    const response = await invitationService.createInvitation()
-    if (response) {
-      setCode(response.code)
-      toast.success(scopedT("success-message"))
-    } else {
+  const createMutation = useMutation({
+    mutationFn: invitationService.createInvitation,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["validInvitations"] })
+      if (data) {
+        setCode(data.code)
+        toast.success(scopedT("success-message"))
+      }
+    },
+    onError: () => {
       toast.error(scopedT("error-message"))
-    }
-  }
+    },
+  })
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code)
@@ -44,7 +48,7 @@ export const InviteCodeForm = () => {
         </div>
       </CardContent>
       <CardFooter className="flex flex-col gap-3">
-        {!code && <Button onClick={handleSubmit}>{scopedT("btn-label")}</Button>}
+        {!code && <Button onClick={() => createMutation.mutate()}>{scopedT("btn-label")}</Button>}
         <h2 className="text-sm text-muted-foreground">{scopedT("comming-soon")}</h2>
       </CardFooter>
     </Card>
