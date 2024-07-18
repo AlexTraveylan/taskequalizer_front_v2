@@ -11,6 +11,7 @@ import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
+import { useEffect, useRef } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
@@ -27,6 +28,18 @@ export function LoginForm() {
       password: "",
     },
   })
+
+  const usernameRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (usernameRef.current && passwordRef.current) {
+      usernameRef.current.focus()
+      usernameRef.current.blur()
+      passwordRef.current.focus()
+      passwordRef.current.blur()
+    }
+  }, [])
 
   const onSubmit = async (formData: z.infer<typeof loginSchema>) => {
     const response = await fetch(loginUrl, {
@@ -77,7 +90,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("usernameField")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} autoComplete="username" />
+                    <Input placeholder="John Doe" {...field} autoComplete="username" ref={usernameRef} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,7 +103,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("passwordField")}</FormLabel>
                   <FormControl>
-                    <InputEye {...field} autoComplete="password" />
+                    <InputEye {...field} autoComplete="current-password" ref={passwordRef} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
