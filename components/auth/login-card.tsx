@@ -77,7 +77,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("usernameField")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder="John Doe" {...field} autoComplete="username" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,7 +90,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("passwordField")}</FormLabel>
                   <FormControl>
-                    <InputEye {...field} />
+                    <InputEye {...field} autoComplete="password" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
