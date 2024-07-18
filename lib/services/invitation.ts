@@ -1,5 +1,5 @@
-import { invitationUrl } from "@/lib/api-setting"
-import { Invitation, invitationSchema } from "@/lib/schema/invitation"
+import { invitationUrl, validInvitationListUrl } from "@/lib/api-setting"
+import { Invitation, invitationSchema, validListInvitationSchema } from "@/lib/schema/invitation"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class InvitationService {
@@ -27,6 +27,29 @@ class InvitationService {
       return parsedData
     } catch (error) {
       console.error("Failed to parse invitation")
+    }
+  }
+
+  async getValidInvitations(): Promise<Invitation[] | undefined> {
+    const response = await fetch(validInvitationListUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
+    })
+
+    if (!response.ok) {
+      console.error("Failed to fetch invitations")
+      return
+    }
+
+    const data = await response.json()
+    try {
+      const parsedData = validListInvitationSchema.parse(data)
+      return parsedData.data
+    } catch (error) {
+      console.error("Failed to parse invitations")
     }
   }
 }

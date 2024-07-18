@@ -21,3 +21,4 @@ export const possibleTaskUrl = apiUrl + "/possible_task/"
 export const taskUrl = apiUrl + "/task/"
 
 export const invitationUrl = apiUrl + "/invitation/"
+export const validInvitationListUrl = invitationUrl + "get_valid_list/"

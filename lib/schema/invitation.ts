@@ -10,3 +10,7 @@ export const invitationSchema = z.object({
 })
 
 export type Invitation = z.infer<typeof invitationSchema>
+
+export const validListInvitationSchema = z.object({
+  data: z.array(invitationSchema),
+})
