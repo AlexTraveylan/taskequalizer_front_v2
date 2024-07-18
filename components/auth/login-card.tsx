@@ -11,7 +11,7 @@ import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
@@ -29,17 +29,17 @@ export function LoginForm() {
     },
   })
 
+  const [initialized, setInitialized] = useState(false)
   const usernameRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (usernameRef.current && passwordRef.current) {
-      usernameRef.current.focus()
-      usernameRef.current.blur()
-      passwordRef.current.focus()
-      passwordRef.current.blur()
+    if (!initialized && usernameRef.current?.value && passwordRef.current?.value) {
+      form.setValue("username", usernameRef.current.value)
+      form.setValue("password", passwordRef.current.value)
+      setInitialized(true)
     }
-  }, [])
+  }, [initialized, form])
 
   const onSubmit = async (formData: z.infer<typeof loginSchema>) => {
     const response = await fetch(loginUrl, {
