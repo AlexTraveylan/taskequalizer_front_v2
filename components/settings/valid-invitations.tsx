@@ -40,17 +40,17 @@ export const ValidInvitations = () => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Code</TableHead>
-          <TableHead>isUsed</TableHead>
-          <TableHead className="max-[450px]:hidden">Expiration</TableHead>
-          <TableHead>delete</TableHead>
+          <TableHead>{scopedT("head.code")}</TableHead>
+          <TableHead>{scopedT("head.isUsed")}</TableHead>
+          <TableHead className="max-[450px]:hidden">{scopedT("head.expiration")}</TableHead>
+          <TableHead>{scopedT("head.delete")}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data.map(({ id, code, is_used, expired_at }, index) => (
           <TableRow key={`${id}${index}`}>
             <TableCell>{code}</TableCell>
-            <TableCell>{<Badge variant={is_used ? "success" : "destructive"}>{is_used ? "used" : "not used"}</Badge>}</TableCell>
+            <TableCell>{<Badge variant={is_used ? "success" : "destructive"}>{is_used ? scopedT("used") : scopedT("not-used")}</Badge>}</TableCell>
             <TableCell className="max-[450px]:hidden">{formatDateTime(expired_at, locale)}</TableCell>
             <TableCell>
               <Trash className="cursor-pointer text-destructive" onClick={() => deleteMutation.mutate(id)} />

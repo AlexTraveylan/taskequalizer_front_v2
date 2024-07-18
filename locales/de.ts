@@ -133,4 +133,10 @@ export default {
   "zod.possibleTaskInSchema.description.max": "Die Beschreibung der möglichen Aufgabe darf höchstens 1000 Zeichen enthalten",
   "valid-invitations.delete.error-message": "Die Einladung konnte nicht gelöscht werden",
   "valid-invitations.delete.success-message": "Die Einladung wurde erfolgreich gelöscht",
+  "valid-invitations.head.code": "Code",
+  "valid-invitations.head.isUsed": "Wurde verwendet",
+  "valid-invitations.head.expiration": "Ablauf",
+  "valid-invitations.head.delete": "Löschen",
+  "valid-invitations.used": "verwendet",
+  "valid-invitations.not-used": "nicht verwendet",
 } as const
