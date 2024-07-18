@@ -84,6 +84,7 @@ export default {
   "taskequalizer.ranking": "Classement",
   "current-task-page.title_begin_task": "Commencer une tâche",
   "current-task-page.search_label": "Rechercher une tâche ...",
+  "current-task-page.configuration-link-label": "Aller à la configuration des tâches possibles",
   "current-task.title": "Tâche en cours",
   "current-task.finish-btn": "Déclarer la tâche terminée",
   "current-task.error-message": "Une erreur s'est produite",

@@ -4,10 +4,12 @@ import { CurrentTaskForm } from "@/components/taskequalizer/currentTask/current-
 import NoPossibleTask from "@/components/taskequalizer/currentTask/no-possible-task"
 import { PossibleTaskCardForm } from "@/components/taskequalizer/currentTask/possible-task-card-form"
 import { InputSearch } from "@/components/ui/search-input"
+import { settingsNavItems } from "@/lib/app-types"
 import { familyService } from "@/lib/services/family"
 import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function CurrentTaskPage() {
@@ -43,6 +45,9 @@ export default function CurrentTaskPage() {
           className="w-[280px]"
         />
       </div>
+      <Link href={settingsNavItems["possibleTasks"].href} className="text-sm text-muted-foreground">
+        {scopedT("configuration-link-label")}
+      </Link>
       <div className="flex flex-wrap gap-3 py-5">
         {query2.data
           .filter((possibleTask) => possibleTask.possible_task_name.toLowerCase().includes(filterKey.toLowerCase()))
