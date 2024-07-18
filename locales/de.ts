@@ -131,4 +131,6 @@ export default {
   "zod.possibleTaskInSchema.possible_task_name.min": "Der Name der möglichen Aufgabe muss mindestens 2 Zeichen enthalten",
   "zod.possibleTaskInSchema.possible_task_name.max": "Der Name der möglichen Aufgabe darf höchstens 25 Zeichen enthalten",
   "zod.possibleTaskInSchema.description.max": "Die Beschreibung der möglichen Aufgabe darf höchstens 1000 Zeichen enthalten",
+  "valid-invitations.delete.error-message": "Die Einladung konnte nicht gelöscht werden",
+  "valid-invitations.delete.success-message": "Die Einladung wurde erfolgreich gelöscht",
 } as const

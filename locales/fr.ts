@@ -132,4 +132,6 @@ export default {
   "zod.possibleTaskInSchema.possible_task_name.min": "Le nom de la tâche possible doit contenir au moins 2 caractères",
   "zod.possibleTaskInSchema.possible_task_name.max": "Le nom de la tâche possible doit contenir au maximum 13 caractères",
   "zod.possibleTaskInSchema.description.max": "La description de la tâche possible doit contenir au maximum 1000 caractères",
+  "valid-invitations.delete.error-message": "L'invitation n'a pas pu être supprimée",
+  "valid-invitations.delete.success-message": "L'invitation a été supprimée avec succès",
 } as const

@@ -14,3 +14,9 @@ export type Invitation = z.infer<typeof invitationSchema>
 export const validListInvitationSchema = z.object({
   data: z.array(invitationSchema),
 })
+
+export const messageResponseSchema = z.object({
+  message: z.string(),
+})
+
+export type MessageResponse = z.infer<typeof messageResponseSchema>

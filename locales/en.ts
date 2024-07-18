@@ -130,4 +130,6 @@ export default {
   "zod.possibleTaskInSchema.possible_task_name.min": "The possible task name must contain at least 2 characters",
   "zod.possibleTaskInSchema.possible_task_name.max": "The possible task name must contain at most 13 characters",
   "zod.possibleTaskInSchema.description.max": "The description must contain at most 1000 characters",
+  "valid-invitations.delete.error-message": "The invitation could not be deleted",
+  "valid-invitations.delete.success-message": "The invitation was deleted successfully",
 } as const
