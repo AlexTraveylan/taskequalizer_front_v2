@@ -37,6 +37,8 @@ export const DonutChart = ({ chartConfig, chartData, dataKey, nameKey, title, de
     return <NoData title={title} description={description} />
   }
 
+  const chartDataCleaned = chartData.filter((item) => item[dataKey] > 0)
+
   return (
     <Card data-chart={id} className="flex flex-col">
       <ChartStyle id={id} config={chartConfig} />
@@ -79,7 +81,7 @@ export const DonutChart = ({ chartConfig, chartData, dataKey, nameKey, title, de
             <Pie
               label
               labelLine={false}
-              data={chartData}
+              data={chartDataCleaned}
               dataKey={dataKey}
               nameKey={nameKey}
               innerRadius={60}

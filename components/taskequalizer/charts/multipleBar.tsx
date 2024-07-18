@@ -17,8 +17,6 @@ type MultipleBarCharttProps = {
 }
 
 export function MultipleBarChart({ chartConfig, chartData, dataKey, nameKey, title, description }: MultipleBarCharttProps) {
-  console.log("chartData", chartData, nameKey)
-
   const lenData = chartData.reduce((acc, item) => {
     for (const key of nameKey) {
       acc += item[key]
@@ -30,6 +28,14 @@ export function MultipleBarChart({ chartConfig, chartData, dataKey, nameKey, tit
     return <NoData title={title} description={description} />
   }
 
+  const chartDataCleaned = chartData.filter((item) => {
+    let total = 0
+    for (const key of nameKey) {
+      total += item[key]
+    }
+    return total > 0
+  })
+
   return (
     <Card>
       <CardHeader>
@@ -40,13 +46,14 @@ export function MultipleBarChart({ chartConfig, chartData, dataKey, nameKey, tit
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={chartDataCleaned}
             margin={{
               top: 30,
+              bottom: 48,
             }}
           >
             <CartesianGrid vertical={false} />
-            <XAxis dataKey={dataKey} tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value.slice(0, 10)} />
+            <XAxis dataKey={dataKey} angle={-80} tickLine={false} tickMargin={35} axisLine={false} tickFormatter={(value) => value.slice(0, 12)} />
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dashed" />} />
             {nameKey.map((nkey, index) => (
               <Bar key={nkey} dataKey={nkey} fill={colors[index]} radius={4}>
