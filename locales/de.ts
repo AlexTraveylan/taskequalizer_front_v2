@@ -139,4 +139,8 @@ export default {
   "valid-invitations.head.delete": "Löschen",
   "valid-invitations.used": "verwendet",
   "valid-invitations.not-used": "nicht verwendet",
+  "family-name-form.success-message": "Der Familienname wurde erfolgreich geändert",
+  "family-name-form.error-message": "Ein Fehler ist aufgetreten",
+  "family-name-form.task_name_field": "Haushaltsname",
+  "family-name-form.button_label": "Änderungen speichern",
 } as const

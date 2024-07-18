@@ -10,8 +10,6 @@ export const familySchema = z.object({
 
 export type Family = z.infer<typeof familySchema>
 
-export type FamilyIn = Pick<Family, "family_name">
-
 export const dataTasksByMembersSchema = z.object({
   data: z.array(
     z.object({
@@ -38,3 +36,9 @@ export const dataPossibleTasksDetailsSchema = z.object({
 })
 
 export type DataPossibleTasksDetails = z.infer<typeof dataPossibleTasksDetailsSchema>
+
+export const familyInSchema = z.object({
+  family_name: z.string().min(2, { message: "registerSchema.family_name.min" }).max(25, { message: "registerSchema.family_name.max" }),
+})
+
+export type FamilyIn = z.infer<typeof familyInSchema>
