@@ -3,7 +3,7 @@
 import { CurrentTaskForm } from "@/components/taskequalizer/currentTask/current-task"
 import NoPossibleTask from "@/components/taskequalizer/currentTask/no-possible-task"
 import { PossibleTaskCardForm } from "@/components/taskequalizer/currentTask/possible-task-card-form"
-import { Input } from "@/components/ui/input"
+import { InputSearch } from "@/components/ui/search-input"
 import { familyService } from "@/lib/services/family"
 import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
@@ -33,7 +33,7 @@ export default function CurrentTaskPage() {
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-5 flex-wrap">
         <h1 className="text-3xl font-semibold">{scopedT("title_begin_task")}</h1>
-        <Input
+        <InputSearch
           placeholder={scopedT("search_label")}
           onChange={(e) => {
             e.preventDefault()
