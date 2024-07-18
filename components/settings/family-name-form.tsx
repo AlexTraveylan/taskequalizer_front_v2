@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 import { Button } from "../ui/button"
+import { DialogClose, DialogFooter } from "../ui/dialog"
 import { Input } from "../ui/input"
 
 export const FamilyNameForm = ({ familyName }: { familyName: string }) => {
@@ -52,9 +53,13 @@ export const FamilyNameForm = ({ familyName }: { familyName: string }) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
-          {scopedT("button_label")}
-        </Button>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button type="submit" className="w-full">
+              {scopedT("button_label")}
+            </Button>
+          </DialogClose>
+        </DialogFooter>
       </form>
     </Form>
   )

@@ -1,13 +1,16 @@
 "use client"
 
+import { FamilyNameForm } from "@/components/settings/family-name-form"
 import { InviteCodeForm } from "@/components/settings/invite-code-form"
 import { ValidInvitations } from "@/components/settings/valid-invitations"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Member } from "@/lib/schema/member"
 import { familyService } from "@/lib/services/family"
 import { formatDateTime } from "@/lib/utils"
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
+import { Edit } from "lucide-react"
 
 export default function InformationsPage() {
   const query1 = useQuery({ queryKey: ["members"], queryFn: familyService.getFamilyMembers })
@@ -35,9 +38,16 @@ export default function InformationsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <div className="flex flex-wrap gap-5 items-center">
+      <div className="flex flex-wrap gap-5 items-center justify-center">
         <h1 className="text-3xl font-semibold">{query2.data.family_name}</h1>
-        <h2 className="text-sm text-muted-foreground">Edit and Delete comming soon ...</h2>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Edit size={24} strokeWidth={1.4} className="cursor-pointer" />
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <FamilyNameForm familyName={query2.data.family_name} />
+          </DialogContent>
+        </Dialog>
       </div>
       <Table>
         <TableCaption>{t("caption")}</TableCaption>

@@ -30,7 +30,7 @@ import { possibleTaskService } from "@/lib/services/possible-task"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { SquareArrowOutUpRight, Trash } from "lucide-react"
+import { Edit, Trash } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
@@ -80,7 +80,7 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
       <TableCell>
         <Dialog>
           <DialogTrigger asChild>
-            <SquareArrowOutUpRight className="cursor-pointer" />
+            <Edit size={24} strokeWidth={1.4} className="cursor-pointer" />
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <Form {...form}>
