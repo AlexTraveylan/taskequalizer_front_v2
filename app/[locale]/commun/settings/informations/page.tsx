@@ -1,6 +1,7 @@
 "use client"
 
 import { InviteCodeForm } from "@/components/settings/invite-code-form"
+import { ValidInvitations } from "@/components/settings/valid-invitations"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Member } from "@/lib/schema/member"
 import { familyService } from "@/lib/services/family"
@@ -63,7 +64,7 @@ export default function InformationsPage() {
         </TableBody>
       </Table>
       <InviteCodeForm />
-      <h2 className="text-sm text-muted-foreground">Display here valid invitations list, soon ...</h2>
+      <ValidInvitations />
     </div>
   )
 }
