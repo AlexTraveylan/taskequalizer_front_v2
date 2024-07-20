@@ -55,7 +55,7 @@ export const EphemeralTaskCardForm = ({ ephemeralTask }: { ephemeralTask: Epheme
       <CardContent>
         <Button onClick={() => completMutation.mutate(ephemeralTask.id)}>{scopedT("complete-etask-btn")}</Button>
       </CardContent>
-      <CardFooter className="justify-end">
+      <CardFooter>
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Trash className="cursor-pointer text-destructive" />

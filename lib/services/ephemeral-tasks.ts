@@ -14,8 +14,7 @@ class EphemeralTasksService {
     })
 
     if (!response.ok) {
-      console.error("Failed to get all ephemeral tasks")
-      return
+      throw new Error("Failed to fetch ephemeral tasks")
     }
 
     const data = await response.json()
@@ -38,8 +37,7 @@ class EphemeralTasksService {
     })
 
     if (!response.ok) {
-      console.error("Failed to create ephemeral task")
-      return
+      throw new Error("Failed to create ephemeral task")
     }
 
     const data = await response.json()
@@ -52,7 +50,7 @@ class EphemeralTasksService {
   }
 
   async completeEphemeralTask(eTaskId: string): Promise<EphemeralTask | undefined> {
-    const response = await fetch(`${ephemeralTaskUrl}/${eTaskId}`, {
+    const response = await fetch(`${ephemeralTaskUrl}${eTaskId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -61,8 +59,7 @@ class EphemeralTasksService {
     })
 
     if (!response.ok) {
-      console.error("Failed to complete ephemeral task")
-      return
+      throw new Error("Failed to complete ephemeral task")
     }
 
     const data = await response.json()
@@ -75,7 +72,7 @@ class EphemeralTasksService {
   }
 
   async deleteEphemeralTask(eTaskId: string): Promise<SimpleMessage | undefined> {
-    const response = await fetch(`${ephemeralTaskUrl}/${eTaskId}`, {
+    const response = await fetch(`${ephemeralTaskUrl}${eTaskId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -84,8 +81,7 @@ class EphemeralTasksService {
     })
 
     if (!response.ok) {
-      console.error("Failed to delete ephemeral task")
-      return
+      throw new Error("Failed to delete ephemeral task")
     }
 
     const data = await response.json()

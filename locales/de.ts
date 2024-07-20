@@ -79,6 +79,8 @@ export default {
   "possible-task-card-form.start-task-btn": "Starten Sie die Aufgabe",
   "ephemeral-task-page.title": "Temporäre Aufgaben",
   "ephemeral-task-page.search_label": "Suche ...",
+  "ephemeral-task-page.open_form_label": "Öffnen Sie das Formular, um eine neue temporäre Aufgabe zu erstellen",
+  "ephemeral-task-page.close_form_label": "Schließen Sie das Formular, um eine neue temporäre Aufgabe zu erstellen",
   "ephemeral-task-card-form.complete.success-message": "Die temporäre Aufgabe wurde erfolgreich erstellt",
   "ephemeral-task-card-form.complete.error-message": "Ein Fehler ist aufgetreten bei der Erstellung der temporären Aufgabe",
   "ephemeral-task-card-form.complete-etask-btn": "Erklärung, diese Aufgabe abgeschlossen zu haben",

@@ -88,6 +88,8 @@ export default {
   "ephemeral-task-card-form.alert_delete_description": "Cette action est irréversible.",
   "ephemeral-task-page.title": "Tâches éphémères",
   "ephemeral-task-page.search_label": "Rechercher ...",
+  "ephemeral-task-page.open_form_label": "Ouvrir le formulaire de création de tâche éphémère",
+  "ephemeral-task-page.close_form_label": "Fermer le formulaire de création de tâche éphémère",
   "ephemeral-task-create-form.title": "Créer une nouvelle tâche éphémère",
   "ephemeral-task-create-form.description":
     "Créez une nouvelle tâche éphémère pour les membres du foyer, pour la valeur, entrez le temps estimé en minutes.",

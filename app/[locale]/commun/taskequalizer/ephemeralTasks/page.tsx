@@ -6,6 +6,7 @@ import { InputSearch } from "@/components/ui/search-input"
 import { ephemeralTasksService } from "@/lib/services/ephemeral-tasks"
 import { useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
+import { CircleMinus, CirclePlus } from "lucide-react"
 import { useState } from "react"
 
 export default function EphemeralTaskPage() {
@@ -40,9 +41,21 @@ export default function EphemeralTaskPage() {
           className="w-[280px]"
         />
       </div>
-      <EphemeralTaskCreateForm setIsFormOpen={setIsFormOpen} />
+      {isFormOpen ? (
+        <div className="items-center flex flex-col gap-2">
+          <h2 className="text-sm text-muted-foreground">{scopedT("close_form_label")}</h2>
+          <CircleMinus className="cursor-pointer mb-3" size={30} strokeWidth={1.3} onClick={() => setIsFormOpen(false)} />
+          <EphemeralTaskCreateForm setIsFormOpen={setIsFormOpen} />
+        </div>
+      ) : (
+        <div className="items-center flex flex-col gap-2">
+          <h2 className="text-sm text-muted-foreground">{scopedT("open_form_label")}</h2>
+          <CirclePlus className="cursor-pointer" size={30} strokeWidth={1.3} onClick={() => setIsFormOpen(true)} />
+        </div>
+      )}
       <div className="flex flex-wrap gap-3 py-5">
         {data
+          .filter((ephemeralTask) => ephemeralTask.member === null)
           .filter((ephemeralTask) => ephemeralTask.ephemeral_task_name.toLowerCase().includes(filterKey.toLowerCase()))
           .map((ephemeralTask, index) => (
             <EphemeralTaskCardForm key={`${ephemeralTask.id}eTaskCard${index}`} ephemeralTask={ephemeralTask} />

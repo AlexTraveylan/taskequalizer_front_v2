@@ -79,6 +79,8 @@ export default {
   "possible-task-card-form.start-task-btn": "Start the task",
   "ephemeral-task-page.title": "Ephemeral tasks",
   "ephemeral-task-page.search_label": "Search ...",
+  "ephemeral-task-page.open_form_label": "Open the form to create a new ephemeral task",
+  "ephemeral-task-page.close_form_label": "Close the form to create a new ephemeral task",
   "ephemeral-task-card-form.complete.success-message": "The ephemeral task was completed successfully",
   "ephemeral-task-card-form.complete.error-message": "An error occurred while completing the ephemeral task",
   "ephemeral-task-card-form.complete-etask-btn": "Declare that you have completed this task",
