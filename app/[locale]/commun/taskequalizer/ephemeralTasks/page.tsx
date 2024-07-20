@@ -1,6 +1,7 @@
 "use client"
 
 import { EphemeralTaskCardForm } from "@/components/taskequalizer/ephemeralTask/ephemeral-task-card-form"
+import { EphemeralTaskCreateForm } from "@/components/taskequalizer/ephemeralTask/ephemeral-task-create-form"
 import { InputSearch } from "@/components/ui/search-input"
 import { ephemeralTasksService } from "@/lib/services/ephemeral-tasks"
 import { useScopedI18n } from "@/locales/client"
@@ -8,9 +9,10 @@ import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
 
 export default function EphemeralTaskPage() {
-  const { data, isError, isLoading } = useQuery({ queryKey: ["family"], queryFn: ephemeralTasksService.getAllEphemeralTasksForFamily })
+  const { data, isError, isLoading } = useQuery({ queryKey: ["ephemeralTasks"], queryFn: ephemeralTasksService.getAllEphemeralTasksForFamily })
   const [filterKey, setFilterKey] = useState<string>("")
   const scopedT = useScopedI18n("ephemeral-task-page")
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
 
   if (isLoading) {
     return <>Loading...</>
@@ -38,6 +40,7 @@ export default function EphemeralTaskPage() {
           className="w-[280px]"
         />
       </div>
+      <EphemeralTaskCreateForm setIsFormOpen={setIsFormOpen} />
       <div className="flex flex-wrap gap-3 py-5">
         {data
           .filter((ephemeralTask) => ephemeralTask.ephemeral_task_name.toLowerCase().includes(filterKey.toLowerCase()))

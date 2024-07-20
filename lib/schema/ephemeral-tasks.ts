@@ -6,9 +6,9 @@ export const ephemeralTaskSchema = z.object({
   description: z.string(),
   created_at: z.string(),
   value: z.number(),
-  ended_at: z.string().optional(),
+  ended_at: z.union([z.string(), z.null()]),
   family: z.string(),
-  member: z.string().optional(),
+  member: z.union([z.string(), z.null()]),
 })
 
 export type EphemeralTask = z.infer<typeof ephemeralTaskSchema>
