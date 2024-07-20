@@ -2,18 +2,18 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { PossibleTask } from "@/lib/schema/possible-task"
-import { taskService } from "@/lib/services/task"
+import { EphemeralTask } from "@/lib/schema/ephemeral-tasks"
+import { ephemeralTasksService } from "@/lib/services/ephemeral-tasks"
 import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 
-export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleTask }) => {
+export const EphemeralTaskCardForm = ({ ephemeralTask }: { ephemeralTask: EphemeralTask }) => {
   const queryClient = useQueryClient()
-  const scopedT = useScopedI18n("possible-task-card-form")
+  const scopedT = useScopedI18n("ephemeral-task-card-form")
 
-  const mutation = useMutation({
-    mutationFn: taskService.createTask,
+  const completMutation = useMutation({
+    mutationFn: ephemeralTasksService.completeEphemeralTask,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["currentTask"] })
       toast.info(scopedT("success-message"))
@@ -26,11 +26,11 @@ export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleT
   return (
     <Card className="min-w-[280px]">
       <CardHeader>
-        <CardTitle>{possibleTask.possible_task_name}</CardTitle>
-        <CardDescription>{possibleTask.description}</CardDescription>
+        <CardTitle>{ephemeralTask.ephemeral_task_name}</CardTitle>
+        <CardDescription>{ephemeralTask.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Button onClick={() => mutation.mutate({ related_possible_task_id: possibleTask.id })}>{scopedT("start-task-btn")}</Button>
+        <Button onClick={() => completMutation.mutate(ephemeralTask.id)}>{scopedT("complete-etask-btn")}</Button>
       </CardContent>
     </Card>
   )

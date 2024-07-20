@@ -53,7 +53,7 @@ export const authNavItems: Record<authKeyPossible, AuthNavigationItem> = {
 
 // -----------------------------------------------------------------------------------------------
 
-type taskEqualizerKeyPossible = "currentTask" | "dailyChart" | "weeklyChart" | "ranking"
+type taskEqualizerKeyPossible = "currentTask" | "ephemeralTasks" | "dailyChart" | "weeklyChart" | "ranking"
 
 type TaskEqualizerNavigationItem = {
   i18nKey: taskEqualizerKeyPossible
@@ -62,6 +62,7 @@ type TaskEqualizerNavigationItem = {
 
 export const taskEqualizerNavItems: Record<taskEqualizerKeyPossible, TaskEqualizerNavigationItem> = {
   currentTask: { i18nKey: "currentTask", href: "/commun/taskequalizer/currentTask" },
+  ephemeralTasks: { i18nKey: "ephemeralTasks", href: "/commun/taskequalizer/ephemeralTasks" },
   dailyChart: { i18nKey: "dailyChart", href: "/commun/taskequalizer/dailyChart" },
   weeklyChart: { i18nKey: "weeklyChart", href: "/commun/taskequalizer/weeklyChart" },
   ranking: { i18nKey: "ranking", href: "/commun/taskequalizer/ranking" },

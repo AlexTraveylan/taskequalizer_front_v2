@@ -98,3 +98,5 @@ class EphemeralTasksService {
     }
   }
 }
+
+export const ephemeralTasksService = new EphemeralTasksService()

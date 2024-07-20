@@ -13,21 +13,20 @@ import Link from "next/link"
 import { useState } from "react"
 
 export default function CurrentTaskPage() {
-  const query = useQuery({ queryKey: ["family"], queryFn: familyService.getFamily })
-  const query2 = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
-  const query3 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask })
+  const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
+  const query2 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask })
   const [filterKey, setFilterKey] = useState<string>("")
   const scopedT = useScopedI18n("current-task-page")
 
-  if (!query.data || !query2.data) {
+  if (!query.data) {
     return <></>
   }
 
-  if (query3.data) {
-    return <CurrentTaskForm currentTask={query3.data} />
+  if (query2.data) {
+    return <CurrentTaskForm currentTask={query2.data} />
   }
 
-  if (query2.data.length === 0) {
+  if (query.data.length === 0) {
     return <NoPossibleTask />
   }
 
@@ -49,7 +48,7 @@ export default function CurrentTaskPage() {
         {scopedT("configuration-link-label")}
       </Link>
       <div className="flex flex-wrap gap-3 py-5">
-        {query2.data
+        {query.data
           .filter((possibleTask) => possibleTask.possible_task_name.toLowerCase().includes(filterKey.toLowerCase()))
           .map((possibleTask, index) => (
             <PossibleTaskCardForm key={`${possibleTask.id}pTaskCard${index}`} possibleTask={possibleTask} />
