@@ -34,3 +34,9 @@ export const registerInviteSchema = z.object({
     .refine((value) => /\d/.test(value), { message: "registerInviteSchema.password.digit" }),
   invitation_code: z.string().regex(/^[A-Z0-9]{8}$/, { message: "registerInviteSchema.invitation_code" }),
 })
+
+export const simpleMessageSchema = z.object({
+  message: z.string(),
+})
+
+export type SimpleMessage = z.infer<typeof simpleMessageSchema>

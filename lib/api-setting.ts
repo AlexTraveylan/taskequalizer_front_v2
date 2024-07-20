@@ -23,3 +23,5 @@ export const taskUrl = apiUrl + "/task/"
 export const invitationUrl = apiUrl + "/invitation/"
 export const cleanInvitationUrl = invitationUrl + "clean_invitations/"
 export const validInvitationListUrl = invitationUrl + "get_valid_list/"
+
+export const ephemeralTaskUrl = apiUrl + "/ephemeral_task/"
