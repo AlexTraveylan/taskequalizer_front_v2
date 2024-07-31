@@ -1,13 +1,10 @@
 import { cleanInvitationUrl, invitationUrl, validInvitationListUrl } from "@/lib/api-setting"
 import { Invitation, invitationSchema, MessageResponse, messageResponseSchema, validListInvitationSchema } from "@/lib/schema/invitation"
+import { SimpleMessage, simpleMessageSchema } from "../schema/auth"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class InvitationService {
-  /**
-   * Creates an invitation.
-   * @returns A Promise that resolves to an instance of Invitation if successful, otherwise undefined.
-   */
-  async createInvitation(): Promise<Invitation | undefined> {
+  async createInvitation(): Promise<Invitation | SimpleMessage> {
     const response = await fetch(invitationUrl, {
       method: "GET",
       headers: {
@@ -16,21 +13,22 @@ class InvitationService {
       },
     })
 
+    if (response.status === 403) {
+      const data = await response.json()
+      const message = simpleMessageSchema.parse(data)
+      return message
+    }
+
     if (!response.ok) {
-      console.error("Failed to fetch invitation")
-      return
+      throw new Error("Failed to create invitation")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = invitationSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse invitation")
-    }
+    const parsedData = invitationSchema.parse(data)
+    return parsedData
   }
 
-  async getValidInvitations(): Promise<Invitation[] | undefined> {
+  async getValidInvitations(): Promise<Invitation[]> {
     const response = await fetch(validInvitationListUrl, {
       method: "GET",
       headers: {
@@ -40,20 +38,15 @@ class InvitationService {
     })
 
     if (!response.ok) {
-      console.error("Failed to fetch invitations")
-      return
+      throw new Error("Failed to get valid invitations")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = validListInvitationSchema.parse(data)
-      return parsedData.data
-    } catch (error) {
-      console.error("Failed to parse invitations")
-    }
+    const parsedData = validListInvitationSchema.parse(data)
+    return parsedData.data
   }
 
-  async deleteInvitation(invitationId: string): Promise<MessageResponse | undefined> {
+  async deleteInvitation(invitationId: string): Promise<MessageResponse> {
     const response = await fetch(`${invitationUrl}${invitationId}`, {
       method: "DELETE",
       headers: {
@@ -63,21 +56,16 @@ class InvitationService {
     })
 
     if (!response.ok) {
-      console.error("Failed to delete invitation")
-      return
+      throw new Error("Failed to delete invitation")
     }
 
     const data = await response.json()
 
-    try {
-      const parsedData = messageResponseSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse message response")
-    }
+    const parsedData = messageResponseSchema.parse(data)
+    return parsedData
   }
 
-  async cleanInvalidInvitations(): Promise<MessageResponse | undefined> {
+  async cleanInvalidInvitations(): Promise<MessageResponse> {
     const response = await fetch(cleanInvitationUrl, {
       method: "DELETE",
       headers: {
@@ -87,18 +75,13 @@ class InvitationService {
     })
 
     if (!response.ok) {
-      console.error("Failed to clean invitations")
-      return
+      throw new Error("Failed to clean invalid invitations")
     }
 
     const data = await response.json()
 
-    try {
-      const parsedData = messageResponseSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse message response")
-    }
+    const parsedData = messageResponseSchema.parse(data)
+    return parsedData
   }
 }
 

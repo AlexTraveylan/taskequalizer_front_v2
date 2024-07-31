@@ -7,52 +7,42 @@ class MemberService {
   /**
    * Retrieves a member by ID.
    * @param member_id - The ID of the member to retrieve.
-   * @returns A Promise that resolves to a Member object, or undefined if the request fails.
+   * @returns A Promise that resolves to a Member object
    */
-  async getMember(member_id: string): Promise<Member | undefined> {
+  async getMember(member_id: string): Promise<Member> {
     const response = await fetch(`${memberUrl}${member_id}`, {
       method: "GET",
     })
 
     if (!response.ok) {
-      console.error("Failed to get member")
-      return
+      throw new Error("Failed to get member")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = memberSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse member")
-    }
+    const parsedData = memberSchema.parse(data)
+    return parsedData
   }
 
   /**
    * Retrieves the tasks for a specific member.
    * @param member_id - The ID of the member.
-   * @returns A promise that resolves to an array of tasks, or undefined if there was an error.
+   * @returns A promise that resolves to an array of tasks.
    */
-  async getMemberTasks(member_id: string): Promise<Task[] | undefined> {
+  async getMemberTasks(member_id: string): Promise<Task[]> {
     const response = await fetch(`${memberTaskUrl}${member_id}`, {
       method: "GET",
     })
 
     if (!response.ok) {
-      console.error("Failed to get member tasks")
-      return
+      throw new Error("Failed to get member tasks")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = taskSchema.array().parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse member tasks")
-    }
+    const parsedData = taskSchema.array().parse(data)
+    return parsedData
   }
 
-  async whoIam(): Promise<WhoIam | undefined> {
+  async whoIam(): Promise<WhoIam> {
     const response = await fetch(memberUrl, {
       method: "GET",
       headers: {
@@ -61,13 +51,13 @@ class MemberService {
       },
     })
 
-    const data = await response.json()
-    try {
-      const parsedData = whoIamSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to get name")
+    if (!response.ok) {
+      throw new Error("Failed to fetch whoIam")
     }
+
+    const data = await response.json()
+    const parsedData = whoIamSchema.parse(data)
+    return parsedData
   }
 
   /**
@@ -93,19 +83,13 @@ class MemberService {
     return true
   }
 
-  /**
-   * Deletes a member with the specified ID.
-   * @param member_id - The ID of the member to delete.
-   * @returns A promise that resolves to a boolean indicating whether the member was successfully deleted.
-   */
   async deleteMember(member_id: string): Promise<boolean> {
     const response = await fetch(`${memberUrl}${member_id}`, {
       method: "DELETE",
     })
 
     if (!response.ok) {
-      console.error("Failed to delete member")
-      return false
+      throw new Error("Failed to delete member")
     }
 
     return true

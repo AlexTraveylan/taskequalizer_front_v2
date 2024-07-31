@@ -21,14 +21,7 @@ import { Member, memberSchema } from "@/lib/schema/member"
 import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
-/**
- * Represents a service for managing family-related operations.
- */
 class FamilyService {
-  /**
-   * Retrieves the family information.
-   * @returns A Promise that resolves to a Family object, or undefined if the request fails.
-   */
   async getFamily(): Promise<Family | undefined> {
     const response = await fetch(familyUrl, {
       method: "GET",
@@ -39,23 +32,14 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch family")
-      return
+      throw new Error("Failed to fetch family")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = familySchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse family")
-    }
+    const parsedData = familySchema.parse(data)
+    return parsedData
   }
 
-  /**
-   * Retrieves the family members.
-   * @returns A Promise that resolves to an array of Member objects, or undefined if the request fails.
-   */
   async getFamilyMembers(): Promise<Member[]> {
     const response = await fetch(familyMembersUrl, {
       method: "GET",
@@ -66,25 +50,15 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch family members")
       throw new Error("Failed to fetch family members")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = memberSchema.array().parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse family members")
-      throw new Error("Failed to parse family members")
-    }
+    const parsedData = memberSchema.array().parse(data)
+    return parsedData
   }
 
-  /**
-   * Retrieves the possible tasks for the family.
-   * @returns A Promise that resolves to an array of PossibleTask objects, or undefined if the request fails.
-   */
-  async getFamilyPossibleTasks(): Promise<PossibleTask[] | undefined> {
+  async getFamilyPossibleTasks(): Promise<PossibleTask[]> {
     const response = await fetch(familyPossibleTasksUrl, {
       method: "GET",
       headers: {
@@ -94,20 +68,15 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch family possible tasks")
-      return
+      throw new Error("Failed to fetch possible tasks")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = possibleTaskSchema.array().parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse family possible tasks")
-    }
+    const parsedData = possibleTaskSchema.array().parse(data)
+    return parsedData
   }
 
-  async getTasksByMembers(): Promise<DataTasksByMembers | undefined> {
+  async getTasksByMembers(): Promise<DataTasksByMembers> {
     const response = await fetch(familyTasksUrl, {
       method: "GET",
       headers: {
@@ -117,20 +86,15 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch tasks by members")
-      return
+      throw new Error("Failed to fetch tasks by members")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = dataTasksByMembersSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse tasks by members")
-    }
+    const parsedData = dataTasksByMembersSchema.parse(data)
+    return parsedData
   }
 
-  async getFamilyPossibleTaskDetails(): Promise<DataPossibleTasksDetails | undefined> {
+  async getFamilyPossibleTaskDetails(): Promise<DataPossibleTasksDetails> {
     const response = await fetch(familyPossibleTaskDetailsUrl, {
       method: "GET",
       headers: {
@@ -140,17 +104,12 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch family possible task details")
-      return
+      throw new Error("Failed to fetch family possible task details")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = dataPossibleTasksDetailsSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse family possible task details")
-    }
+    const parsedData = dataPossibleTasksDetailsSchema.parse(data)
+    return parsedData
   }
 
   async getTasksByDateByMember(): Promise<TasksByDateByMember> {
@@ -163,25 +122,14 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to fetch tasks by date by member")
       throw new Error("Failed to fetch tasks by date by member")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = tasksByDateByMemberSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse tasks by date by member")
-      throw new Error("Failed to parse tasks by date by member")
-    }
+    const parsedData = tasksByDateByMemberSchema.parse(data)
+    return parsedData
   }
 
-  /**
-   * Updates a family.
-   * @param family - The family object to update.
-   * @returns A promise that resolves to a boolean indicating whether the update was successful.
-   */
   async updateFamily(family: FamilyIn): Promise<boolean> {
     const response = await fetch(familyUrl, {
       method: "PUT",
@@ -193,17 +141,12 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to update family")
-      return false
+      throw new Error("Failed to update family")
     }
 
     return true
   }
 
-  /**
-   * Deletes the family.
-   * @returns A promise that resolves to a boolean indicating whether the deletion was successful.
-   */
   async deleteFamily(): Promise<boolean> {
     const response = await fetch(familyUrl, {
       method: "DELETE",
@@ -214,8 +157,7 @@ class FamilyService {
     })
 
     if (!response.ok) {
-      console.log("Failed to delete family")
-      return false
+      throw new Error("Failed to delete family")
     }
 
     return true

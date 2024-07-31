@@ -17,12 +17,8 @@ class EphemeralTasksService {
     }
 
     const data = await response.json()
-    try {
-      const parsedData = familySettingsSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      throw new Error("Failed to parse family settings")
-    }
+    const parsedData = familySettingsSchema.parse(data)
+    return parsedData
   }
 
   async updateLocale(locale: FamilySettingsIn): Promise<FamilySettings> {
@@ -40,12 +36,8 @@ class EphemeralTasksService {
     }
 
     const data = await response.json()
-    try {
-      const parsedData = familySettingsSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      throw new Error("Failed to parse family settings")
-    }
+    const parsedData = familySettingsSchema.parse(data)
+    return parsedData
   }
 }
 

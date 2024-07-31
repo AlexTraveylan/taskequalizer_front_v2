@@ -3,12 +3,7 @@ import { Task, TaskIn, taskSchema } from "@/lib/schema/task"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
 class TaskService {
-  /**
-   * Creates a new task.
-   * @param taskIn The task input data.
-   * @returns A promise that resolves to the created task, or undefined if the task creation fails.
-   */
-  async createTask(taskIn: TaskIn): Promise<Task | undefined> {
+  async createTask(taskIn: TaskIn): Promise<Task> {
     const response = await fetch(taskUrl, {
       method: "POST",
       headers: {
@@ -19,24 +14,15 @@ class TaskService {
     })
 
     if (!response.ok) {
-      console.error("Failed to create task")
-      return
+      throw new Error("Failed to create task")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = taskSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse task")
-    }
+    const parsedData = taskSchema.parse(data)
+    return parsedData
   }
 
-  /**
-   * Retrieves a task by its ID.
-   * @returns A Promise that resolves to the retrieved task, or undefined if the task is not found.
-   */
-  async getCurrentTask(): Promise<Task | undefined> {
+  async getCurrentTask(): Promise<Task> {
     const response = await fetch(`${taskUrl}`, {
       method: "GET",
       headers: {
@@ -46,27 +32,16 @@ class TaskService {
     })
 
     if (!response.ok) {
-      console.error("No current task found")
-      return undefined
+      throw new Error("Failed to get current task")
     }
 
     const data = await response.json()
 
-    try {
-      const parsedData = taskSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.log("Failed to parse task")
-      return undefined
-    }
+    const parsedData = taskSchema.parse(data)
+    return parsedData
   }
 
-  /**
-   * Updates a task with the specified task ID.
-   * @param task_id - The ID of the task to update.
-   * @returns A Promise that resolves to the updated Task object, or undefined if the update fails.
-   */
-  async updateTask(task_id: string): Promise<Task | undefined> {
+  async updateTask(task_id: string): Promise<Task> {
     const response = await fetch(`${taskUrl}${task_id}`, {
       method: "PUT",
       headers: {
@@ -76,24 +51,14 @@ class TaskService {
     })
 
     if (!response.ok) {
-      console.error("Failed to update task")
-      return
+      throw new Error("Failed to update task")
     }
 
     const data = await response.json()
-    try {
-      const parsedData = taskSchema.parse(data)
-      return parsedData
-    } catch (error) {
-      console.error("Failed to parse task")
-    }
+    const parsedData = taskSchema.parse(data)
+    return parsedData
   }
 
-  /**
-   * Deletes a task with the specified task_id.
-   * @param {string} task_id - The ID of the task to delete.
-   * @returns {Promise<boolean>} - A promise that resolves to true if the task is deleted successfully, false otherwise.
-   */
   async deleteTask(task_id: string): Promise<boolean> {
     const response = await fetch(`${taskUrl}${task_id}`, {
       method: "DELETE",
@@ -104,8 +69,7 @@ class TaskService {
     })
 
     if (!response.ok) {
-      console.error("Failed to delete task")
-      return false
+      throw new Error("Failed to delete task")
     }
 
     return true
@@ -121,7 +85,7 @@ class TaskService {
     })
 
     if (!response.ok) {
-      return false
+      throw new Error("Failed to clean invalid tasks")
     }
 
     return true
