@@ -1,6 +1,7 @@
 "use client"
 
 import { FamilyNameForm } from "@/components/settings/family-name-form"
+import FamilySettings from "@/components/settings/family-settings"
 import { InviteCodeForm } from "@/components/settings/invite-code-form"
 import { ValidInvitations } from "@/components/settings/valid-invitations"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
@@ -38,6 +39,7 @@ export default function InformationsPage() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
+      <FamilySettings />
       <div className="flex flex-wrap gap-5 items-center justify-center">
         <h1 className="text-3xl font-semibold">{query2.data.family_name}</h1>
         <Dialog>
