@@ -23,7 +23,7 @@ export const navItems: Record<navKeyPossible, NavigationItem> = {
 
 // -----------------------------------------------------------------------------------------------
 
-type settingsKeyPossible = "Informations" | "possibleTasks" | "myAccount"
+type settingsKeyPossible = "Informations" | "possibleTasks" | "myAccount" | "subscription"
 
 type SettingsNavigationItem = {
   i18nKey: settingsKeyPossible
@@ -34,6 +34,7 @@ export const settingsNavItems: Record<settingsKeyPossible, SettingsNavigationIte
   Informations: { i18nKey: "Informations", href: "/commun/settings/informations" },
   possibleTasks: { i18nKey: "possibleTasks", href: "/commun/settings/possible-tasks" },
   myAccount: { i18nKey: "myAccount", href: "/commun/settings/my-account" },
+  subscription: { i18nKey: "subscription", href: "/commun/settings/subscription" },
 }
 
 // -----------------------------------------------------------------------------------------------
