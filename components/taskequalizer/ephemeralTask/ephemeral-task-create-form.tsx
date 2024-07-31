@@ -26,7 +26,13 @@ export const EphemeralTaskCreateForm = ({ setIsFormOpen }: { setIsFormOpen: (val
 
   const mutation = useMutation({
     mutationFn: ephemeralTasksService.createEphemeralTask,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if ("message" in data) {
+        toast.error(data.message)
+        setIsFormOpen(false)
+        return
+      }
+
       queryClient.invalidateQueries({ queryKey: ["ephemeralTasks"] })
       setIsFormOpen(false)
       toast.success(scopedT("create.success-message"))
