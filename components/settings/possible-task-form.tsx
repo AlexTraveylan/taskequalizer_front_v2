@@ -30,7 +30,12 @@ export const PossibleTaskForm = () => {
 
   const mutation = useMutation({
     mutationFn: possibleTaskService.createPossibleTask,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if ("message" in data) {
+        toast.error(data.message)
+        return
+      }
+
       queryClient.invalidateQueries({ queryKey: ["possibleTasks"] })
       toast.success(scopedT("success-message"))
     },

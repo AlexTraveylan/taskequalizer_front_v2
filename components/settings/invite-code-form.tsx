@@ -19,10 +19,14 @@ export const InviteCodeForm = () => {
     mutationFn: invitationService.createInvitation,
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["validInvitations"] })
-      if (data) {
-        setCode(data.code)
-        toast.success(scopedT("success-message"))
+
+      if ("message" in data) {
+        toast.error(data.message)
+        return
       }
+
+      setCode(data.code)
+      toast.success(scopedT("success-message"))
     },
     onError: () => {
       toast.error(scopedT("error-message"))
