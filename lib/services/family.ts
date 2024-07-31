@@ -1,4 +1,11 @@
-import { familyMembersUrl, familyPossibleTaskDetailsUrl, familyPossibleTasksUrl, familyTasksUrl, familyUrl } from "@/lib/api-setting"
+import {
+  familyMembersUrl,
+  familyPossibleTaskDetailsUrl,
+  familyPossibleTasksUrl,
+  familyTasksUrl,
+  familyUrl,
+  tasksByDateByMemberUrl,
+} from "@/lib/api-setting"
 import {
   DataPossibleTasksDetails,
   dataPossibleTasksDetailsSchema,
@@ -7,6 +14,8 @@ import {
   Family,
   FamilyIn,
   familySchema,
+  TasksByDateByMember,
+  tasksByDateByMemberSchema,
 } from "@/lib/schema/family"
 import { Member, memberSchema } from "@/lib/schema/member"
 import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
@@ -47,7 +56,7 @@ class FamilyService {
    * Retrieves the family members.
    * @returns A Promise that resolves to an array of Member objects, or undefined if the request fails.
    */
-  async getFamilyMembers(): Promise<Member[] | undefined> {
+  async getFamilyMembers(): Promise<Member[]> {
     const response = await fetch(familyMembersUrl, {
       method: "GET",
       headers: {
@@ -58,7 +67,7 @@ class FamilyService {
 
     if (!response.ok) {
       console.log("Failed to fetch family members")
-      return
+      throw new Error("Failed to fetch family members")
     }
 
     const data = await response.json()
@@ -67,6 +76,7 @@ class FamilyService {
       return parsedData
     } catch (error) {
       console.log("Failed to parse family members")
+      throw new Error("Failed to parse family members")
     }
   }
 
@@ -140,6 +150,30 @@ class FamilyService {
       return parsedData
     } catch (error) {
       console.log("Failed to parse family possible task details")
+    }
+  }
+
+  async getTasksByDateByMember(): Promise<TasksByDateByMember> {
+    const response = await fetch(tasksByDateByMemberUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
+    })
+
+    if (!response.ok) {
+      console.log("Failed to fetch tasks by date by member")
+      throw new Error("Failed to fetch tasks by date by member")
+    }
+
+    const data = await response.json()
+    try {
+      const parsedData = tasksByDateByMemberSchema.parse(data)
+      return parsedData
+    } catch (error) {
+      console.log("Failed to parse tasks by date by member")
+      throw new Error("Failed to parse tasks by date by member")
     }
   }
 

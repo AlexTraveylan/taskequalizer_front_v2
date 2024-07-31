@@ -42,3 +42,11 @@ export const familyInSchema = z.object({
 })
 
 export type FamilyIn = z.infer<typeof familyInSchema>
+
+export const durationTaskSchema = z.object({
+  duration: z.number(),
+})
+
+export const tasksByDateByMemberSchema = z.record(z.string(), z.record(z.string(), z.array(durationTaskSchema)))
+
+export type TasksByDateByMember = z.infer<typeof tasksByDateByMemberSchema>
