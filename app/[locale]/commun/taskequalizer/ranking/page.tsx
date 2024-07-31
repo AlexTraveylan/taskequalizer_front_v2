@@ -1,5 +1,6 @@
 "use client"
 
+import { AreaInteractiveChart } from "@/components/taskequalizer/charts/area-chart"
 import { chartConfig, colors } from "@/components/taskequalizer/charts/colors"
 import { DonutChart } from "@/components/taskequalizer/charts/donus"
 import { MultipleBarChart } from "@/components/taskequalizer/charts/multipleBar"
@@ -125,6 +126,7 @@ export default function DailyChartPage() {
         title={t("bar-duration-tasks.title")}
         description={t("bar-duration-tasks.description")}
       />
+      <AreaInteractiveChart />
     </div>
   )
 }
