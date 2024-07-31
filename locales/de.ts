@@ -35,6 +35,7 @@ export default {
   "settings.Informations": "Mein Haushalt",
   "settings.possibleTasks": "Mögliche Aufgaben",
   "settings.myAccount": "Mein Konto",
+  "settings.subscription": "Abonnement",
   "informations.caption": "Informationen über Haushaltsmitglieder und ihre Aufgaben",
   "informations.memberName": "Mitgliedsname",
   "informations.createdAt": "Registriert am",
@@ -173,4 +174,6 @@ export default {
   "family-name-form.error-message": "Ein Fehler ist aufgetreten",
   "family-name-form.task_name_field": "Haushaltsname",
   "family-name-form.button_label": "Änderungen speichern",
+  "family-settings.plan": "Plan",
+  "language-form.langage-choice-label": "Sprachauswahl",
 } as const

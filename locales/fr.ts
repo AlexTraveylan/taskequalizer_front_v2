@@ -35,6 +35,7 @@ export default {
   "settings.Informations": "Mon foyer",
   "settings.possibleTasks": "Tâches possibles",
   "settings.myAccount": "Mon compte",
+  "settings.subscription": "Abonnement",
   "informations.caption": "Informations sur les membres du foyer et leurs tâches",
   "informations.memberName": "Nom du membre",
   "informations.createdAt": "Enregistré le",
@@ -173,4 +174,6 @@ export default {
   "family-name-form.error-message": "Le nom du foyer n'a pas pu être modifié",
   "family-name-form.task_name_field": "Nom du foyer",
   "family-name-form.button_label": "Sauvegarder",
+  "family-settings.plan": "Plan",
+  "language-form.langage-choice-label": "Choix de la langue",
 } as const
