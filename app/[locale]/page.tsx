@@ -1,3 +1,5 @@
+import { AboveTheFold } from "@/components/landing-page/above-the-fold"
+import { BelowTheFold } from "@/components/landing-page/below-the-fold"
 import { LanguagePossibles } from "@/lib/app-types"
 import { getI18n } from "../../locales/server"
 
@@ -6,8 +8,8 @@ export default async function Home({ params: { locale } }: { params: { locale: L
 
   return (
     <div>
-      <h1>{t("hello")}</h1>
-      <p>{`-> ${locale}`}</p>
+      <BelowTheFold />
+      <AboveTheFold />
     </div>
   )
 }
