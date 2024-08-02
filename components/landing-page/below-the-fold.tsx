@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
 import Image from "next/image"
 
-export const BelowTheFold = () => {
+export const BelowTheFold = async () => {
   return (
     <div className="min-h-screen bg-primary-foreground rounded p-8">
       <div className="text-center mb-16">
@@ -41,23 +41,18 @@ export const BelowTheFold = () => {
           ces données en statistiques claires et objectives, permettant une prise de conscience sans confrontation.
         </p>
 
-        <h4 className="text-xl font-semibold mb-4 text-center">Exemples de statistiques générées</h4>
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="rounded-lg shadow-md overflow-hidden">
-            <img
-              src="https://via.placeholder.com/300x200?text=Graphique+Répartition+Tâches"
-              alt="Graphique de répartition des tâches"
-              className="w-full h-auto"
-            />
-            <p className="p-4 text-center">Répartition globale des tâches</p>
+          <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
+            <Image width={300} height={200} src="/images/time_tasks.png" alt="Graphique de répartition des tâches" className="h-52" />
+            <p className="mt-4">Répartition globale des tâches</p>
           </div>
-          <div className="rounded-lg shadow-md overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Évolution+Hebdomadaire" alt="Évolution hebdomadaire" className="w-full h-auto" />
-            <p className="p-4 text-center">Évolution hebdomadaire de la participation</p>
+          <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
+            <Image width={300} height={200} src="/images/time_bar_tasks.png" alt="Évolution hebdomadaire" className="h-52" />
+            <p className="mt-4">Suivi précis par tâche</p>
           </div>
-          <div className="rounded-lg shadow-md overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Temps+Par+Tâche" alt="Temps par tâche" className="w-full h-auto" />
-            <p className="p-4 text-center">Temps moyen consacré par tâche</p>
+          <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
+            <Image width={300} height={200} src="/images/curve_time.png" alt="Temps par tâche" className="h-52" />
+            <p className="mt-4">Suivi dans le temps de la repartition</p>
           </div>
         </div>
       </div>
