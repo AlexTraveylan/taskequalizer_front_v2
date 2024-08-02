@@ -31,15 +31,15 @@ export const CheckoutForm = () => {
     <form onSubmit={handleSubmit}>
       <Card>
         <CardHeader>
-          <CardTitle>Payment Method</CardTitle>
-          <CardDescription>Add a new payment method to your account.</CardDescription>
+          <CardTitle>{scopedT("form-title")}</CardTitle>
+          <CardDescription>{scopedT("form-description")}</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6">
           <PaymentElement />
         </CardContent>
         <CardFooter>
           <Button className="w-full" type="submit" disabled={!stripe}>
-            Pay
+            {scopedT("submit-button")}
           </Button>
         </CardFooter>
       </Card>
