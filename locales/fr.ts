@@ -176,4 +176,7 @@ export default {
   "family-name-form.button_label": "Sauvegarder",
   "family-settings.plan": "Plan",
   "language-form.langage-choice-label": "Choix de la langue",
+  "checkout-form.form-title": "Paiement",
+  "checkout-form.form-description": "Paiement de l'abonnement, entrez vos informations de paiement",
+  "checkout-form.submit-button": "Payer",
 } as const

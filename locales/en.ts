@@ -175,4 +175,7 @@ export default {
   "family-name-form.button_label": "Save changes",
   "family-settings.plan": "Plan",
   "language-form.langage-choice-label": "Language choice",
+  "checkout-form.form-title": "Payment",
+  "checkout-form.form-description": "Subscription payment, enter your payment information",
+  "checkout-form.submit-button": "Pay",
 } as const

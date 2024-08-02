@@ -176,4 +176,7 @@ export default {
   "family-name-form.button_label": "Änderungen speichern",
   "family-settings.plan": "Plan",
   "language-form.langage-choice-label": "Sprachauswahl",
+  "checkout-form.form-title": "Zahlung",
+  "checkout-form.form-description": "Zahlung des Abonnements, geben Sie Ihre Zahlungsinformationen ein",
+  "checkout-form.submit-button": "Zahlen",
 } as const
