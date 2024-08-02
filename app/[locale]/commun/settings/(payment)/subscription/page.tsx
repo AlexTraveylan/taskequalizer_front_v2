@@ -71,7 +71,7 @@ export default function SubscriptionPage() {
         <PlanCard
           name={scopedT("basic")}
           description={scopedT("basic-description")}
-          btnText={scopedT("btn-text-basic")}
+          btnText={query2.data.subscription_plan === "BASIC" ? scopedT("btn-text-basic-on") : scopedT("btn-text-basic")}
           features={[
             `${query1.data.BASIC.max_members} ${scopedT("member")}`,
             `${query1.data.BASIC.max_possible_tasks} ${scopedT("task")}`,
