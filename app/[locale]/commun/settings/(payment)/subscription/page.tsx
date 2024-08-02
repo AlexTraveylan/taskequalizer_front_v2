@@ -56,9 +56,9 @@ export default function SubscriptionPage() {
       <h1 className="text-3xl font-bold text-center">{scopedT("choose-plan")}</h1>
       <div className="flex gap-2 justify-center flex-wrap">
         <PlanCard
-          name="Free"
-          description="Free plan"
-          btnText="Include"
+          name={scopedT("free")}
+          description={scopedT("free-description")}
+          btnText={scopedT("btn-text-free")}
           features={[
             `${data.FREE.max_members} ${scopedT("member")}`,
             `${data.FREE.max_possible_tasks} ${scopedT("task")}`,
@@ -67,9 +67,9 @@ export default function SubscriptionPage() {
           noFeatures={[scopedT("feature-support"), scopedT("feature-new")]}
         />
         <PlanCard
-          name="Basic"
-          description="Basic plan"
-          btnText="Upgrade"
+          name={scopedT("basic")}
+          description={scopedT("basic-description")}
+          btnText={scopedT("btn-text-basic")}
           features={[
             `${data.BASIC.max_members} ${scopedT("member")}`,
             `${data.BASIC.max_possible_tasks} ${scopedT("task")}`,
@@ -82,9 +82,9 @@ export default function SubscriptionPage() {
           action={() => onSelectedPlan("BASIC")}
         />
         <PlanCard
-          name="Premium"
-          description="Premium plan"
-          btnText="Upgrade"
+          name={scopedT("premium")}
+          description={scopedT("premium-description")}
+          btnText={scopedT("btn-text-premium")}
           features={[
             `${data.PREMIUM.max_members} ${scopedT("member")}`,
             `${data.PREMIUM.max_possible_tasks} ${scopedT("task")}`,
