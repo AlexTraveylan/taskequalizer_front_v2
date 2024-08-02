@@ -9,6 +9,7 @@ import { planService } from "@/lib/services/plans"
 import { useScopedI18n } from "@/locales/client"
 import { loadStripe } from "@stripe/stripe-js"
 import { useQuery } from "@tanstack/react-query"
+import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 
 const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -51,6 +52,22 @@ export default function SubscriptionPage() {
 
   if (!query1.data || !query2.data) {
     return <div>No data...</div>
+  }
+
+  const handleReturn = () => {
+    setIsFormVisible(false)
+    setClientSecret(null)
+  }
+
+  if (isFormVisible && clientSecret) {
+    return (
+      <div className="flex flex-col gap-5">
+        <ArrowLeft className="cursor-pointer" onClick={() => handleReturn()} />
+        <Elements stripe={stripePromise} options={options}>
+          <CheckoutForm />
+        </Elements>
+      </div>
+    )
   }
 
   return (
@@ -100,12 +117,6 @@ export default function SubscriptionPage() {
           action={() => onSelectedPlan("PREMIUM")}
         />
       </div>
-
-      {isFormVisible && clientSecret && (
-        <Elements stripe={stripePromise} options={options}>
-          <CheckoutForm />
-        </Elements>
-      )}
     </div>
   )
 }
