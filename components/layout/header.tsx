@@ -16,13 +16,14 @@ export const Header = () => {
   const router = useRouter()
 
   async function getMemberId() {
-    const memberId = await memberService.whoIam()
-    if (memberId) {
-      authState(true)
-    } else {
+    try {
+      await memberService.whoIam()
+    } catch (e) {
       authState(false)
-      router.push(navItems["Home"].href)
+      return
     }
+    authState(true)
+    router.push(navItems["Home"].href)
   }
 
   useEffect(() => {
