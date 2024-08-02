@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 import { getCurrentLocale } from "@/locales/server"
 import type { Metadata } from "next"
@@ -26,6 +27,7 @@ export default async function RootLayout({
           <Header />
         </Provider>
         <div className="container mx-auto py-8">{children}</div>
+        <Footer />
       </body>
     </html>
   )
