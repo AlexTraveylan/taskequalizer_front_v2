@@ -193,5 +193,6 @@ export default {
   "subscription-page.premium-description": "Premium plan",
   "subscription-page.btn-text-free": "Already offered",
   "subscription-page.btn-text-basic": "Choose the basic plan",
+  "subscription-page.btn-text-basic-on": "Current plan",
   "subscription-page.btn-text-premium": "Choose the premium plan",
 } as const
