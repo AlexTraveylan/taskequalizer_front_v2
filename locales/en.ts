@@ -195,4 +195,22 @@ export default {
   "subscription-page.btn-text-basic": "Choose the basic plan",
   "subscription-page.btn-text-basic-on": "Current plan",
   "subscription-page.btn-text-premium": "Choose the premium plan",
+  "below-the-fold.title": "Balance your household chores as a couple",
+  "below-the-fold.description": "Evaluate, visualize and naturally achieve harmony in your home",
+  "below-the-fold.list.title": "My application allows you to:",
+  "below-the-fold.list.item1": "Easily track household chores performed by each",
+  "below-the-fold.list.item2": "Visualize the distribution of efforts in real time",
+  "below-the-fold.list.item3": "Encourage balanced participation without confrontation",
+  "below-the-fold.how-it-works.title": "How does it work?",
+  "below-the-fold.how-it-works.description1":
+    "My application uses innovative technology to track and analyze the distribution of household chores in your home.",
+  "below-the-fold.how-it-works.description2": "Each member of the couple can easily record tasks accomplished through our intuitive interface.",
+  "below-the-fold.how-it-works.description3":
+    "Our intelligent algorithm converts this data into clear and objective statistics, allowing for confrontation-free awareness.",
+  "below-the-fold.how-it-works.graph1": "Global distribution of tasks",
+  "below-the-fold.how-it-works.graph2": "Precise tracking by task",
+  "below-the-fold.how-it-works.graph3": "Time tracking of the distribution",
+  "below-the-fold.cta.title": "Start balancing your couple's life now",
+  "below-the-fold.cta.description": "Free registration in 30 seconds - No credit card required",
+  "below-the-fold.cta.button": "Get started for free",
 } as const

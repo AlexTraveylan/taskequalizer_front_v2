@@ -196,4 +196,23 @@ export default {
   "subscription-page.btn-text-basic": "Choisir le plan basique",
   "subscription-page.btn-text-basic-on": "Déjà souscrit",
   "subscription-page.btn-text-premium": "Choisir le plan premium",
+  "below-the-fold.title": "Équilibrez vos tâches ménagères en couple",
+  "below-the-fold.description": "Évaluez, visualisez et atteignez naturellement l'harmonie dans votre foyer",
+  "below-the-fold.list.title": "Mon application vous permet de :",
+  "below-the-fold.list.item1": "Suivre facilement les tâches ménagères effectuées par chacun",
+  "below-the-fold.list.item2": "Visualiser la répartition des efforts en temps réel",
+  "below-the-fold.list.item3": "Encourager une participation équilibrée sans confrontation",
+  "below-the-fold.how-it-works.title": "Comment ça marche ?",
+  "below-the-fold.how-it-works.description1":
+    "Mon application utilise une technologie innovante pour suivre et analyser la répartition des tâches ménagères dans votre foyer.",
+  "below-the-fold.how-it-works.description2":
+    "Chaque membre du couple peut facilement enregistrer les tâches accomplies via notre interface intuitive.",
+  "below-the-fold.how-it-works.description3":
+    "Notre algorithme intelligent convertit ces données en statistiques claires et objectives, permettant une prise de conscience sans confrontation.",
+  "below-the-fold.how-it-works.graph1": "Répartition globale des tâches",
+  "below-the-fold.how-it-works.graph2": "Suivi précis par tâche",
+  "below-the-fold.how-it-works.graph3": "Suivi dans le temps de la repartition",
+  "below-the-fold.cta.title": "Commencez dès maintenant à équilibrer votre vie de couple",
+  "below-the-fold.cta.description": "Inscription gratuite en 30 secondes - Aucune carte bancaire requise",
+  "below-the-fold.cta.button": "Lancez-vous gratuitement",
 } as const

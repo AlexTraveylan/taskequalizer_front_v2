@@ -196,4 +196,24 @@ export default {
   "subscription-page.btn-text-basic": "Wählen Sie den Basic-Plan",
   "subscription-page.btn-text-basic-on": "Bereits abonniert",
   "subscription-page.btn-text-premium": "Wählen Sie den Premium-Plan",
+
+  "below-the-fold.title": "Gleichgewicht Ihrer Haushaltsaufgaben als Paar",
+  "below-the-fold.description": "Bewerten, visualisieren und erreichen Sie auf natürliche Weise Harmonie in Ihrem Zuhause",
+  "below-the-fold.list.title": "Meine Anwendung ermöglicht es Ihnen:",
+  "below-the-fold.list.item1": "Leicht verfolgen Sie die Haushaltsaufgaben, die von jedem ausgeführt wurden",
+  "below-the-fold.list.item2": "Visualisieren Sie die Verteilung der Anstrengungen in Echtzeit",
+  "below-the-fold.list.item3": "Fördern Sie eine ausgewogene Beteiligung ohne Konfrontation",
+  "below-the-fold.how-it-works.title": "Wie funktioniert es?",
+  "below-the-fold.how-it-works.description1":
+    "Meine Anwendung verwendet innovative Technologien, um die Verteilung der Haushaltsaufgaben in Ihrem Zuhause zu verfolgen und zu analysieren.",
+  "below-the-fold.how-it-works.description2":
+    "Jedes Mitglied des Paares kann durch unsere intuitive Benutzeroberfläche einfach erledigte Aufgaben aufzeichnen.",
+  "below-the-fold.how-it-works.description3":
+    "Unser intelligenter Algorithmus wandelt diese Daten in klare und objektive Statistiken um, die eine konfrontationsfreie Sensibilisierung ermöglichen.",
+  "below-the-fold.how-it-works.graph1": "Globale Verteilung der Aufgaben",
+  "below-the-fold.how-it-works.graph2": "Präzise Verfolgung nach Aufgabe",
+  "below-the-fold.how-it-works.graph3": "Zeitverfolgung der Verteilung",
+  "below-the-fold.cta.title": "Beginnen Sie jetzt mit dem Ausgleich des Lebens Ihres Paares",
+  "below-the-fold.cta.description": "Kostenlose Registrierung in 30 Sekunden - Keine Kreditkarte erforderlich",
+  "below-the-fold.cta.button": "Kostenlos starten",
 } as const
