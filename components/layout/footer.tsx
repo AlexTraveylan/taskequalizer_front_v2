@@ -12,17 +12,14 @@ export const Footer = async () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <h5 className="font-bold text-lg mb-4">À propos</h5>
-            <p className="text-sm text-muted-foreground">
-              La mission de Task Equalizer est d'aider les couples à trouver l'harmonie dans leur vie quotidienne en équilibrant les tâches
-              ménagères.
-            </p>
+            <p className="text-sm text-muted-foreground">{scopedT("about")}</p>
           </div>
           <div>
-            <h5 className="font-bold text-lg mb-4">Liens rapides</h5>
+            <h5 className="font-bold text-lg mb-4">{scopedT("fast-link")}</h5>
             <FooterFastLink />
           </div>
           <div>
-            <h5 className="font-bold text-lg mb-4">Support</h5>
+            <h5 className="font-bold text-lg mb-4">{scopedT("support")}</h5>
             <ul className="space-y-2">
               {Object.values(footerSupportItems).map((item, index) => (
                 <li key={`footer-support-item-${index}`}>
@@ -34,7 +31,7 @@ export const Footer = async () => {
             </ul>
           </div>
           <div>
-            <h5 className="font-bold text-lg mb-4">Suivez-moi</h5>
+            <h5 className="font-bold text-lg mb-4">{scopedT("follow-me")}</h5>
             <div className="flex space-x-4">
               <a href="https://x.com/DemaresTim" className="hover:text-blue-300 transition-colors" target="_blank">
                 <Twitter />
@@ -49,7 +46,7 @@ export const Footer = async () => {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-primary text-center">
-          <p>&copy; 2024 Task Equalizer. Tous droits réservés.</p>
+          <p>{scopedT("copy")}</p>
         </div>
       </div>
     </footer>

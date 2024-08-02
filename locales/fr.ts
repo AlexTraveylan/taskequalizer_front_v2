@@ -219,6 +219,12 @@ export default {
   "footer.Contact": "Contact",
   "footer.PrivacyPolicy": "Politique de confidentialité",
   "footer.TermsOfUse": "Conditions d'utilisation",
+  "footer.about":
+    "La mission de Task Equalizer est d'aider les couples à trouver l'harmonie dans leur vie quotidienne en équilibrant les tâches ménagères.",
+  "footer.fast-link": "Liens rapides",
+  "footer.support": "Support",
+  "footer.follow-me": "Suivez-moi",
+  "footer.copy": "© 2024 Task Equalizer. Tous droits réservés.",
   "footer-fast-link.Home": "Accueil",
   "footer-fast-link.possibleTasks": "Tâches possibles",
   "footer-fast-link.currentTask": "Tâche actuelle",
