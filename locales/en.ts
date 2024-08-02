@@ -187,7 +187,7 @@ export default {
   "subscription-page.free": "Free",
   "subscription-page.basic": "Basic",
   "subscription-page.premium": "Premium",
-  "subscription-page.choose-plan": "Choose your plan",
+  "subscription-page.choose-plan": "Choose your plan (Lifetime Access)",
   "subscription-page.free-description": "Free plan",
   "subscription-page.basic-description": "Basic plan",
   "subscription-page.premium-description": "Premium plan",
