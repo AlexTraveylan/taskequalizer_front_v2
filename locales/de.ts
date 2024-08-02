@@ -219,4 +219,11 @@ export default {
   "footer.Contact": "Kontakt",
   "footer.PrivacyPolicy": "Datenschutzrichtlinie",
   "footer.TermsOfUse": "Nutzungsbedingungen",
+  "footer-fast-link.Home": "Zuhause",
+  "footer-fast-link.possibleTasks": "Mögliche Aufgaben",
+  "footer-fast-link.currentTask": "Aktuelle Aufgabe",
+  "footer-fast-link.ranking": "Rangliste",
+  "footer-fast-link.login": "Einloggen",
+  "footer-fast-link.register-create": "Familie erstellen",
+  "footer-fast-link.register-with-invitation": "Familie beitreten",
 } as const

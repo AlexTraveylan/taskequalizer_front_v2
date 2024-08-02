@@ -217,4 +217,11 @@ export default {
   "footer.Contact": "Contact",
   "footer.PrivacyPolicy": "Privacy Policy",
   "footer.TermsOfUse": "Terms of Use",
+  "footer-fast-link.Home": "Home",
+  "footer-fast-link.possibleTasks": "Possible tasks",
+  "footer-fast-link.currentTask": "Current task",
+  "footer-fast-link.ranking": "Ranking",
+  "footer-fast-link.login": "Login",
+  "footer-fast-link.register-create": "Create a household",
+  "footer-fast-link.register-with-invitation": "Join a household",
 } as const

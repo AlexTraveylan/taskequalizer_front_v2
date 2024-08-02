@@ -219,4 +219,11 @@ export default {
   "footer.Contact": "Contact",
   "footer.PrivacyPolicy": "Politique de confidentialité",
   "footer.TermsOfUse": "Conditions d'utilisation",
+  "footer-fast-link.Home": "Accueil",
+  "footer-fast-link.possibleTasks": "Tâches possibles",
+  "footer-fast-link.currentTask": "Tâche actuelle",
+  "footer-fast-link.ranking": "Graphiques",
+  "footer-fast-link.login": "Connexion",
+  "footer-fast-link.register-create": "Créer un foyer",
+  "footer-fast-link.register-with-invitation": "Rejoindre un foyer",
 } as const

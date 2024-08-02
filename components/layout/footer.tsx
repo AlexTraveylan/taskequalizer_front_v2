@@ -1,6 +1,7 @@
 import { footerSupportItems } from "@/lib/app-types"
 import { Github, Linkedin, Twitter } from "lucide-react"
 import { getScopedI18n } from "../../locales/server"
+import { FooterFastLink } from "./footer-fast-link"
 
 export const Footer = async () => {
   const scopedT = await getScopedI18n("footer")
@@ -18,28 +19,7 @@ export const Footer = async () => {
           </div>
           <div>
             <h5 className="font-bold text-lg mb-4">Liens rapides</h5>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Accueil
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Fonctionnalités
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Tarifs
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Blog
-                </a>
-              </li>
-            </ul>
+            <FooterFastLink />
           </div>
           <div>
             <h5 className="font-bold text-lg mb-4">Support</h5>
