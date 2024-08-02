@@ -5,7 +5,6 @@ import { useIsAuth } from "@/lib/auth-store"
 import { memberService } from "@/lib/services/member"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { AuthButton } from "../auth/auth-button"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "../ui/navigation-menu"
@@ -13,7 +12,6 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 export const Header = () => {
   const t = useScopedI18n("header")
   const { isAuth, authState } = useIsAuth()
-  const router = useRouter()
 
   async function getMemberId() {
     try {
@@ -23,7 +21,6 @@ export const Header = () => {
       return
     }
     authState(true)
-    router.push(navItems["Home"].href)
   }
 
   useEffect(() => {
