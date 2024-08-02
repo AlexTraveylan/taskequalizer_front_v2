@@ -215,4 +215,8 @@ export default {
   "below-the-fold.cta.title": "Commencez dès maintenant à équilibrer votre vie de couple",
   "below-the-fold.cta.description": "Inscription gratuite en 30 secondes - Aucune carte bancaire requise",
   "below-the-fold.cta.button": "Lancez-vous gratuitement",
+  "footer.FAQ": "FAQ",
+  "footer.Contact": "Contact",
+  "footer.PrivacyPolicy": "Politique de confidentialité",
+  "footer.TermsOfUse": "Conditions d'utilisation",
 } as const

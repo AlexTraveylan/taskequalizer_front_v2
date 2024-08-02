@@ -1,6 +1,10 @@
+import { footerSupportItems } from "@/lib/app-types"
 import { Github, Linkedin, Twitter } from "lucide-react"
+import { getScopedI18n } from "../../locales/server"
 
 export const Footer = async () => {
+  const scopedT = await getScopedI18n("footer")
+
   return (
     <footer className="bg-primary-foreground py-12">
       <div className="container mx-auto px-4">
@@ -40,26 +44,13 @@ export const Footer = async () => {
           <div>
             <h5 className="font-bold text-lg mb-4">Support</h5>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Politique de confidentialité
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Conditions d'utilisation
-                </a>
-              </li>
+              {Object.values(footerSupportItems).map((item, index) => (
+                <li key={`footer-support-item-${index}`}>
+                  <a href={item.href} className="text-muted-foreground transition-colors hover:text-primary">
+                    {scopedT(item.i18nKey)}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

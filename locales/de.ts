@@ -196,7 +196,6 @@ export default {
   "subscription-page.btn-text-basic": "Wählen Sie den Basic-Plan",
   "subscription-page.btn-text-basic-on": "Bereits abonniert",
   "subscription-page.btn-text-premium": "Wählen Sie den Premium-Plan",
-
   "below-the-fold.title": "Gleichgewicht Ihrer Haushaltsaufgaben als Paar",
   "below-the-fold.description": "Bewerten, visualisieren und erreichen Sie auf natürliche Weise Harmonie in Ihrem Zuhause",
   "below-the-fold.list.title": "Meine Anwendung ermöglicht es Ihnen:",
@@ -216,4 +215,8 @@ export default {
   "below-the-fold.cta.title": "Beginnen Sie jetzt mit dem Ausgleich des Lebens Ihres Paares",
   "below-the-fold.cta.description": "Kostenlose Registrierung in 30 Sekunden - Keine Kreditkarte erforderlich",
   "below-the-fold.cta.button": "Kostenlos starten",
+  "footer.FAQ": "FAQ",
+  "footer.Contact": "Kontakt",
+  "footer.PrivacyPolicy": "Datenschutzrichtlinie",
+  "footer.TermsOfUse": "Nutzungsbedingungen",
 } as const

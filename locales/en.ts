@@ -213,4 +213,8 @@ export default {
   "below-the-fold.cta.title": "Start balancing your couple's life now",
   "below-the-fold.cta.description": "Free registration in 30 seconds - No credit card required",
   "below-the-fold.cta.button": "Get started for free",
+  "footer.FAQ": "FAQ",
+  "footer.Contact": "Contact",
+  "footer.PrivacyPolicy": "Privacy Policy",
+  "footer.TermsOfUse": "Terms of Use",
 } as const

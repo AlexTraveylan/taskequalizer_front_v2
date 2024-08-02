@@ -71,6 +71,22 @@ export const taskEqualizerNavItems: Record<taskEqualizerKeyPossible, TaskEqualiz
 
 // -----------------------------------------------------------------------------------------------
 
+type footerSupportKeyPossible = "FAQ" | "Contact" | "PrivacyPolicy" | "TermsOfUse"
+
+type FooterSupportItem = {
+  i18nKey: footerSupportKeyPossible
+  href: string
+}
+
+export const footerSupportItems: Record<footerSupportKeyPossible, FooterSupportItem> = {
+  FAQ: { i18nKey: "FAQ", href: "/support/faq" },
+  Contact: { i18nKey: "Contact", href: "/support/contact" },
+  PrivacyPolicy: { i18nKey: "PrivacyPolicy", href: "/support/privacy-policy" },
+  TermsOfUse: { i18nKey: "TermsOfUse", href: "/support/terms-of-use" },
+}
+
+// -----------------------------------------------------------------------------------------------
+
 export type LanguagePossibles = "en" | "fr" | "de"
 
 export const languages: LanguagePossibles[] = ["en", "fr", "de"]
