@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button"
+import { authNavItems } from "@/lib/app-types"
 import { getScopedI18n } from "@/locales/server"
 import { Check } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export const BelowTheFold = async () => {
   const scopedT = await getScopedI18n("below-the-fold")
@@ -65,9 +67,11 @@ export const BelowTheFold = async () => {
       <div className="text-center">
         <h3 className="text-3xl font-semibold mb-4">{scopedT("cta.title")}</h3>
         <p className="text-xl mb-6">{scopedT("cta.description")}</p>
-        <Button size="lg" className="px-8 py-3 rounded-full text-lg font-semibold transition-colors duration-300">
-          {scopedT("cta.button")}
-        </Button>
+        <Link href={authNavItems["register-create"].href}>
+          <Button size="lg" className="px-8 py-3 rounded-full text-lg font-semibold transition-colors duration-300">
+            {scopedT("cta.button")}
+          </Button>
+        </Link>
       </div>
     </div>
   )
