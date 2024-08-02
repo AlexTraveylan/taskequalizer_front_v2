@@ -88,7 +88,11 @@ export default function SubscriptionPage() {
         <PlanCard
           name={scopedT("basic")}
           description={scopedT("basic-description")}
-          btnText={query2.data.subscription_plan === "BASIC" ? scopedT("btn-text-basic-on") : scopedT("btn-text-basic")}
+          btnText={
+            query2.data.subscription_plan === "BASIC" || query2.data.subscription_plan === "PREMIUM"
+              ? scopedT("btn-text-basic-on")
+              : scopedT("btn-text-basic")
+          }
           features={[
             `${query1.data.BASIC.max_members} ${scopedT("member")}`,
             `${query1.data.BASIC.max_possible_tasks} ${scopedT("task")}`,
@@ -98,12 +102,14 @@ export default function SubscriptionPage() {
           ]}
           amount={query1.data.BASIC.amount_cent / 100}
           reduction={query1.data.BASIC.reduction}
-          action={query2.data.subscription_plan === "BASIC" ? undefined : () => onSelectedPlan("BASIC")}
+          action={
+            query2.data.subscription_plan === "BASIC" || query2.data.subscription_plan === "PREMIUM" ? undefined : () => onSelectedPlan("BASIC")
+          }
         />
         <PlanCard
           name={scopedT("premium")}
           description={scopedT("premium-description")}
-          btnText={scopedT("btn-text-premium")}
+          btnText={query2.data.subscription_plan === "PREMIUM" ? scopedT("btn-text-basic-on") : scopedT("btn-text-premium")}
           features={[
             `${query1.data.PREMIUM.max_members} ${scopedT("member")}`,
             `${query1.data.PREMIUM.max_possible_tasks} ${scopedT("task")}`,
@@ -114,7 +120,7 @@ export default function SubscriptionPage() {
           ]}
           amount={query1.data.PREMIUM.amount_cent / 100}
           reduction={query1.data.PREMIUM.reduction}
-          action={() => onSelectedPlan("PREMIUM")}
+          action={query2.data.subscription_plan === "PREMIUM" ? undefined : () => onSelectedPlan("PREMIUM")}
         />
       </div>
     </div>
