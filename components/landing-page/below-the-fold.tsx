@@ -48,15 +48,15 @@ export const BelowTheFold = async () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
-            <Image width={300} height={200} src="/images/time_tasks.png" alt="Graphique de répartition des tâches" className="h-52" />
+            <Image width={300} height={200} src="/images/time_tasks.png" alt="Graphique de répartition des tâches" className="h-auto" />
             <p className="mt-4">{scopedT("how-it-works.graph1")}</p>
           </div>
           <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
-            <Image width={300} height={200} src="/images/time_bar_tasks.png" alt="Évolution hebdomadaire" className="h-52" />
+            <Image width={300} height={200} src="/images/time_bar_tasks.png" alt="Évolution hebdomadaire" className="h-auto" />
             <p className="mt-4">{scopedT("how-it-works.graph2")}</p>
           </div>
           <div className="flex flex-col justify-between items-center rounded-lg shadow-md p-5">
-            <Image width={300} height={200} src="/images/curve_time.png" alt="Temps par tâche" className="h-52" />
+            <Image width={300} height={200} src="/images/curve_time.png" alt="Temps par tâche" className="h-auto" />
             <p className="mt-4">{scopedT("how-it-works.graph2")}</p>
           </div>
         </div>
