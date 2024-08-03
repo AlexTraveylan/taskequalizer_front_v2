@@ -3,6 +3,7 @@ export default {
   "header.Home": "Accueil",
   "header.Application": "Application",
   "header.Settings": "Paramètres",
+  "header.welcome": "Bienvenue",
   "auth-button.logoutButtonLabel": "Déconnexion",
   "auth-button.loginButtonLabel": "Connexion",
   "login-card.title": "Connexion",
