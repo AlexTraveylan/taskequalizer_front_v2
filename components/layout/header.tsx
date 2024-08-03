@@ -3,6 +3,7 @@
 import { navItems } from "@/lib/app-types"
 import { useIsAuth } from "@/lib/auth-store"
 import { Member } from "@/lib/schema/member"
+import { familyService } from "@/lib/services/family"
 import { memberService } from "@/lib/services/member"
 import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
@@ -18,8 +19,11 @@ export const Header = () => {
   async function getMemberId() {
     try {
       const mmyId = await memberService.whoIam()
-      const member = await memberService.getMember(mmyId.member_id)
-      setMember(member)
+      const members = await familyService.getFamilyMembers()
+      const member = members.find((m) => m.id === mmyId.member_id)
+      if (member) {
+        setMember(member)
+      }
     } catch (e) {
       authState(false)
       return
@@ -48,7 +52,7 @@ export const Header = () => {
             })}
         </NavigationMenuList>
       </NavigationMenu>
-      <div>
+      <div className="flex gap-5 items-center justify-center">
         {member && (
           <span>
             {t("welcome")} {member.member_name}
