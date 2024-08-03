@@ -54,7 +54,7 @@ export const Header = () => {
       </NavigationMenu>
       <div className="flex gap-5 items-center justify-center">
         {member && (
-          <span>
+          <span className="text-muted-foreground">
             {t("welcome")} {member.member_name}
           </span>
         )}
