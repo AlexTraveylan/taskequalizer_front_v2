@@ -6,6 +6,7 @@ import { Member } from "@/lib/schema/member"
 import { familyService } from "@/lib/services/family"
 import { memberService } from "@/lib/services/member"
 import { useScopedI18n } from "@/locales/client"
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { AuthButton } from "../auth/auth-button"
@@ -37,6 +38,7 @@ export const Header = () => {
 
   return (
     <header className="flex flex-wrap gap-2 justify-evenly py-2 bg-primary-foreground">
+      <Image src="/favicon.ico" alt="logo" width={40} height={40} />
       <NavigationMenu>
         <NavigationMenuList>
           {Object.values(navItems)
