@@ -4,35 +4,31 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { EmailContact, emailContactSchema } from "@/lib/schema/email"
+import { emailService } from "@/lib/services/email"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-const formSchema = z.object({
-  email: z.string().email({
-    message: "Veuillez entrer une adresse e-mail valide.",
-  }),
-  message: z.string().min(10, {
-    message: "Le message doit contenir au moins 10 caractères.",
-  }),
-})
 
 export default function ContactPage() {
   const [btnDisabled, setBtnDisabled] = useState(false)
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<EmailContact>({
+    resolver: zodResolver(emailContactSchema),
     defaultValues: {
       email: "",
       message: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Ici, vous implémenteriez la logique d'envoi du formulaire
-    console.log(values)
-    setBtnDisabled(true)
+  async function onSubmit(values: EmailContact) {
+    try {
+      const message = await emailService.sendContactEmail(values.email, values.message)
+      setBtnDisabled(true)
+      console.log(message)
+    } catch (error) {
+      console.log("Failed to send email", error)
+    }
   }
 
   return (

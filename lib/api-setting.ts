@@ -31,3 +31,5 @@ export const familySettingsUrl = apiUrl + "/family_settings/"
 
 export const checkoutSessionUrl = url + "/checkout_session"
 export const plansInformationUrl = url + "/plans_informations"
+
+export const emailContactUrl = url + "/contact_form"
