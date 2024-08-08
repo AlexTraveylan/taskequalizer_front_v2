@@ -11,7 +11,7 @@ export const Footer = async () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <h5 className="font-bold text-lg mb-4">À propos</h5>
+            <h5 className="font-bold text-lg mb-4">{scopedT("about.title")}</h5>
             <p className="text-sm text-muted-foreground">{scopedT("about")}</p>
           </div>
           <div>
