@@ -1,85 +1,78 @@
-export default function PrivacyPolicyPage() {
+import { getCurrentLocale, getScopedI18n } from "@/locales/server"
+
+export default async function PrivacyPolicyPage() {
+  const scopedT = await getScopedI18n("privacy-policy")
+  const locale = getCurrentLocale()
+
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8">Politique de Confidentialité</h1>
+        <h1 className="text-3xl font-bold mb-8">{scopedT("title")}</h1>
 
         <div className="p-8 space-y-8">
           <section>
-            <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
-            <p className="">
-              Chez TaskEqualizer, nous nous engageons à protéger la vie privée de nos utilisateurs. Cette politique de confidentialité explique
-              comment nous collectons, utilisons et protégeons vos informations personnelles.
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">1. {scopedT("intro.title")}</h2>
+            <p>{scopedT("intro.part1")}</p>
+            <p>{scopedT("intro.part2")}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">2. Informations que nous collectons</h2>
-            <p className="">Nous collectons les informations suivantes :</p>
-            <ul className="list-disc list-inside  ml-4">
-              <li>Informations d'inscription (nom d'utilisateur, adresse e-mail si fournie, mot de passe hashé)</li>
-              <li>Données d'utilisation de l'application (tâches enregistrées, statistiques)</li>
-              <li>Les informations de l'appareil et du navigateur appaissent dans les logs</li>
+            <h2 className="text-2xl font-semibold mb-4">2. {scopedT("collected.title")}</h2>
+            <p>{scopedT("collected.part")}</p>
+            <ul className="list-disc list-inside ml-4">
+              <li>{scopedT("collected.part1")}</li>
+              <li>{scopedT("collected.part2")}</li>
+              <li>{scopedT("collected.part3")}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">3. Comment nous utilisons vos informations</h2>
-            <p className="">Nous utilisons vos informations pour :</p>
-            <ul className="list-disc list-inside  ml-4">
-              <li>Fournir nos services</li>
-              <li>Personnaliser votre expérience utilisateur</li>
-              <li>Communiquer avec vous concernant votre compte ou nos services</li>
+            <h2 className="text-2xl font-semibold mb-4">3. {scopedT("how-used.title")}</h2>
+            <p>{scopedT("how-used.part")}</p>
+            <ul className="list-disc list-inside ml-4">
+              <li>{scopedT("how-used.part1")}</li>
+              <li>{scopedT("how-used.part2")}</li>
+              <li>{scopedT("how-used.part3")}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">4. Partage des informations</h2>
-            <p className="">
-              Nous ne vendons ni ne louons vos informations personnelles à des tiers. Nous pouvons partager vos informations dans les situations
-              suivantes :
-            </p>
-            <ul className="list-disc list-inside  ml-4">
-              <li>Avec votre consentement</li>
-              <li>Pour se conformer à des obligations légales</li>
-              <li>Avec nos fournisseurs de services qui nous aident à exploiter notre application (Stripe en cas d'abonnement)</li>
+            <h2 className="text-2xl font-semibold mb-4">4. {scopedT("shared.title")}</h2>
+            <p>{scopedT("shared.part1")}</p>
+            <p>{scopedT("shared.part2")}</p>
+            <ul className="list-disc list-inside ml-4">
+              <li>{scopedT("shared.part3")}</li>
+              <li>{scopedT("shared.part5")}</li>
+              <li>{scopedT("shared.part6")}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">5. Sécurité des données</h2>
-            <p className="">
-              Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations contre l'accès non autorisé, l'altération,
-              la divulgation ou la destruction.
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">5. {scopedT("security.title")}</h2>
+            <p>{scopedT("security.part")}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">6. Vos droits</h2>
-            <p className="">
-              Vous avez le droit d'accéder, de corriger ou de supprimer vos informations personnelles. Vous pouvez également vous opposer au
-              traitement de vos données ou demander la limitation de ce traitement.
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">6. {scopedT("rights.title")}</h2>
+            <p>{scopedT("rights.part1")}</p>
+            <p>{scopedT("rights.part2")}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">7. Modifications de la politique de confidentialité</h2>
-            <p className="">
-              Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement important
-              par e-mail ou par une notification dans l'application.
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">7. {scopedT("modify.title")}</h2>
+            <p>{scopedT("modify.part1")}</p>
+            <p>{scopedT("modify.part2")}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">8. Nous contacter</h2>
-            <p className="">
-              Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à
-              timothee.demares@alextraveylan.fr.
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">8. {scopedT("contact.title")}</h2>
+            <p>{scopedT("contact.part")}</p>
           </section>
         </div>
 
-        <div className="mt-8 text-center ">Dernière mise à jour : 05/08/2024</div>
+        <div className="mt-8 text-center ">
+          {scopedT("last-update")} : {new Date("09/08/2024").toLocaleDateString(locale)}
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,7 @@
-export default function TermsOfUsePage() {
+import { getScopedI18n } from "@/locales/server"
+
+export default async function TermsOfUsePage() {
+  const scopedT = await getScopedI18n("terms-of-use")
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
