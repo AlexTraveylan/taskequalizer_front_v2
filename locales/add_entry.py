@@ -30,7 +30,7 @@ def translate(locale: str, sentence: str) -> str:
         model="gpt-3.5-turbo",
     )
 
-    return chat_completion.choices[0].message.content
+    return chat_completion.choices[0].message.content.strip()
 
 
 def add_language_entry(new_key: str, new_value: str):
