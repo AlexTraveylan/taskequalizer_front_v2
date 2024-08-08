@@ -233,4 +233,25 @@ export default {
   "footer-fast-link.login": "Connexion",
   "footer-fast-link.register-create": "Créer un foyer",
   "footer-fast-link.register-with-invitation": "Rejoindre un foyer",
+  "faq.question1": "Comment fonctionne l'application pour équilibrer les tâches ménagères ?",
+  "faq.answer1":
+    "Mon application permet à chaque membre du couple d'enregistrer les tâches ménagères qu'il effectue. L'application analyse ensuite ces données pour fournir des statistiques et des visualisations claires de la répartition des tâches, encourageant ainsi un équilibre naturel.",
+  "faq.question2": "Est-ce que l'application est gratuite ?",
+  "faq.answer2":
+    "J'offre une version gratuite avec des fonctionnalités de base. Il est possible de me soutenir et obtenir davantage de fonctionnalité selon le plan choisi.",
+  "faq.question3": "Quelles sont les modalités de remboursement pour un abonnement ?",
+  "faq.answer3":
+    "Si vous n'êtes pas satisfait de votre achat, vous pouvez demander un remboursement dans un délai de 14 jours à compter de la date d'achat, conformément au délai légal de rétractation en France pour un achat en ligne. Pour ce faire, veuillez me contacter via le formulaire de contact. Je traiterais votre demande dans les meilleurs délais.",
+  "faq.question4": "L'application est-elle disponible sur iOS et Android ?",
+  "faq.answer4": "Pas encore, mais c'est prévu prochainement ! N'hésitez pas à manisfester votre soutient pour accélérer le développement.",
+  "faq.question5": "Comment sont protégées mes données personnelles ?",
+  "faq.answer5":
+    "Nous prenons la protection de vos données très au sérieux. Toutes les informations sont cryptées et stockées de manière sécurisée. Nous ne partageons jamais vos données personnelles avec des tiers. Pour plus de détails, consultez notre politique de confidentialité.",
+  "faq.question6": "Que faire si mon partenaire ne veut pas utiliser l'application ?",
+  "faq.answer6":
+    "Mon application est conçue pour être utilisée idéalement par les deux partenaires, mais elle peut aussi être utile si un seul membre du couple l'utilise. Vous pouvez toujours suivre vos propres tâches et utiliser les statistiques comme base de discussion avec votre partenaire.",
+  "faq.title": "Foire Aux Questions (FAQ)",
+  "faq.noResponseLabel": "Vous n'avez pas trouvé la réponse à votre question ?",
+  "faq.contactLinkMessage": "Contactez-nous",
+  "footer.about.title": "À propos",
 } as const

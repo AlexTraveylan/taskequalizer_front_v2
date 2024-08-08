@@ -231,4 +231,25 @@ export default {
   "footer-fast-link.login": "Einloggen",
   "footer-fast-link.register-create": "Familie erstellen",
   "footer-fast-link.register-with-invitation": "Familie beitreten",
+  "faq.question1": "Wie funktioniert die Anwendung zur Ausgleichung der Haushaltsaufgaben?",
+  "faq.answer1":
+    "Unsere Anwendung ermöglicht es jedem Mitglied des Paares, die Haushaltsaufgaben zu verfolgen, die es erledigt. Die Anwendung analysiert dann diese Daten, um klare Statistiken und Visualisierungen zur Verteilung der Aufgaben bereitzustellen und so einen natürlichen Ausgleich zu fördern.",
+  "faq.question2": "Ist die Anwendung kostenlos?",
+  "faq.answer2":
+    "Ich biete eine kostenlose Version mit grundlegenden Funktionen an. Es ist möglich, mich zu unterstützen und je nach gewähltem Plan weitere Funktionen zu erhalten.",
+  "faq.question3": "Was sind die Rückerstattungsbedingungen für ein Abonnement?",
+  "faq.answer3":
+    "Wenn Sie mit Ihrem Kauf nicht zufrieden sind, können Sie innerhalb von 14 Tagen nach dem Kaufdatum eine Rückerstattung beantragen, gemäß der gesetzlichen Widerrufsfrist in Frankreich für einen Online-Kauf. Bitte kontaktieren Sie mich über das Kontaktformular. Ich werde Ihre Anfrage so schnell wie möglich bearbeiten.",
+  "faq.question4": "Ist die Anwendung auf iOS und Android verfügbar?",
+  "faq.answer4": "Noch nicht, aber es ist in Kürze geplant! Zögern Sie nicht, Ihre Unterstützung zu zeigen, um die Entwicklung zu beschleunigen.",
+  "faq.question5": "Wie sind meine persönlichen Daten geschützt?",
+  "faq.answer5":
+    "Wir nehmen den Schutz Ihrer Daten sehr ernst. Alle Informationen werden verschlüsselt und sicher gespeichert. Wir geben Ihre persönlichen Daten niemals an Dritte weiter. Weitere Informationen finden Sie in unserer Datenschutzrichtlinie.",
+  "faq.question6": "Was tun, wenn mein Partner die Anwendung nicht verwenden möchte?",
+  "faq.answer6":
+    "Meine Anwendung ist so konzipiert, dass sie idealerweise von beiden Partnern verwendet wird, kann aber auch nützlich sein, wenn nur ein Mitglied des Paares sie verwendet. Sie können weiterhin Ihre eigenen Aufgaben verfolgen und die Statistiken als Diskussionsgrundlage mit Ihrem Partner verwenden.",
+  "faq.title": "Häufig gestellte Fragen (FAQ)",
+  "faq.noResponseLabel": "Hast du nicht die Antwort auf deine Frage gefunden?",
+  "faq.contactLinkMessage": "Kontaktiere uns",
+  "footer.about.title": "Über",
 } as const

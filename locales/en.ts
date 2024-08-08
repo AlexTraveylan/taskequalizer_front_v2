@@ -230,4 +230,25 @@ export default {
   "footer-fast-link.login": "Login",
   "footer-fast-link.register-create": "Create a household",
   "footer-fast-link.register-with-invitation": "Join a household",
+  "faq.question1": "How does the application work to balance household chores?",
+  "faq.answer1":
+    "Our application allows each member of the couple to record the household chores they perform. The application then analyzes this data to provide clear statistics and visualizations of the distribution of tasks, thus encouraging a natural balance.",
+  "faq.question2": "Is the application free?",
+  "faq.answer2":
+    "I offer a free version with basic features. It is possible to support me and get more functionality according to the chosen plan.",
+  "faq.question3": "What are the refund terms for a subscription?",
+  "faq.answer3":
+    "If you are not satisfied with your purchase, you can request a refund within 14 days from the date of purchase, in accordance with the legal withdrawal period in France for an online purchase. To do so, please contact me via the contact form. I will process your request as soon as possible.",
+  "faq.question4": "Is the application available on iOS and Android?",
+  "faq.answer4": "Not yet, but it's planned soon! Feel free to show your support to speed up development.",
+  "faq.question5": "How are my personal data protected?",
+  "faq.answer5":
+    "We take the protection of your data very seriously. All information is encrypted and stored securely. We never share your personal data with third parties. For more details, see our privacy policy.",
+  "faq.question6": "What if my partner doesn't want to use the application?",
+  "faq.answer6":
+    "My application is designed to be ideally used by both partners, but it can also be useful if only one member of the couple uses it. You can always track your own tasks and use the statistics as a basis for discussion with your partner.",
+  "faq.title": "Frequently Asked Questions (FAQ)",
+  "faq.noResponseLabel": "Did you not find the answer to your question?",
+  "faq.contactLinkMessage": "Contact us",
+  "footer.about.title": "About",
 } as const
