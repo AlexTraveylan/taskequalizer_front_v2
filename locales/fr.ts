@@ -336,9 +336,17 @@ export default {
   "my-account.username.placeholder": "Jean Dupont",
   "my-account.email.label": "(Optionnel) Email",
   "my-account.email.placeholder": "(Optionnel) mon-email@gmail.com",
-  "my-account.email.description": "Note : Pour ajouter un email réellement il faudra cliquer sur le lien reçu par e-mail. L'utilité ? L'utiliser pour se connecter, ou accèder à la fonctionnalité 'mot de passe oublié'.",
+  "my-account.email.description":
+    "Note : Pour ajouter un email réellement il faudra cliquer sur le lien reçu par e-mail. L'utilité ? L'utiliser pour se connecter, ou accèder à la fonctionnalité 'mot de passe oublié'.",
   "my-account.update-btn": "Mettre à jour",
   "my-account.email.succes-message": "Mise à jour réussie. Un e-mail de confirmation a été envoyé !",
   "my-account.username.succes-message": "Mise a jour du nom d'utilisateur réussi !",
   "my-account.error-message": "Echec de la mise à jour du profil",
+  "my-account.delete.btn-label": "Supprimer le compte",
+  "my-account.delete.alert.title": "Danger - Tu vas supprimer ton compte",
+  "my-account.delete.alert.description": "Cette action est irreversible, toutes tes données seront effacées de la base de donnée.",
+  "my-account.delete.alert.cancel-btn-label": "Je garde mon compte",
+  "my-account.delete.alert.confirm-btn-label": "Je confirme la suppression",
+  "my-account.delete.success-message": "Toutes tes données sont définitivement effacées",
+  "my-account.delete.error-message": "Ton compte n'a pas pu être supprimé",
 } as const

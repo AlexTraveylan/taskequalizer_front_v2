@@ -344,4 +344,11 @@ export default {
   "my-account.email.succes-message": "Update erfolgreich. Eine Bestätigungs-E-Mail wurde gesendet!",
   "my-account.username.succes-message": "Benutzername erfolgreich aktualisiert!",
   "my-account.error-message": "Profilaktualisierung fehlgeschlagen",
+  "my-account.delete.btn-label": "Löschen Sie das Konto",
+  "my-account.delete.alert.title": "Gefahr - Sie werden Ihr Konto löschen.",
+  "my-account.delete.alert.description": "Diese Aktion ist nicht rückgängig zu machen, alle Ihre Daten werden aus der Datenbank gelöscht.",
+  "my-account.delete.alert.cancel-btn-label": "Ich behalte meinen Account.",
+  "my-account.delete.alert.confirm-btn-label": "Ich bestätige die Löschung.",
+  "my-account.delete.success-message": "Alle Ihre Daten werden dauerhaft gelöscht.",
+  "my-account.delete.error-message": "Ihr Konto konnte nicht gelöscht werden.",
 } as const

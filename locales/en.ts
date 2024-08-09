@@ -333,9 +333,17 @@ export default {
   "my-account.username.placeholder": "Jean Dupont",
   "my-account.email.label": "(Optional) Email",
   "my-account.email.placeholder": "(Optionnel) my-email@gmail.com",
-  "my-account.email.description": "Note: To actually add an email, you will need to click on the link received by email. The purpose? To use it for logging in, or accessing the 'forgot password' feature.",
+  "my-account.email.description":
+    "Note: To actually add an email, you will need to click on the link received by email. The purpose? To use it for logging in, or accessing the 'forgot password' feature.",
   "my-account.update-btn": "Update",
   "my-account.email.succes-message": "Update successful. A confirmation email has been sent!",
   "my-account.username.succes-message": "Username update successful!",
   "my-account.error-message": "Profile update failure",
+  "my-account.delete.btn-label": "Delete the account",
+  "my-account.delete.alert.title": "Danger - You are going to delete your account",
+  "my-account.delete.alert.description": "This action is irreversible, all your data will be erased from the database.",
+  "my-account.delete.alert.cancel-btn-label": "I keep my account",
+  "my-account.delete.alert.confirm-btn-label": "I confirm the deletion",
+  "my-account.delete.success-message": "All your data is permanently erased.",
+  "my-account.delete.error-message": "Your account could not be deleted.",
 } as const

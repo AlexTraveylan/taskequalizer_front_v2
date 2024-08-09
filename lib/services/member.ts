@@ -56,6 +56,10 @@ class MemberService {
   async deleteMember(member_id: string): Promise<boolean> {
     const response = await fetch(`${memberUrl}${member_id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
     })
 
     if (!response.ok) {
