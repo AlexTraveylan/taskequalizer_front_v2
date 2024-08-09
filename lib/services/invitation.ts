@@ -46,6 +46,31 @@ class InvitationService {
     return parsedData.data
   }
 
+  async create_invitation_with_email(email: string): Promise<Invitation | SimpleMessage> {
+    const response = await fetch(invitationUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: extractAuthTokenFromLocalStorage(),
+      },
+      body: JSON.stringify({ email }),
+    })
+
+    if (response.status === 403) {
+      const data = await response.json()
+      const message = simpleMessageSchema.parse(data)
+      return message
+    }
+
+    if (!response.ok) {
+      throw new Error("Failed to create invitation")
+    }
+
+    const data = await response.json()
+    const parsedData = invitationSchema.parse(data)
+    return parsedData
+  }
+
   async deleteInvitation(invitationId: string): Promise<MessageResponse> {
     const response = await fetch(`${invitationUrl}${invitationId}`, {
       method: "DELETE",
