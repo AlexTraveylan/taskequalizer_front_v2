@@ -322,4 +322,5 @@ export default {
   "zod.invitation.email": "Entre un email valide",
   "invite-code-form.email.label": "Email de l'invité",
   "invite-code-form.email.placeholder": "(Optionnel) mon.ami@gmail.com",
+  "invite-code-form.message.plan": "Vous avez atteint la limite de membres pour votre plan",
 } as const

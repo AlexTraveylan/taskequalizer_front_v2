@@ -27,7 +27,7 @@ export const InviteCodeForm = () => {
   const form = useForm<InvitationWithEmail>({
     resolver: zodResolver(InvitationWithEmailSchema),
     defaultValues: {
-      email: "",
+      email: undefined,
     },
   })
 
@@ -45,7 +45,7 @@ export const InviteCodeForm = () => {
       queryClient.invalidateQueries({ queryKey: ["validInvitations"] })
 
       if ("message" in data) {
-        toast.error(data.message)
+        toast.error(scopedT("message.plan"))
         return
       }
 
