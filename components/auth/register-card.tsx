@@ -6,9 +6,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessageI18n } fr
 import { Input } from "@/components/ui/input"
 import { registerUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
-import { useIsAuth } from "@/lib/auth-store"
 import { authResponseSchema, registerCreateSchema } from "@/lib/schema/auth"
-import { useScopedI18n } from "@/locales/client"
+import { useClientMember } from "@/lib/whoiam-store"
+import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
@@ -17,9 +17,11 @@ import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
 
 export function RegisterForm() {
-  const { authState } = useIsAuth()
+  const { fetchClientMember } = useClientMember()
   const router = useRouter()
   const scopedT = useScopedI18n("register-card")
+  const locale = useCurrentLocale()
+
   const form = useForm<z.infer<typeof registerCreateSchema>>({
     resolver: zodResolver(registerCreateSchema),
     defaultValues: {
@@ -35,7 +37,7 @@ export function RegisterForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, locale }),
     })
 
     if (!response.ok) {
@@ -53,7 +55,7 @@ export function RegisterForm() {
       }
 
       localStorage.setItem("auth_token", parsedData.auth_token)
-      authState(true)
+      fetchClientMember()
       toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
     } catch (error) {

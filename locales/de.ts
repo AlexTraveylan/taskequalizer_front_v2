@@ -351,4 +351,5 @@ export default {
   "my-account.delete.alert.confirm-btn-label": "Ich bestätige die Löschung.",
   "my-account.delete.success-message": "Alle Ihre Daten werden dauerhaft gelöscht.",
   "my-account.delete.error-message": "Ihr Konto konnte nicht gelöscht werden.",
+  "my-account.email.not-set": "Keine E-Mail-Adresse angegeben.",
 } as const

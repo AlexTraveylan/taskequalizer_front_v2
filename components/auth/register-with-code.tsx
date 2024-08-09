@@ -6,8 +6,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessageI18n } fr
 import { Input } from "@/components/ui/input"
 import { registerInvitationUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
-import { useIsAuth } from "@/lib/auth-store"
 import { authResponseSchema, registerInviteSchema } from "@/lib/schema/auth"
+import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -17,7 +17,7 @@ import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
 
 export function RegisterWithCodeForm() {
-  const { authState } = useIsAuth()
+  const { fetchClientMember } = useClientMember()
   const router = useRouter()
   const searchParams = useSearchParams()
   const param_code = searchParams.get("code")
@@ -55,7 +55,7 @@ export function RegisterWithCodeForm() {
       }
 
       localStorage.setItem("auth_token", parsedData.auth_token)
-      authState(true)
+      fetchClientMember()
       toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
     } catch (error) {

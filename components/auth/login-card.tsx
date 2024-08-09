@@ -5,10 +5,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { loginUrl } from "@/lib/api-setting"
 import { navItems } from "@/lib/app-types"
-import { useIsAuth } from "@/lib/auth-store"
 import { authResponseSchema, loginSchema } from "@/lib/schema/auth"
 import { invitationService } from "@/lib/services/invitation"
 import { taskService } from "@/lib/services/task"
+import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
@@ -19,7 +19,7 @@ import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
 
 export function LoginForm() {
-  const { authState } = useIsAuth()
+  const { fetchClientMember } = useClientMember()
   const router = useRouter()
   const scopedT = useScopedI18n("login-card")
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -66,7 +66,7 @@ export function LoginForm() {
       }
 
       localStorage.setItem("auth_token", parsedData.auth_token)
-      authState(true)
+      fetchClientMember()
       toast.success(scopedT("success-message"))
       router.push(navItems["Application"].href)
       await taskService.cleanInvalidTasks()

@@ -36,7 +36,7 @@ class MemberService {
     return parsedData
   }
 
-  async updateMember({ member_name, email }: { member_name: string; email: string | undefined }): Promise<boolean> {
+  async updateMember({ member_name, email }: { member_name: string; email: string | null }): Promise<boolean> {
     const response = await fetch(`${memberUrl}`, {
       method: "PUT",
       headers: {

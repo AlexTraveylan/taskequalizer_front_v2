@@ -346,4 +346,5 @@ export default {
   "my-account.delete.alert.confirm-btn-label": "I confirm the deletion",
   "my-account.delete.success-message": "All your data is permanently erased.",
   "my-account.delete.error-message": "Your account could not be deleted.",
+  "my-account.email.not-set": "No email provided",
 } as const

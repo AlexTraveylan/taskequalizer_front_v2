@@ -349,4 +349,5 @@ export default {
   "my-account.delete.alert.confirm-btn-label": "Je confirme la suppression",
   "my-account.delete.success-message": "Toutes tes données sont définitivement effacées",
   "my-account.delete.error-message": "Ton compte n'a pas pu être supprimé",
+  "my-account.email.not-set": "Aucun email fourni",
 } as const

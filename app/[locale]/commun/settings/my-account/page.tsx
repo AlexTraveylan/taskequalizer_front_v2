@@ -16,12 +16,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, FormMessageI18n } from "@/components/ui/form"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessageI18n } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { navItems } from "@/lib/app-types"
 import { familyService } from "@/lib/services/family"
 import { memberService } from "@/lib/services/member"
+import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
@@ -30,23 +31,25 @@ import { toast } from "sonner"
 const profileFormSchema = z.object({
   username: z
     .string()
-    .min(2, {
-      message: "registerSchema.username.min",
-    })
     .max(25, {
       message: "registerSchema.username.max",
-    }),
-  email: z.string().email({ message: "contact.form.validation.email" }).optional(),
+    })
+    .optional(),
+  email: z
+    .union([
+      z.string().email({ message: "contact.form.validation.email" }).optional(),
+      z.string().refine((value) => value === "" || value === null),
+    ])
+    .optional(),
 })
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>
 
 export default function MyAccountPage() {
   const queryClient = useQueryClient()
+  const { cleanClientMember, fetchClientMember, clientMember } = useClientMember()
   const router = useRouter()
   const query1 = useQuery({ queryKey: ["family"], queryFn: familyService.getFamily })
-  const query2 = useQuery({ queryKey: ["members"], queryFn: familyService.getFamilyMembers })
-  const query3 = useQuery({ queryKey: ["whoIam"], queryFn: memberService.whoIam })
   const scopedT = useScopedI18n("my-account")
 
   const form = useForm<ProfileFormValues>({
@@ -62,6 +65,7 @@ export default function MyAccountPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["members"] })
       localStorage.removeItem("auth_token")
+      cleanClientMember()
       toast.warning(scopedT("delete.success-message"))
       router.push(navItems["Home"].href)
     },
@@ -79,40 +83,60 @@ export default function MyAccountPage() {
       } else {
         toast.info(scopedT("username.succes-message"))
       }
+      fetchClientMember()
     },
     onError: () => {
       toast.error(scopedT("error-message"))
     },
   })
 
-  if (query1.isLoading || query2.isLoading || query3.isLoading) {
+  if (query1.isLoading) {
     return <div>Loading...</div>
   }
 
-  if (query1.isError || query2.isError || query3.isError) {
+  if (query1.isError) {
     return <div>Error...</div>
   }
 
-  if (!query1.data || !query2.data || !query3.data) {
+  if (!query1.data) {
     return <div>No data...</div>
   }
 
-  const myProfile = query2?.data?.find((member) => member.id === query3.data?.member_id)
-
-  if (!myProfile) {
+  if (!clientMember) {
     return <div>No data...</div>
   }
-
-  form.setValue("username", myProfile.member_name)
-  form.setValue("email", myProfile.email ?? undefined)
 
   function onSubmit(data: ProfileFormValues) {
-    console.log(data)
-    updateMutation.mutate({ member_name: data.username, email: data.email })
+    if (!clientMember) {
+      return
+    }
+
+    let member_name: string
+    let email: string | null
+
+    if (data.username === "" || !data.username) {
+      member_name = clientMember.member_name
+    } else {
+      member_name = data.username
+    }
+
+    if (data.email === "" || !data.email) {
+      email = clientMember.email
+    } else {
+      email = data.email
+    }
+
+    updateMutation.mutate({ member_name, email })
   }
 
   return (
     <div className="space-y-6">
+      <h1 className="text-3xl font-semibold">{scopedT("title")}</h1>
+      <div>
+        <p className="text-sm font-medium leading-none">{clientMember.member_name}</p>
+        <p className="text-sm text-muted-foreground">{clientMember.email ?? scopedT("email.not-set")}</p>
+      </div>
+      <Separator />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -138,7 +162,7 @@ export default function MyAccountPage() {
                   <Input placeholder={scopedT("email.placeholder")} {...field} />
                 </FormControl>
                 <FormDescription>{scopedT("email.description")}</FormDescription>
-                <FormMessage />
+                <FormMessageI18n />
               </FormItem>
             )}
           />
@@ -157,7 +181,9 @@ export default function MyAccountPage() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>{scopedT("delete.alert.cancel-btn-label")}</AlertDialogCancel>
-            <AlertDialogAction onClick={() => deleteMutation.mutate(myProfile.id)}>{scopedT("delete.alert.confirm-btn-label")}</AlertDialogAction>
+            <AlertDialogAction onClick={() => deleteMutation.mutate(clientMember.id)}>
+              {scopedT("delete.alert.confirm-btn-label")}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
