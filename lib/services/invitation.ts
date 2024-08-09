@@ -1,4 +1,4 @@
-import { cleanInvitationUrl, invitationUrl, validInvitationListUrl } from "@/lib/api-setting"
+import { cleanInvitationUrl, cleanInvitationWithEmailUrl, invitationUrl, validInvitationListUrl } from "@/lib/api-setting"
 import { Invitation, invitationSchema, MessageResponse, messageResponseSchema, validListInvitationSchema } from "@/lib/schema/invitation"
 import { SimpleMessage, simpleMessageSchema } from "../schema/auth"
 import { extractAuthTokenFromLocalStorage } from "./auth"
@@ -47,7 +47,7 @@ class InvitationService {
   }
 
   async create_invitation_with_email(email: string): Promise<Invitation | SimpleMessage> {
-    const response = await fetch(invitationUrl, {
+    const response = await fetch(cleanInvitationWithEmailUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

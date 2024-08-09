@@ -316,4 +316,7 @@ export default {
   "terms-of-use.contact.title": "Contact",
   "terms-of-use.contact.part": "If you have any questions regarding these terms of use, please contact us at timothee.demares@alextraveylan.fr or using the contact form provided.",
   "terms-of-use.last-update": "Last update",
+  "zod.invitation.email": "Enter a valid email",
+  "invite-code-form.email.label": "Guest's email",
+  "invite-code-form.email.placeholder": "(Optional) my.friend@gmail.com",
 } as const

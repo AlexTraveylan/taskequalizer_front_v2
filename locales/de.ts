@@ -322,4 +322,7 @@ export default {
   "terms-of-use.contact.title": "Kontakt",
   "terms-of-use.contact.part": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter timothee.demares@alextraveylan.fr oder über das bereitgestellte Kontaktformular.",
   "terms-of-use.last-update": "Letztes Update",
+  "zod.invitation.email": "Geben Sie eine gültige E-Mail-Adresse ein.",
+  "invite-code-form.email.label": "Gast-E-Mail",
+  "invite-code-form.email.placeholder": "(Optional) mein.freund@gmail.com",
 } as const

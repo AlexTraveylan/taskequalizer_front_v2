@@ -10,7 +10,7 @@ import { useIsAuth } from "@/lib/auth-store"
 import { authResponseSchema, registerInviteSchema } from "@/lib/schema/auth"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
@@ -19,12 +19,14 @@ import { InputEye } from "../ui/input-password-eye"
 export function RegisterWithCodeForm() {
   const { authState } = useIsAuth()
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const param_code = searchParams.get("code")
   const scopedT = useScopedI18n("register-invitation")
   const form = useForm<z.infer<typeof registerInviteSchema>>({
     resolver: zodResolver(registerInviteSchema),
     defaultValues: {
       username: "",
-      invitation_code: "",
+      invitation_code: param_code || "",
       password: "",
     },
   })
