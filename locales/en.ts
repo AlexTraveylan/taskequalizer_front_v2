@@ -347,4 +347,6 @@ export default {
   "my-account.delete.success-message": "All your data is permanently erased.",
   "my-account.delete.error-message": "Your account could not be deleted.",
   "my-account.email.not-set": "No email provided",
+  "home.share": "Share on",
+  "home.share-title": "Task Equalizer - A task management application for families",
 } as const

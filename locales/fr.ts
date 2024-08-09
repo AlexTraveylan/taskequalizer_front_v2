@@ -350,4 +350,6 @@ export default {
   "my-account.delete.success-message": "Toutes tes données sont définitivement effacées",
   "my-account.delete.error-message": "Ton compte n'a pas pu être supprimé",
   "my-account.email.not-set": "Aucun email fourni",
+  "home.share": "Partager sur",
+  "home.share-title": "Task Equalizer - Une application de gestion de tâches pour les familles",
 } as const

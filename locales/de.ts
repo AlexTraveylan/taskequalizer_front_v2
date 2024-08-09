@@ -352,4 +352,6 @@ export default {
   "my-account.delete.success-message": "Alle Ihre Daten werden dauerhaft gelöscht.",
   "my-account.delete.error-message": "Ihr Konto konnte nicht gelöscht werden.",
   "my-account.email.not-set": "Keine E-Mail-Adresse angegeben.",
+  "home.share": "Teilen Sie auf.",
+  "home.share-title": "Task Equalizer - Eine Aufgabenverwaltungsanwendung für Familien.",
 } as const
