@@ -283,7 +283,8 @@ export default {
   "privacy-policy.shared.part5": "To comply with legal obligations.",
   "privacy-policy.shared.part6": "With our service providers helping us to operate our application (Stripe for subscription).",
   "privacy-policy.security.title": "Data security",
-  "privacy-policy.security.part": "We implement appropriate security measures to protect your information against unauthorized access, alteration, disclosure, or destruction.",
+  "privacy-policy.security.part":
+    "We implement appropriate security measures to protect your information against unauthorized access, alteration, disclosure, or destruction.",
   "privacy-policy.rights.title": "Your rights",
   "privacy-policy.rights.part1": "You have the right to access, correct, or delete your personal information.",
   "privacy-policy.rights.part2": "You can also object to the processing of your data or request the limitation of this processing.",
@@ -291,7 +292,8 @@ export default {
   "privacy-policy.modify.part1": "We may update this privacy policy from time to time.",
   "privacy-policy.modify.part2": "We will inform you of any important change by email or through a notification in the application.",
   "privacy-policy.contact.title": "Contact us",
-  "privacy-policy.contact.part": "If you have any questions regarding this privacy policy, please contact us at timothee.demares@alextraveylan.fr or using the contact form.",
+  "privacy-policy.contact.part":
+    "If you have any questions regarding this privacy policy, please contact us at timothee.demares@alextraveylan.fr or using the contact form.",
   "privacy-policy.last-update": "Last update",
   "terms-of-use.title": "Terms of use",
   "terms-of-use.accept.title": "Acceptance of terms and conditions",
@@ -302,22 +304,38 @@ export default {
   "terms-of-use.description.part2": "Our service allows you to track, analyze, and visualize the distribution of tasks within the household.",
   "terms-of-use.responsability.title": "Account registration and security",
   "terms-of-use.responsability.part1": "To use our service, you must create an account.",
-  "terms-of-use.responsability.part2": "You are responsible for maintaining the confidentiality of your login information and all activities that occur under your account.",
+  "terms-of-use.responsability.part2":
+    "You are responsible for maintaining the confidentiality of your login information and all activities that occur under your account.",
   "terms-of-use.usage.title": "Appropriate use",
-  "terms-of-use.usage.part": "You agree to use TaskEqualizer only for legal purposes and in a way that does not infringe on the rights of others or restrict their use of the service.",
+  "terms-of-use.usage.part":
+    "You agree to use TaskEqualizer only for legal purposes and in a way that does not infringe on the rights of others or restrict their use of the service.",
   "terms-of-use.rights.title": "Intellectual property",
-  "terms-of-use.rights.part": "The source code of this project is made available under the MIT license. This means that you are free to copy, modify, distribute, and use the software, subject to the following conditions:",
+  "terms-of-use.rights.part":
+    "The source code of this project is made available under the MIT license. This means that you are free to copy, modify, distribute, and use the software, subject to the following conditions:",
   "terms-of-use.rights.part1": "The product must retain the original copyright notices.",
-  "terms-of-use.rights.part2": "All copies or substantial portions of the software must include an identical LICENSE file to the original one located here: https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE",
+  "terms-of-use.rights.part2":
+    "All copies or substantial portions of the software must include an identical LICENSE file to the original one located here: https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE",
   "terms-of-use.limit.title": "Limitation of liability",
-  "terms-of-use.limit.part": "Timothée Demares will not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our service.",
+  "terms-of-use.limit.part":
+    "Timothée Demares will not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our service.",
   "terms-of-use.modif.title": "Changes to the terms",
-  "terms-of-use.modif.part": "We reserve the right to modify these terms of use at any time. The modifications will take effect immediately upon their publication on this page.",
+  "terms-of-use.modif.part":
+    "We reserve the right to modify these terms of use at any time. The modifications will take effect immediately upon their publication on this page.",
   "terms-of-use.contact.title": "Contact",
-  "terms-of-use.contact.part": "If you have any questions regarding these terms of use, please contact us at timothee.demares@alextraveylan.fr or using the contact form provided.",
+  "terms-of-use.contact.part":
+    "If you have any questions regarding these terms of use, please contact us at timothee.demares@alextraveylan.fr or using the contact form provided.",
   "terms-of-use.last-update": "Last update",
   "zod.invitation.email": "Enter a valid email",
   "invite-code-form.email.label": "Guest's email",
   "invite-code-form.email.placeholder": "(Optional) my.friend@gmail.com",
   "invite-code-form.message.plan": "You have reached the member limit for your plan.",
+  "my-account.username.label": "Username",
+  "my-account.username.placeholder": "Jean Dupont",
+  "my-account.email.label": "(Optional) Email",
+  "my-account.email.placeholder": "(Optionnel) my-email@gmail.com",
+  "my-account.email.description": "Note: To actually add an email, you will need to click on the link received by email. The purpose? To use it for logging in, or accessing the 'forgot password' feature.",
+  "my-account.update-btn": "Update",
+  "my-account.email.succes-message": "Update successful. A confirmation email has been sent!",
+  "my-account.username.succes-message": "Username update successful!",
+  "my-account.error-message": "Profile update failure",
 } as const

@@ -286,7 +286,8 @@ export default {
   "privacy-policy.shared.part5": "Pour se conformer à des obligations légales",
   "privacy-policy.shared.part6": "Avec nos fournisseurs de services qui nous aident à exploiter notre application (Stripe en cas d'abonnement)",
   "privacy-policy.security.title": "Sécurité des données",
-  "privacy-policy.security.part": "Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations contre l'accès non autorisé, l'altération, la divulgation ou la destruction.",
+  "privacy-policy.security.part":
+    "Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations contre l'accès non autorisé, l'altération, la divulgation ou la destruction.",
   "privacy-policy.rights.title": "Vos droits",
   "privacy-policy.rights.part1": "Vous avez le droit d'accéder, de corriger ou de supprimer vos informations personnelles.",
   "privacy-policy.rights.part2": "Vous pouvez également vous opposer au traitement de vos données ou demander la limitation de ce traitement.",
@@ -294,7 +295,8 @@ export default {
   "privacy-policy.modify.part1": "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre.",
   "privacy-policy.modify.part2": "Nous vous informerons de tout changement important par e-mail ou par une notification dans l'application.",
   "privacy-policy.contact.title": "Nous contacter",
-  "privacy-policy.contact.part": "Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à timothee.demares@alextraveylan.fr ou en utilisant le formulaire de contact.",
+  "privacy-policy.contact.part":
+    "Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à timothee.demares@alextraveylan.fr ou en utilisant le formulaire de contact.",
   "privacy-policy.last-update": "Dernière mise à jour",
   "terms-of-use.title": "Conditions d'utilisation",
   "terms-of-use.accept.title": "Acceptation des conditions",
@@ -305,22 +307,38 @@ export default {
   "terms-of-use.description.part2": "Notre service permet de suivre, analyser et visualiser la répartition des tâches au sein du foyer.",
   "terms-of-use.responsability.title": "Inscription et sécurité du compte",
   "terms-of-use.responsability.part1": "Pour utiliser notre service, vous devez créer un compte.",
-  "terms-of-use.responsability.part2": "Vous êtes responsable de maintenir la confidentialité de vos informations de connexion et de toutes les activités qui se produisent sous votre compte.",
+  "terms-of-use.responsability.part2":
+    "Vous êtes responsable de maintenir la confidentialité de vos informations de connexion et de toutes les activités qui se produisent sous votre compte.",
   "terms-of-use.usage.title": "Utilisation appropriée",
-  "terms-of-use.usage.part": "Vous acceptez d'utiliser TaskEqualizer uniquement à des fins légales et d'une manière qui ne porte pas atteinte aux droits d'autrui ou ne restreint pas leur utilisation du service.",
+  "terms-of-use.usage.part":
+    "Vous acceptez d'utiliser TaskEqualizer uniquement à des fins légales et d'une manière qui ne porte pas atteinte aux droits d'autrui ou ne restreint pas leur utilisation du service.",
   "terms-of-use.rights.title": "Propriété intellectuelle",
-  "terms-of-use.rights.part": "Le code source de ce projet est mis à disposition sous la licence MIT. Cela signifie que vous êtes libre de copier, modifier, distribuer et utiliser le logiciel, sous réserve des conditions suivantes:",
+  "terms-of-use.rights.part":
+    "Le code source de ce projet est mis à disposition sous la licence MIT. Cela signifie que vous êtes libre de copier, modifier, distribuer et utiliser le logiciel, sous réserve des conditions suivantes:",
   "terms-of-use.rights.part1": "Le produit doit conserver les mentions de droits d'auteur d'origine.",
-  "terms-of-use.rights.part2": "Toutes les copies ou parties substantielles du logiciel doivent inclure un fichier LICENSE indentique à l'originale se trouvant ici : https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE",
+  "terms-of-use.rights.part2":
+    "Toutes les copies ou parties substantielles du logiciel doivent inclure un fichier LICENSE indentique à l'originale se trouvant ici : https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE",
   "terms-of-use.limit.title": "Limitation de responsabilité",
-  "terms-of-use.limit.part": "Timothée Demares ne sera pas responsable des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser notre service.",
+  "terms-of-use.limit.part":
+    "Timothée Demares ne sera pas responsable des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser notre service.",
   "terms-of-use.modif.title": "Modifications des conditions",
-  "terms-of-use.modif.part": "Nous nous réservons le droit de modifier ces conditions d'utilisation à tout moment. Les modifications entreront en vigueur dès leur publication sur cette page.",
+  "terms-of-use.modif.part":
+    "Nous nous réservons le droit de modifier ces conditions d'utilisation à tout moment. Les modifications entreront en vigueur dès leur publication sur cette page.",
   "terms-of-use.contact.title": "Contact",
-  "terms-of-use.contact.part": "Si vous avez des questions concernant ces conditions d'utilisation, veuillez nous contacter à timothee.demares@alextraveylan.fr ou sur le formulaire de contact mis à disposition.",
+  "terms-of-use.contact.part":
+    "Si vous avez des questions concernant ces conditions d'utilisation, veuillez nous contacter à timothee.demares@alextraveylan.fr ou sur le formulaire de contact mis à disposition.",
   "terms-of-use.last-update": "Dernière mise à jour",
   "zod.invitation.email": "Entre un email valide",
   "invite-code-form.email.label": "Email de l'invité",
   "invite-code-form.email.placeholder": "(Optionnel) mon.ami@gmail.com",
   "invite-code-form.message.plan": "Vous avez atteint la limite de membres pour votre plan",
+  "my-account.username.label": "Nom d'utilisateur",
+  "my-account.username.placeholder": "Jean Dupont",
+  "my-account.email.label": "(Optionnel) Email",
+  "my-account.email.placeholder": "(Optionnel) mon-email@gmail.com",
+  "my-account.email.description": "Note : Pour ajouter un email réellement il faudra cliquer sur le lien reçu par e-mail. L'utilité ? L'utiliser pour se connecter, ou accèder à la fonctionnalité 'mot de passe oublié'.",
+  "my-account.update-btn": "Mettre à jour",
+  "my-account.email.succes-message": "Mise à jour réussie. Un e-mail de confirmation a été envoyé !",
+  "my-account.username.succes-message": "Mise a jour du nom d'utilisateur réussi !",
+  "my-account.error-message": "Echec de la mise à jour du profil",
 } as const

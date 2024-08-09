@@ -305,25 +305,43 @@ export default {
   "terms-of-use.accept.part2": "Wenn Sie diese Bedingungen nicht akzeptieren, benutzen Sie bitte nicht unseren Service.",
   "terms-of-use.description.title": "Dienstbeschreibung",
   "terms-of-use.description.part1": "TaskEqualizer ist ein Tool, das entwickelt wurde, um Paaren zu helfen, ihre Haushaltsaufgaben auszugleichen.",
-  "terms-of-use.description.part2": "Unser Service ermöglicht es Ihnen, die Verteilung von Aufgaben im Haushalt zu verfolgen, zu analysieren und zu visualisieren.",
+  "terms-of-use.description.part2":
+    "Unser Service ermöglicht es Ihnen, die Verteilung von Aufgaben im Haushalt zu verfolgen, zu analysieren und zu visualisieren.",
   "terms-of-use.responsability.title": "Kontoregistrierung und Sicherheit",
   "terms-of-use.responsability.part1": "Um unseren Service zu nutzen, musst du ein Konto erstellen.",
-  "terms-of-use.responsability.part2": "Sie sind verantwortlich für die Wahrung der Vertraulichkeit Ihrer Anmeldeinformationen und aller Aktivitäten, die unter Ihrem Konto erfolgen.",
+  "terms-of-use.responsability.part2":
+    "Sie sind verantwortlich für die Wahrung der Vertraulichkeit Ihrer Anmeldeinformationen und aller Aktivitäten, die unter Ihrem Konto erfolgen.",
   "terms-of-use.usage.title": "Angemessene Verwendung",
-  "terms-of-use.usage.part": "Du stimmst zu, TaskEqualizer nur für legale Zwecke zu verwenden und dies auf eine Weise zu tun, die nicht die Rechte anderer verletzt oder ihre Nutzung des Dienstes einschränkt.",
+  "terms-of-use.usage.part":
+    "Du stimmst zu, TaskEqualizer nur für legale Zwecke zu verwenden und dies auf eine Weise zu tun, die nicht die Rechte anderer verletzt oder ihre Nutzung des Dienstes einschränkt.",
   "terms-of-use.rights.title": "Geistiges Eigentum",
-  "terms-of-use.rights.part": "Der Quellcode dieses Projekts steht unter der MIT-Lizenz zur Verfügung. Dies bedeutet, dass Sie die Software frei kopieren, ändern, verteilen und nutzen können, unter folgenden Bedingungen:",
+  "terms-of-use.rights.part":
+    "Der Quellcode dieses Projekts steht unter der MIT-Lizenz zur Verfügung. Dies bedeutet, dass Sie die Software frei kopieren, ändern, verteilen und nutzen können, unter folgenden Bedingungen:",
   "terms-of-use.rights.part1": "Das Produkt muss die originalen Urheberrechtshinweise beibehalten.",
-  "terms-of-use.rights.part2": "Alle Kopien oder wesentliche Teile der Software müssen eine identische Lizenzdatei wie die originale Datei hier: https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE enthalten.",
+  "terms-of-use.rights.part2":
+    "Alle Kopien oder wesentliche Teile der Software müssen eine identische Lizenzdatei wie die originale Datei hier: https://github.com/AlexTraveylan/taskequalizer_front_v2/blob/main/LICENSE enthalten.",
   "terms-of-use.limit.title": "Haftungsbeschränkung",
-  "terms-of-use.limit.part": "Timothée Demares haftet nicht für direkte, indirekte, zufällige, besondere oder Folgeschäden, die aus der Nutzung oder Unfähigkeit zur Nutzung unseres Dienstes resultieren.",
+  "terms-of-use.limit.part":
+    "Timothée Demares haftet nicht für direkte, indirekte, zufällige, besondere oder Folgeschäden, die aus der Nutzung oder Unfähigkeit zur Nutzung unseres Dienstes resultieren.",
   "terms-of-use.modif.title": "Änderungen der Bedingungen",
-  "terms-of-use.modif.part": "Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Die Änderungen werden sofort wirksam, sobald sie auf dieser Seite veröffentlicht werden.",
+  "terms-of-use.modif.part":
+    "Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Die Änderungen werden sofort wirksam, sobald sie auf dieser Seite veröffentlicht werden.",
   "terms-of-use.contact.title": "Kontakt",
-  "terms-of-use.contact.part": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter timothee.demares@alextraveylan.fr oder über das bereitgestellte Kontaktformular.",
+  "terms-of-use.contact.part":
+    "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter timothee.demares@alextraveylan.fr oder über das bereitgestellte Kontaktformular.",
   "terms-of-use.last-update": "Letztes Update",
   "zod.invitation.email": "Geben Sie eine gültige E-Mail-Adresse ein.",
   "invite-code-form.email.label": "Gast-E-Mail",
   "invite-code-form.email.placeholder": "(Optional) mein.freund@gmail.com",
   "invite-code-form.message.plan": "Du hast die Mitgliedergrenze für deinen Plan erreicht.",
+  "my-account.username.label": "Benutzername",
+  "my-account.username.placeholder": "Jean Dupont",
+  "my-account.email.label": "(Empfohlen) E-Mail",
+  "my-account.email.placeholder": "(Optional) meine-email@gmail.com",
+  "my-account.email.description":
+    "Um tatsächlich eine E-Mail hinzuzufügen, müssen Sie auf den per E-Mail erhaltenen Link klicken. Der Zweck? Um ihn für das Einloggen zu verwenden oder auf die Funktion 'Passwort vergessen' zuzugreifen.",
+  "my-account.update-btn": "Aktualisierung",
+  "my-account.email.succes-message": "Update erfolgreich. Eine Bestätigungs-E-Mail wurde gesendet!",
+  "my-account.username.succes-message": "Benutzername erfolgreich aktualisiert!",
+  "my-account.error-message": "Profilaktualisierung fehlgeschlagen",
 } as const

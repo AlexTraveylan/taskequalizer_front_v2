@@ -1,5 +1,5 @@
 import { memberTaskUrl, memberUrl } from "@/lib/api-setting"
-import { Member, WhoIam, whoIamSchema } from "@/lib/schema/member"
+import { WhoIam, whoIamSchema } from "@/lib/schema/member"
 import { Task, taskSchema } from "@/lib/schema/task"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
@@ -36,19 +36,18 @@ class MemberService {
     return parsedData
   }
 
-  async updateMember(member: Member): Promise<boolean> {
-    const response = await fetch(`${memberUrl}${member.id}`, {
+  async updateMember({ member_name, email }: { member_name: string; email: string | undefined }): Promise<boolean> {
+    const response = await fetch(`${memberUrl}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: extractAuthTokenFromLocalStorage(),
       },
-      body: JSON.stringify(member),
+      body: JSON.stringify({ member_name, email }),
     })
 
     if (!response.ok) {
-      console.error("Failed to update member")
-      return false
+      throw new Error("Failed to update member")
     }
 
     return true
