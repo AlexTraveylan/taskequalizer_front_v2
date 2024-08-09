@@ -1,7 +1,6 @@
 "use client"
 
 import { navItems } from "@/lib/app-types"
-import { useIsAuth } from "@/lib/auth-store"
 import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import Image from "next/image"

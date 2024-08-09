@@ -1,6 +1,6 @@
 "use client"
 
-import { useIsAuth } from "@/lib/auth-store"
+import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 
 type NavItem = {
@@ -27,11 +27,11 @@ const footerSupportItemsNotLogged: Record<footerNavKeyPossibleNotLogged, NavItem
 }
 
 export const FooterFastLink = () => {
-  const { isAuth } = useIsAuth()
   const scopedT = useScopedI18n("footer-fast-link")
+  const { clientMember } = useClientMember()
 
   // If the user is authenticated, we display the following links
-  if (isAuth) {
+  if (clientMember !== null) {
     return (
       <ul className="space-y-2">
         {Object.values(footerSupportItemsLogged).map((item, index) => (
