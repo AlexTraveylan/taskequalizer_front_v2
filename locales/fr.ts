@@ -8,7 +8,7 @@ export default {
   "auth-button.loginButtonLabel": "Connexion",
   "login-card.title": "Connexion",
   "login-card.description": "Vous possédez déjà un compte ? Connectez-vous ici.",
-  "login-card.usernameField": "Nom d'utilisateur",
+  "login-card.usernameField": "Nom d'utilisateur (ou email)",
   "login-card.passwordField": "Mot de passe",
   "login-card.buttonLabel": "Connexion",
   "login-card.error-message": "Echec de la connexion",
@@ -352,4 +352,11 @@ export default {
   "my-account.email.not-set": "Aucun email fourni",
   "home.share": "Partager sur",
   "home.share-title": "Task Equalizer - Une application de gestion de tâches pour les familles",
+  "reset-password.title": "Reinitialisation du mot de passe",
+  "reset-password.description":
+    "Je ne possède pas votre mot de passe, il est totalement crypté, veuillez en entrer un nouveau et le garder en mémoire (Dans l'idéal dans un gestionnaire de mot de passe)",
+  "reset-password.passwordField": "Nouveau mot de passe",
+  "reset-password.buttonLabel": "Changer de mot de passe",
+  "reset-password.error-message": "Impossible de changer le mot de passe",
+  "reset-password.success-message": "Votre mot de passe a été changé avec succès",
 } as const

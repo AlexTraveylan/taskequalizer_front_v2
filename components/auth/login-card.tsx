@@ -12,11 +12,11 @@ import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
+import { ForgetPasswordLink } from "./forget-password-link"
 
 export function LoginForm() {
   const { fetchClientMember } = useClientMember()
@@ -28,19 +28,8 @@ export function LoginForm() {
       username: "",
       password: "",
     },
+    mode: "onChange",
   })
-
-  const [initialized, setInitialized] = useState(false)
-  const usernameRef = useRef<HTMLInputElement>(null)
-  const passwordRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    if (!initialized && usernameRef.current?.value && passwordRef.current?.value) {
-      form.setValue("username", usernameRef.current.value)
-      form.setValue("password", passwordRef.current.value)
-      setInitialized(true)
-    }
-  }, [initialized, form])
 
   const onSubmit = async (formData: z.infer<typeof loginSchema>) => {
     const response = await fetch(loginUrl, {
@@ -92,7 +81,7 @@ export function LoginForm() {
                 <FormItem>
                   <FormLabel>{scopedT("usernameField")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} autoComplete="username" ref={usernameRef} />
+                    <Input placeholder="John Doe" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -103,9 +92,12 @@ export function LoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{scopedT("passwordField")}</FormLabel>
+                  <div className="flex items-center">
+                    <FormLabel>{scopedT("passwordField")}</FormLabel>
+                    <ForgetPasswordLink form={form} />
+                  </div>
                   <FormControl>
-                    <InputEye {...field} autoComplete="current-password" ref={passwordRef} />
+                    <InputEye {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

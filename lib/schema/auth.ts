@@ -40,3 +40,14 @@ export const simpleMessageSchema = z.object({
 })
 
 export type SimpleMessage = z.infer<typeof simpleMessageSchema>
+
+export const resetPasswordSchema = z.object({
+  new_password: z
+    .string()
+    .min(8, { message: "registerInviteSchema.password.min" })
+    .refine((value) => /[a-z]/.test(value), { message: "registerInviteSchema.password.lowercase" })
+    .refine((value) => /[A-Z]/.test(value), { message: "registerInviteSchema.password.uppercase" })
+    .refine((value) => /\d/.test(value), { message: "registerInviteSchema.password.digit" }),
+})
+
+export type ResetPassword = z.infer<typeof resetPasswordSchema>

@@ -1,4 +1,4 @@
-import { emailContactUrl } from "../api-setting"
+import { emailContactUrl, resetPasswordUrl } from "../api-setting"
 import { SimpleMessage, simpleMessageSchema } from "../schema/auth"
 import { extractAuthTokenFromLocalStorage } from "./auth"
 
@@ -17,8 +17,25 @@ class EmailService {
       throw new Error("Failed to send email")
     }
 
-    message = await response.json()
-    return simpleMessageSchema.parse(message)
+    const responseMessage = await response.json()
+    return simpleMessageSchema.parse(responseMessage)
+  }
+
+  async sendResetPasswordRequest(email: string): Promise<SimpleMessage> {
+    const response = await fetch(resetPasswordUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+
+    if (!response.ok) {
+      throw new Error("Failed to send email")
+    }
+
+    const responseMessage = await response.json()
+    return simpleMessageSchema.parse(responseMessage)
   }
 }
 

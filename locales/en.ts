@@ -8,7 +8,7 @@ export default {
   "auth-button.loginButtonLabel": "Login",
   "login-card.title": "Login",
   "login-card.description": "You already have an account? Login here.",
-  "login-card.usernameField": "Username",
+  "login-card.usernameField": "Username (or email)",
   "login-card.passwordField": "Password",
   "login-card.buttonLabel": "Login",
   "login-card.error-message": "Login failed",
@@ -349,4 +349,11 @@ export default {
   "my-account.email.not-set": "No email provided",
   "home.share": "Share on",
   "home.share-title": "Task Equalizer - A task management application for families",
+  "reset-password.title": "Reset password",
+  "reset-password.description":
+    "I do not have your password, it is completely encrypted, please enter a new one and remember it (ideally in a password manager)",
+  "reset-password.passwordField": "New password",
+  "reset-password.buttonLabel": "Change password",
+  "reset-password.error-message": "Unable to change the password",
+  "reset-password.success-message": "Your password has been successfully changed.",
 } as const

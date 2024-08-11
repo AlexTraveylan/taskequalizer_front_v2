@@ -34,3 +34,5 @@ export const checkoutSessionUrl = url + "/checkout_session"
 export const plansInformationUrl = url + "/plans_informations"
 
 export const emailContactUrl = url + "/contact_form"
+export const resetPasswordUrl = url + "/password_reset"
+export const updatePasswordUrl = url + "/update_password"

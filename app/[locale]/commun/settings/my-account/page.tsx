@@ -78,7 +78,7 @@ export default function MyAccountPage() {
     mutationFn: memberService.updateMember,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["members"] })
-      if (form.getValues("email")) {
+      if (form.getValues("email") && form.getValues("email") !== clientMember?.email) {
         toast.info(scopedT("email.succes-message"))
       } else {
         toast.info(scopedT("username.succes-message"))
