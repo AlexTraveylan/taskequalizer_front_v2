@@ -17,9 +17,9 @@ export const ForgetPasswordLink = ({ form }: { form: UseFormReturn<{ username: s
     }, 30000)
     try {
       await emailService.sendResetPasswordRequest(form.getValues("username"))
-      toast.success("Email sent")
+      toast.success(scopedT("success"))
     } catch (error) {
-      toast.error("Error while sending email")
+      toast.error(scopedT("error"))
     }
 
     return timer

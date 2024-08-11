@@ -358,4 +358,6 @@ export default {
   "reset-password.success-message": "Your password has been successfully changed.",
   "forget-password-link.wait": "Please wait 30 seconds.",
   "forget-password-link.forgetLabel": "Forgotten password?",
+  "forget-password-link.success": "Email sent (Also check your spam folder)",
+  "forget-password-link.error": "Unable to send the recovery email",
 } as const

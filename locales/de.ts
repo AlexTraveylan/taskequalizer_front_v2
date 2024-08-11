@@ -363,4 +363,6 @@ export default {
   "reset-password.success-message": "Ihr Passwort wurde erfolgreich geändert.",
   "forget-password-link.wait": "Bitte warten Sie 30 Sekunden.",
   "forget-password-link.forgetLabel": "Vergessenes Passwort?",
+  "forget-password-link.success": "E-Mail gesendet (Bitte auch Ihren Spam-Ordner überprüfen)",
+  "forget-password-link.error": "Nicht in der Lage, die Wiederherstellungs-E-Mail zu senden.",
 } as const
