@@ -359,4 +359,6 @@ export default {
   "reset-password.buttonLabel": "Changer de mot de passe",
   "reset-password.error-message": "Impossible de changer le mot de passe",
   "reset-password.success-message": "Votre mot de passe a été changé avec succès",
+  "forget-password-link.wait": "S'il vous plait attendez 30s",
+  "forget-password-link.forgetLabel": "Mot de passe oublié ?",
 } as const
