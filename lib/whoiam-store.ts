@@ -12,13 +12,18 @@ type clientMember = {
 export const useClientMember = create<clientMember>((set) => ({
   clientMember: null,
   fetchClientMember: async () => {
-    const mmyId = await memberService.whoIam()
-    const members = await familyService.getFamilyMembers()
-    const member = members.find((m) => m.id === mmyId.member_id)
-    if (member) {
-      set({ clientMember: member })
-    } else {
+    try {
+      const mmyId = await memberService.whoIam()
+      const members = await familyService.getFamilyMembers()
+      const member = members.find((m) => m.id === mmyId.member_id)
+      if (member) {
+        set({ clientMember: member })
+      } else {
+        set({ clientMember: null })
+      }
+    } catch (error) {
       set({ clientMember: null })
+      return
     }
   },
   cleanClientMember: () => set({ clientMember: null }),
