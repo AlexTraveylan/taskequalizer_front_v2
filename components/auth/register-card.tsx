@@ -57,7 +57,7 @@ export function RegisterForm() {
       localStorage.setItem("auth_token", parsedData.auth_token)
       fetchClientMember()
       toast.success(scopedT("success-message"))
-      router.push(navItems["Application"].href)
+      router.push(navItems["Settings"].href)
     } catch (error) {
       toast.error(scopedT("error-message"))
     }
