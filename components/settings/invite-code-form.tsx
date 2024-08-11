@@ -1,11 +1,13 @@
 "use client"
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessageI18n } from "@/components/ui/form"
+import { settingsNavItems } from "@/lib/app-types"
 import { invitationService } from "@/lib/services/invitation"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { Copy } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
@@ -15,7 +17,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "../ui/input"
 
 const InvitationWithEmailSchema = z.object({
-  email: z.string().email({ message: "invitation.email" }).optional(),
+  email: z
+    .union([
+      z.string().email({ message: "contact.form.validation.email" }).optional(),
+      z.string().refine((value) => value === "" || value === null),
+    ])
+    .optional(),
 })
 
 type InvitationWithEmail = z.infer<typeof InvitationWithEmailSchema>
@@ -24,15 +31,17 @@ export const InviteCodeForm = () => {
   const [code, setCode] = useState<string>("")
   const scopedT = useScopedI18n("invite-code-form")
   const queryClient = useQueryClient()
+  const router = useRouter()
+
   const form = useForm<InvitationWithEmail>({
     resolver: zodResolver(InvitationWithEmailSchema),
     defaultValues: {
-      email: undefined,
+      email: "",
     },
   })
 
   function onSubmit(data: InvitationWithEmail) {
-    if (data.email) {
+    if (data.email !== "" && data.email !== null && data.email !== undefined) {
       createWithEmailMutation.mutate(data.email)
     } else {
       createMutation.mutate()
@@ -63,7 +72,8 @@ export const InviteCodeForm = () => {
       queryClient.invalidateQueries({ queryKey: ["validInvitations"] })
 
       if ("message" in data) {
-        toast.error(data.message)
+        toast.error(scopedT("limit-plan"))
+        router.push(settingsNavItems["subscription"].href)
         return
       }
 
@@ -104,12 +114,14 @@ export const InviteCodeForm = () => {
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             {!code && <Button type="submit">{scopedT("btn-label")}</Button>}
-            <div className="relative">
-              <Input key="code_input" id="code_input" type="text" value={code} disabled />
-              <span className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={handleCopy}>
-                <Copy size={23} strokeWidth={1.3} />
-              </span>
-            </div>
+            {code !== "" && (
+              <div className="relative">
+                <Input key="code_input" id="code_input" type="text" value={code} disabled />
+                <span className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={handleCopy}>
+                  <Copy size={23} strokeWidth={1.3} />
+                </span>
+              </div>
+            )}
           </CardFooter>
         </form>
       </Form>

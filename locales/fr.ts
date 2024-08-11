@@ -363,4 +363,5 @@ export default {
   "forget-password-link.forgetLabel": "Mot de passe oublié ?",
   "forget-password-link.success": "Email envoyé (Regardez aussi dans les indésirables)",
   "forget-password-link.error": "Impossible d'envoyer l'email de récupération",
+  "invite-code-form.limit-plan": "Action impossible avec le PLAN actuel.",
 } as const

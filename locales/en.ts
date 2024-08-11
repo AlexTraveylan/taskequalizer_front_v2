@@ -360,4 +360,5 @@ export default {
   "forget-password-link.forgetLabel": "Forgotten password?",
   "forget-password-link.success": "Email sent (Also check your spam folder)",
   "forget-password-link.error": "Unable to send the recovery email",
+  "invite-code-form.limit-plan": "Action impossible with the current PLAN.",
 } as const
