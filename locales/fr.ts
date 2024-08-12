@@ -380,4 +380,8 @@ export default {
   "weekly-chart.bar-duration-tasks.title": "Détails des durées par tâche possible sur la période",
   "possible-task-page.title": "Ajouter, modifier ou supprimer des tâches possibles",
   "possible-task-page.begin": "Commencer",
+  "register-card.accept1": "En continuant, vous acceptez",
+  "register-card.accept2": "les conditions générales d'utilisation",
+  "register-card.accept3": "et",
+  "register-card.accept4": "la politique de confidentialité",
 } as const

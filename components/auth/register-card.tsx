@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
+import { RegisterFormFooter } from "./register-form-footer"
 
 export function RegisterForm() {
   const { fetchClientMember } = useClientMember()
@@ -117,6 +118,7 @@ export function RegisterForm() {
           </form>
         </Form>
       </CardContent>
+      <RegisterFormFooter />
     </Card>
   )
 }

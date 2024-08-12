@@ -382,4 +382,8 @@ export default {
   "weekly-chart.bar-duration-tasks.title": "Details möglicher Aufgabenzeiten über den Zeitraum.",
   "possible-task-page.title": "Hinzufügen, ändern oder löschen möglicher Aufgaben.",
   "possible-task-page.begin": "Anfang",
+  "register-card.accept1": "Indem du fortfährst, stimmst du zu.",
+  "register-card.accept2": "Nutzungsbedingungen",
+  "register-card.accept3": "Und",
+  "register-card.accept4": "Datenschutzbestimmungen",
 } as const

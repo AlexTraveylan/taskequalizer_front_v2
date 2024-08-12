@@ -377,4 +377,8 @@ export default {
   "weekly-chart.bar-duration-tasks.title": "Details of possible task durations over the period",
   "possible-task-page.title": "Add, modify, or delete possible tasks.",
   "possible-task-page.begin": "Start",
+  "register-card.accept1": "By continuing, you agree.",
+  "register-card.accept2": "terms and conditions of use",
+  "register-card.accept3": "and",
+  "register-card.accept4": "privacy policy",
 } as const
