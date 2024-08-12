@@ -366,4 +366,5 @@ export default {
   "forget-password-link.success": "E-Mail gesendet (Bitte auch Ihren Spam-Ordner überprüfen)",
   "forget-password-link.error": "Nicht in der Lage, die Wiederherstellungs-E-Mail zu senden.",
   "invite-code-form.limit-plan": "Aktion mit dem aktuellen PLAN unmöglich.",
+  "daily-chart.title": "Tägliche Diagramme",
 } as const

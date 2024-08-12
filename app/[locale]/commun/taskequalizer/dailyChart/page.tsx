@@ -93,6 +93,7 @@ export default function DailyChartPage() {
 
   return (
     <div className="flex flex-col gap-5">
+      <h1 className="text-3xl font-semibold mb-3">{t("title")}</h1>
       <DonutChart
         chartConfig={chartConfig}
         chartData={nbTasksData}
