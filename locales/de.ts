@@ -380,4 +380,6 @@ export default {
   "weekly-chart.duration-tasks.totalLabel": "Gesamtsumme (in Minuten)",
   "weekly-chart.bar-nb-tasks.title": "Details zur Anzahl der abgeschlossenen Aufgaben pro möglicher Aufgabe im Laufe der Zeit.",
   "weekly-chart.bar-duration-tasks.title": "Details möglicher Aufgabenzeiten über den Zeitraum.",
+  "possible-task-page.title": "Hinzufügen, ändern oder löschen möglicher Aufgaben.",
+  "possible-task-page.begin": "Anfang",
 } as const

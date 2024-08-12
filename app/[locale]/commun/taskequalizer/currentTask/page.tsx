@@ -9,6 +9,7 @@ import { familyService } from "@/lib/services/family"
 import { taskService } from "@/lib/services/task"
 import { useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
+import { Settings } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -44,8 +45,9 @@ export default function CurrentTaskPage() {
           className="w-[280px]"
         />
       </div>
-      <Link href={settingsNavItems["possibleTasks"].href} className="text-sm text-muted-foreground">
-        {scopedT("configuration-link-label")}
+      <Link href={settingsNavItems["possibleTasks"].href} className="flex gap-3">
+        <Settings />
+        <span className="text-sm text-muted-foreground">{scopedT("configuration-link-label")}</span>
       </Link>
       <div className="flex flex-wrap gap-3 py-5">
         {query.data

@@ -378,4 +378,6 @@ export default {
   "weekly-chart.duration-tasks.totalLabel": "Total (en min)",
   "weekly-chart.bar-nb-tasks.title": "Détails du nombre de tâches effectuées par tâche possible sur la période",
   "weekly-chart.bar-duration-tasks.title": "Détails des durées par tâche possible sur la période",
+  "possible-task-page.title": "Ajouter, modifier ou supprimer des tâches possibles",
+  "possible-task-page.begin": "Commencer",
 } as const
