@@ -33,7 +33,7 @@ export const Footer = async () => {
           <div>
             <h5 className="font-bold text-lg mb-4">{scopedT("follow-me")}</h5>
             <div className="flex space-x-4">
-              <a href="https://x.com/DemaresTim" className="hover:text-blue-300 transition-colors" target="_blank">
+              <a href="https://x.com/Anonymanus_Ex" className="hover:text-blue-300 transition-colors" target="_blank">
                 <Twitter />
               </a>
               <a href="https://www.linkedin.com/in/tdemares/" className="hover:text-blue-800 transition-colors" target="_blank">

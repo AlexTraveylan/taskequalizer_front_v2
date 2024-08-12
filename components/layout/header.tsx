@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <header className="flex flex-wrap gap-2 justify-evenly py-2 bg-primary-foreground">
-      <Image src="/favicon.ico" alt="logo" width={40} height={40} />
+      <Image src="/favicon.ico" alt="logo" width={40} height={40} className="ml-2" />
       <NavigationMenu>
         <NavigationMenuList>
           {Object.values(navItems)

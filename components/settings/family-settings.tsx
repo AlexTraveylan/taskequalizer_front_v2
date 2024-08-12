@@ -22,7 +22,7 @@ export default function FamilySettings() {
   }
 
   return (
-    <div className="flex justify-between w-full">
+    <div className="flex justify-between items-center w-full">
       <h2>
         {scopedT("plan")} : {data.subscription_plan}
       </h2>

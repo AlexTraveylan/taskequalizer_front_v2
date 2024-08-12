@@ -38,7 +38,7 @@ export function PriceLabel({ amount, reduction }: PriceLabelProps) {
 
 export function PlanCard({ name, description, btnText, amount, reduction, features, noFeatures, action }: PlanCardProps) {
   return (
-    <Card className="flex min-h-[428px] w-[320px] flex-col rounded-3xl p-8">
+    <Card className="flex min-h-[428px] w-[300px] flex-col rounded-3xl p-8">
       <h2 className="mb-5 text-xl font-medium">{name}</h2>
 
       <div className="mb-5 flex items-end text-5xl font-black">
