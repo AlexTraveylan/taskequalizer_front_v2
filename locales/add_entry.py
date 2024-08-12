@@ -67,7 +67,7 @@ def add_language_entry(new_key: str, new_value: str):
 
 
 if __name__ == "__main__":
-    key = input("Entrez la clé de la nouvelle entrée : ")
-    value = input("Entrez la valeur de la nouvelle entrée : ")
+    key = input("Entrez la clé de la nouvelle entrée : ").strip()
+    value = input("Entrez la valeur de la nouvelle entrée : ").strip()
 
     add_language_entry(key, value)
