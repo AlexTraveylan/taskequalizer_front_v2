@@ -8,13 +8,14 @@ import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTool
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { familyService } from "@/lib/services/family"
 import { generatePastDates } from "@/lib/utils"
-import { useCurrentLocale } from "@/locales/client"
+import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
 import { chartColors, colors } from "./colors"
 
 export function AreaInteractiveChart() {
-  const [timeRange, setTimeRange] = React.useState<string>("90d")
+  const [timeRange, setTimeRange] = React.useState<string>("7d")
   const locale = useCurrentLocale()
+  const scopedT = useScopedI18n("area-interactive-chart")
 
   const { data, isError, isLoading } = useQuery({ queryKey: ["tasksByDateByMember"], queryFn: familyService.getTasksByDateByMember })
   const query = useQuery({ queryKey: ["members"], queryFn: familyService.getFamilyMembers })
@@ -110,8 +111,8 @@ export function AreaInteractiveChart() {
     <Card>
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
         <div className="grid flex-1 gap-1 text-center sm:text-left">
-          <CardTitle>Area Chart - Interactive</CardTitle>
-          <CardDescription>Showing total visitors for the last 3 months</CardDescription>
+          <CardTitle>{scopedT("card.title")}</CardTitle>
+          <CardDescription>{scopedT("card.description")}</CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger className="w-[160px] rounded-lg sm:ml-auto" aria-label="Select a value">
@@ -119,13 +120,13 @@ export function AreaInteractiveChart() {
           </SelectTrigger>
           <SelectContent className="rounded-xl">
             <SelectItem value="90d" className="rounded-lg">
-              Last 3 months
+              {scopedT("3months")}
             </SelectItem>
             <SelectItem value="30d" className="rounded-lg">
-              Last 30 days
+              {scopedT("30days")}
             </SelectItem>
             <SelectItem value="7d" className="rounded-lg">
-              Last 7 days
+              {scopedT("7days")}
             </SelectItem>
           </SelectContent>
         </Select>

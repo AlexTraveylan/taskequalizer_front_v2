@@ -381,4 +381,9 @@ export default {
   "register-card.accept2": "terms and conditions of use",
   "register-card.accept3": "and",
   "register-card.accept4": "privacy policy",
+  "area-interactive-chart.card.title": "Interactive graphic",
+  "area-interactive-chart.card.description": "Vision of the durations for household tasks over a maximum period of 3 months.",
+  "area-interactive-chart.3months": "Last 3 months",
+  "area-interactive-chart.30days": "last 30 days",
+  "area-interactive-chart.7days": "Last 7 days",
 } as const

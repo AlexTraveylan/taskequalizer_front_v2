@@ -384,4 +384,9 @@ export default {
   "register-card.accept2": "les conditions générales d'utilisation",
   "register-card.accept3": "et",
   "register-card.accept4": "la politique de confidentialité",
+  "area-interactive-chart.card.title": "Graphique interactif",
+  "area-interactive-chart.card.description": "Vision des durées pour les tâches menagères sur une durée maximale de 3 mois",
+  "area-interactive-chart.3months": "3 derniers mois",
+  "area-interactive-chart.30days": "30 derniers jours",
+  "area-interactive-chart.7days": "7 derniers jours",
 } as const
