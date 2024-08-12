@@ -107,7 +107,7 @@ export default {
   "taskequalizer.ephemeralTasks": "Tâches éphémères",
   "taskequalizer.dailyChart": "Graphique journalier",
   "taskequalizer.weeklyChart": "Graphique hebdomadaire",
-  "taskequalizer.ranking": "Classement",
+  "taskequalizer.ranking": "Bilan total",
   "current-task-page.title_begin_task": "Commencer une tâche",
   "current-task-page.search_label": "Rechercher une tâche ...",
   "current-task-page.configuration-link-label": "Aller à la configuration des tâches possibles",
