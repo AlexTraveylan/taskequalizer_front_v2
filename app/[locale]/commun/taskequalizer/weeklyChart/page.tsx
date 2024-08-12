@@ -41,7 +41,10 @@ export default function WeeklyChartPage() {
 
   const nbTasksData = query1.data.data.map(({ member_name, tasks }, index) => {
     const todayTasks = tasks.filter((task) => {
-      const taskDate = new Date(task.created_at)
+      if (task.ended_at === null) {
+        return false
+      }
+      const taskDate = new Date(task.ended_at)
       return date?.to && taskDate.getDay() <= date.to.getDay() && date?.from && taskDate.getDay() >= date.from.getDay()
     })
     return {
@@ -55,7 +58,10 @@ export default function WeeklyChartPage() {
 
   const durationTasksData = query1.data.data.map(({ member_name, tasks }, index) => {
     const todayTasks = tasks.filter((task) => {
-      const taskDate = new Date(task.created_at)
+      if (task.ended_at === null) {
+        return false
+      }
+      const taskDate = new Date(task.ended_at)
       return date?.to && taskDate.getDay() <= date.to.getDay() && date?.from && taskDate.getDay() >= date.from.getDay()
     })
     const totalTimeTasks = todayTasks.reduce((acc, task) => acc + Math.floor(task.duration / 60), 0)
@@ -73,10 +79,14 @@ export default function WeeklyChartPage() {
 
   // Set possible tasks for multiple bar chart
 
-  const possibleTasksRecord: Record<string, PossibleTask> = query3.data.reduce((acc, possibleTask) => {
-    acc[possibleTask.id] = possibleTask
-    return acc
-  }, {} as Record<string, PossibleTask>)
+  const possibleTasksRecord: Record<string, PossibleTask | { id: string; possible_task_name: string }> = query3.data.reduce(
+    (acc, possibleTask) => {
+      acc[possibleTask.id] = possibleTask
+      return acc
+    },
+    {} as Record<string, PossibleTask>
+  )
+  possibleTasksRecord["ephemeral_task"] = { id: "ephemeral_task", possible_task_name: "Ephemeral" }
 
   // Prepare keys Charts with members name
 

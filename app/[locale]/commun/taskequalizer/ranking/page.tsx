@@ -56,10 +56,14 @@ export default function DailyChartPage() {
 
   // Set possible tasks for multiple bar chart
 
-  const possibleTasksRecord: Record<string, PossibleTask> = query3.data.reduce((acc, possibleTask) => {
-    acc[possibleTask.id] = possibleTask
-    return acc
-  }, {} as Record<string, PossibleTask>)
+  const possibleTasksRecord: Record<string, PossibleTask | { id: string; possible_task_name: string }> = query3.data.reduce(
+    (acc, possibleTask) => {
+      acc[possibleTask.id] = possibleTask
+      return acc
+    },
+    {} as Record<string, PossibleTask>
+  )
+  possibleTasksRecord["ephemeral_task"] = { id: "ephemeral_task", possible_task_name: "Ephemeral" }
 
   // Prepare keys Charts with members name
 
