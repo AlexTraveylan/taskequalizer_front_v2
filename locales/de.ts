@@ -399,4 +399,12 @@ export default {
   "failed-payment.description": "Wir konnten Ihre Zahlung nicht verarbeiten.",
   "failed-payment.content": "Bitte überprüfen Sie Ihre Zahlungsinformationen und versuchen Sie es erneut.",
   "failed-payment.footer": "Rückkehr",
+  "login-card.forgotPassword": "Vergessenes Passwort?",
+  "forgot-password.title": "Passwort vergessen.",
+  "forgot-password.email.label": "E-Mail-Adresse",
+  "forgot-password.email.placeholder": "Ihre email@example.com",
+  "forgot-password.wait": "Bitte warten...",
+  "forgot-password.ok": "Passwort zurücksetzen.",
+  "forgot-password.toast.success": "Eine E-Mail zum Zurücksetzen wurde gesendet.",
+  "forgot-password.toast.error": "Unfähig, die Rücksetz-E-Mail zu senden.",
 } as const

@@ -10,3 +10,12 @@ export const emailContactSchema = z.object({
 })
 
 export type EmailContact = z.infer<typeof emailContactSchema>
+
+
+export const emailRecoverySchema = z.object({
+  email: z.string().email({
+    message: "contact.form.validation.email",
+  }),
+})
+
+export type EmailRecovery = z.infer<typeof emailRecoverySchema>

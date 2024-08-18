@@ -397,4 +397,12 @@ export default {
   "failed-payment.description": "Nous n'avons pas pu traiter votre paiement",
   "failed-payment.content": "Veuillez vérifier vos informations de paiement et réessayer.",
   "failed-payment.footer": "Retour",
+  "login-card.forgotPassword": "Mot de passe oublié ?",
+  "forgot-password.title": "Mot de passe oublié",
+  "forgot-password.email.label": "Adresse e-mail",
+  "forgot-password.email.placeholder": "votreemail@example.com",
+  "forgot-password.wait": "Veuillez patienter...",
+  "forgot-password.ok": "Réinitialiser le mot de passe",
+  "forgot-password.toast.success": "Un e-mail de réinitialisation a été envoyé.",
+  "forgot-password.toast.error": "Impossible d'envoyer l'e-mail de réinitialisation.",
 } as const

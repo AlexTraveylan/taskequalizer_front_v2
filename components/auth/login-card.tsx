@@ -1,22 +1,22 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { loginUrl } from "@/lib/api-setting"
-import { navItems } from "@/lib/app-types"
+import { authNavItems, navItems } from "@/lib/app-types"
 import { authResponseSchema, loginSchema } from "@/lib/schema/auth"
 import { invitationService } from "@/lib/services/invitation"
 import { taskService } from "@/lib/services/task"
 import { useClientMember } from "@/lib/whoiam-store"
 import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 import { InputEye } from "../ui/input-password-eye"
-import { ForgetPasswordLink } from "./forget-password-link"
 
 export function LoginForm() {
   const { fetchClientMember } = useClientMember()
@@ -83,7 +83,6 @@ export function LoginForm() {
                   <FormControl>
                     <Input placeholder="John Doe" {...field} />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -94,12 +93,13 @@ export function LoginForm() {
                 <FormItem>
                   <div className="flex items-center">
                     <FormLabel>{scopedT("passwordField")}</FormLabel>
-                    <ForgetPasswordLink form={form} />
+                    <Link className="ml-auto inline-block text-sm underline" href={authNavItems["forgot-password"].href}>
+                      {scopedT("forgotPassword")}
+                    </Link>
                   </div>
                   <FormControl>
                     <InputEye {...field} />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />

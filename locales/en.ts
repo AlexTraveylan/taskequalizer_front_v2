@@ -394,4 +394,12 @@ export default {
   "failed-payment.description": "We were unable to process your payment.",
   "failed-payment.content": "Please verify your payment information and try again.",
   "failed-payment.footer": "Return",
+  "login-card.forgotPassword": "Forgotten password?",
+  "forgot-password.title": "Forgot password",
+  "forgot-password.email.label": "Email address",
+  "forgot-password.email.placeholder": "your email@example.com",
+  "forgot-password.wait": "Please wait...",
+  "forgot-password.ok": "Reset password",
+  "forgot-password.toast.success": "A reset email has been sent.",
+  "forgot-password.toast.error": "Unable to send the reset email.",
 } as const
