@@ -393,4 +393,8 @@ export default {
   "uccessful-payment.description": "Votre transaction a été traitée avec succès",
   "successful-payment.content": "Merci de votre soutien, vous pouvez immédiatement utiliser les nouvelles fonctionnalités.",
   "uccessful-payment.footer": "Retour aux paramètres",
+  "failed-payment.title": "Paiement échoué",
+  "failed-payment.description": "Nous n'avons pas pu traiter votre paiement",
+  "failed-payment.content": "Veuillez vérifier vos informations de paiement et réessayer.",
+  "failed-payment.footer": "Retour",
 } as const

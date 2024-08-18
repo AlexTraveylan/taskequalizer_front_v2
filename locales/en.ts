@@ -390,4 +390,8 @@ export default {
   "successful-payment.description": "Your transaction has been processed successfully.",
   "successful-payment.content": "Thank you for your support, you can immediately use the new features.",
   "successful-payment.footer": "Return to settings",
+  "failed-payment.title": "Payment failed",
+  "failed-payment.description": "We were unable to process your payment.",
+  "failed-payment.content": "Please verify your payment information and try again.",
+  "failed-payment.footer": "Return",
 } as const
