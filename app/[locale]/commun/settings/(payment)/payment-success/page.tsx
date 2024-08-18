@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { settingsNavItems } from "@/lib/app-types"
 import { useScopedI18n } from "@/locales/client"
 import { CheckCircle } from "lucide-react"
 import Link from "next/link"
@@ -24,7 +25,7 @@ const SuccessfulPaymentPage: FC = () => {
           <p className="text-center text-muted-foreground">{scopedT("content")}</p>
         </CardContent>
         <CardFooter className="flex justify-center">
-          <Link href="/">
+          <Link href={settingsNavItems["Informations"].href}>
             <Button>{scopedT("footer")}</Button>
           </Link>
         </CardFooter>
