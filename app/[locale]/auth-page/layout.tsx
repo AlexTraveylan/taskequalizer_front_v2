@@ -20,6 +20,10 @@ export default async function LayoutAuthPage({ children }: { children: React.Rea
         <NavigationMenu>
           <NavigationMenuList className="flex flex-wrap">
             {Object.values(authNavItems).map((item, index) => {
+              if (item.hidden) {
+                return null
+              }
+
               return (
                 <NavigationMenuItem key={`${index}${item.i18nKey}`}>
                   <Link href={item.href} legacyBehavior passHref>

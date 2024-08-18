@@ -402,4 +402,5 @@ export default {
   "forgot-password.ok": "Reset password",
   "forgot-password.toast.success": "A reset email has been sent.",
   "forgot-password.toast.error": "Unable to send the reset email.",
+  "auth-page.forgot-password": "Forgotten password",
 } as const

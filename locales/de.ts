@@ -407,4 +407,5 @@ export default {
   "forgot-password.ok": "Passwort zurücksetzen.",
   "forgot-password.toast.success": "Eine E-Mail zum Zurücksetzen wurde gesendet.",
   "forgot-password.toast.error": "Unfähig, die Rücksetz-E-Mail zu senden.",
+  "auth-page.forgot-password": "Vergessenes Passwort",
 } as const

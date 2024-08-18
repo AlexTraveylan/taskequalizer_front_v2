@@ -405,4 +405,5 @@ export default {
   "forgot-password.ok": "Réinitialiser le mot de passe",
   "forgot-password.toast.success": "Un e-mail de réinitialisation a été envoyé.",
   "forgot-password.toast.error": "Impossible d'envoyer l'e-mail de réinitialisation.",
+  "auth-page.forgot-password": "Mot de passe oublié",
 } as const

@@ -44,13 +44,14 @@ type authKeyPossible = "login" | "register-create" | "register-with-invitation" 
 type AuthNavigationItem = {
   i18nKey: authKeyPossible
   href: string
+  hidden?: boolean
 }
 
 export const authNavItems: Record<authKeyPossible, AuthNavigationItem> = {
   login: { i18nKey: "login", href: "/auth-page/login" },
   "register-create": { i18nKey: "register-create", href: "/auth-page/register-create" },
   "register-with-invitation": { i18nKey: "register-with-invitation", href: "/auth-page/register-with-invitation" },
-  "forgot-password": { i18nKey: "forgot-password", href: "/auth-page/forgot-password" },
+  "forgot-password": { i18nKey: "forgot-password", href: "/auth-page/forgot-password", hidden: true },
 }
 
 // -----------------------------------------------------------------------------------------------
