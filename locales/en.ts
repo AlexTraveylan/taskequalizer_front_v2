@@ -386,4 +386,8 @@ export default {
   "area-interactive-chart.3months": "Last 3 months",
   "area-interactive-chart.30days": "last 30 days",
   "area-interactive-chart.7days": "Last 7 days",
+  "successful-payment.title": "Successful payment",
+  "successful-payment.description": "Your transaction has been processed successfully.",
+  "successful-payment.content": "Thank you for your support, you can immediately use the new features.",
+  "successful-payment.footer": "Return to settings",
 } as const
