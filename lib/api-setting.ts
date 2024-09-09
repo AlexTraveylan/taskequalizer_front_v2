@@ -1,4 +1,4 @@
-const url = process.env.NODE_ENV === "production" ? "https://www.alextraveylan.fr" : "http://localhost:8000"
+const url = process.env.NODE_ENV === "production" ? "https://taskequalizer-production.up.railway.app" : "http://localhost:8000"
 
 export const registerUrl = url + "/register_create"
 export const registerInvitationUrl = url + "/register_invite"
